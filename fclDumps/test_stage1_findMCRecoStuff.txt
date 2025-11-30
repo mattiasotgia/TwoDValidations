@@ -256,7 +256,7 @@ physics: {
          module_type: "LArSoftSuperaDriver"
          out_filename: "larcv.root"
          stream: "mc"
-         supera_params: "supera_icarus_MC_all_cryo_PMT_CRT_v10.fcl"
+         supera_params: "supera_icarus_MC_all_cryo_PMT_CRT.fcl"
          unique_filename: true
       }
       superaMPVMPR: {
@@ -417,9 +417,9 @@ physics: {
                      1.18998e-3
                   ]
                   CalAreaConstants: [
-                     1.6751e-2,
-                     1.2755e-2,
-                     1.2513e-2
+                     1.343e-2,
+                     1.338e-2,
+                     1.219e-2
                   ]
                   CaloDoLifeTimeCorrection: true
                   CaloLifeTimeForm: 0
@@ -476,9 +476,9 @@ physics: {
                      1.18998e-3
                   ]
                   CalAreaConstants: [
-                     1.6751e-2,
-                     1.2755e-2,
-                     1.2513e-2
+                     1.343e-2,
+                     1.338e-2,
+                     1.219e-2
                   ]
                   CaloDoLifeTimeCorrection: true
                   CaloLifeTimeForm: 0
@@ -541,9 +541,9 @@ physics: {
                      1.18998e-3
                   ]
                   CalAreaConstants: [
-                     1.6751e-2,
-                     1.2755e-2,
-                     1.2513e-2
+                     1.343e-2,
+                     1.338e-2,
+                     1.219e-2
                   ]
                   CaloDoLifeTimeCorrection: true
                   CaloLifeTimeForm: 0
@@ -667,9 +667,9 @@ physics: {
                      1.18998e-3
                   ]
                   CalAreaConstants: [
-                     1.6751e-2,
-                     1.2755e-2,
-                     1.2513e-2
+                     1.343e-2,
+                     1.338e-2,
+                     1.219e-2
                   ]
                   CaloDoLifeTimeCorrection: true
                   CaloLifeTimeForm: 0
@@ -726,9 +726,9 @@ physics: {
                      1.18998e-3
                   ]
                   CalAreaConstants: [
-                     1.6751e-2,
-                     1.2755e-2,
-                     1.2513e-2
+                     1.343e-2,
+                     1.338e-2,
+                     1.219e-2
                   ]
                   CaloDoLifeTimeCorrection: true
                   CaloLifeTimeForm: 0
@@ -791,9 +791,9 @@ physics: {
                      1.18998e-3
                   ]
                   CalAreaConstants: [
-                     1.6751e-2,
-                     1.2755e-2,
-                     1.2513e-2
+                     1.343e-2,
+                     1.338e-2,
+                     1.219e-2
                   ]
                   CaloDoLifeTimeCorrection: true
                   CaloLifeTimeForm: 0
@@ -1011,8 +1011,8 @@ physics: {
             DeltaPeakTimeSig: 1.75
             EnableMonitoring: true
             HitFinderTagVec: [
-               "gaushitPT2dTPCEW",
-               "gaushitPT2dTPCEE"
+               "gaushit2dTPCEW",
+               "gaushit2dTPCEE"
             ]
             HitWidthScaleFactor: 3
             LongHitsStretchFactor: 1.5
@@ -1145,8 +1145,8 @@ physics: {
             DeltaPeakTimeSig: 1.75
             EnableMonitoring: true
             HitFinderTagVec: [
-               "gaushitPT2dTPCWW",
-               "gaushitPT2dTPCWE"
+               "gaushit2dTPCWW",
+               "gaushit2dTPCWE"
             ]
             HitWidthScaleFactor: 3
             LongHitsStretchFactor: 1.5
@@ -1205,20 +1205,6 @@ physics: {
             MinimumDeltaTicks: 5e-2
          }
          module_type: "Cluster3DICARUS"
-      }
-      combineHitsCryoE: {
-         HitProducerLabelVec: [
-            "gaushit2dTPCEW",
-            "gaushit2dTPCEE"
-         ]
-         module_type: "HitMerger"
-      }
-      combineHitsCryoW: {
-         HitProducerLabelVec: [
-            "gaushit2dTPCWW",
-            "gaushit2dTPCWE"
-         ]
-         module_type: "HitMerger"
       }
       crttrack: {
          DataLabelHits: "crthit"
@@ -2292,318 +2278,6 @@ physics: {
          TryNplus1Fits: false
          module_type: "GaussHitFinderSBN"
       }
-      gaushitPT2dTPCEE: {
-         AllHitsInstanceName: ""
-         AreaMethod: 0
-         AreaNorms: [
-            1,
-            1,
-            1
-         ]
-         CalDataModuleLabel: "wire2channelroi2d:PHYSCRATEDATATPCEE"
-         Chi2NDF: 500
-         FilterHits: false
-         HitFilterAlg: {
-            AlgName: "HitFilterAlg"
-            MinPulseHeight: [
-               3,
-               3,
-               3
-            ]
-            MinPulseSigma: [
-               1,
-               1,
-               1
-            ]
-         }
-         HitFinderToolVec: {
-            CandidateHitsPlane0: {
-               Plane: 0
-               RoiThreshold: 5
-               tool_type: "CandHitStandard"
-            }
-            CandidateHitsPlane1: {
-               Plane: 1
-               RoiThreshold: 5
-               tool_type: "CandHitStandard"
-            }
-            CandidateHitsPlane2: {
-               Plane: 2
-               RoiThreshold: 5
-               tool_type: "CandHitStandard"
-            }
-         }
-         LongMaxHits: [
-            25,
-            25,
-            25
-         ]
-         LongPulseWidth: [
-            10,
-            10,
-            10
-         ]
-         MaxMultiHit: 5
-         PeakFitter: {
-            FloatBaseline: false
-            MaxWidthMult: 3
-            MinWidth: 1
-            PeakAmpRange: 2
-            PeakRangeFact: 2
-            tool_type: "PeakFitterMrqdt"
-         }
-         PulseHeightCuts: [
-            3,
-            3,
-            3
-         ]
-         PulseRatioCuts: [
-            3.5e-1,
-            4e-1,
-            2e-1
-         ]
-         PulseWidthCuts: [
-            2,
-            1.5,
-            1
-         ]
-         TryNplus1Fits: false
-         module_type: "GaussHitFinderSBN"
-      }
-      gaushitPT2dTPCEW: {
-         AllHitsInstanceName: ""
-         AreaMethod: 0
-         AreaNorms: [
-            1,
-            1,
-            1
-         ]
-         CalDataModuleLabel: "wire2channelroi2d:PHYSCRATEDATATPCEW"
-         Chi2NDF: 500
-         FilterHits: false
-         HitFilterAlg: {
-            AlgName: "HitFilterAlg"
-            MinPulseHeight: [
-               3,
-               3,
-               3
-            ]
-            MinPulseSigma: [
-               1,
-               1,
-               1
-            ]
-         }
-         HitFinderToolVec: {
-            CandidateHitsPlane0: {
-               Plane: 0
-               RoiThreshold: 5
-               tool_type: "CandHitStandard"
-            }
-            CandidateHitsPlane1: {
-               Plane: 1
-               RoiThreshold: 5
-               tool_type: "CandHitStandard"
-            }
-            CandidateHitsPlane2: {
-               Plane: 2
-               RoiThreshold: 5
-               tool_type: "CandHitStandard"
-            }
-         }
-         LongMaxHits: [
-            25,
-            25,
-            25
-         ]
-         LongPulseWidth: [
-            10,
-            10,
-            10
-         ]
-         MaxMultiHit: 5
-         PeakFitter: {
-            FloatBaseline: false
-            MaxWidthMult: 3
-            MinWidth: 1
-            PeakAmpRange: 2
-            PeakRangeFact: 2
-            tool_type: "PeakFitterMrqdt"
-         }
-         PulseHeightCuts: [
-            3,
-            3,
-            3
-         ]
-         PulseRatioCuts: [
-            3.5e-1,
-            4e-1,
-            2e-1
-         ]
-         PulseWidthCuts: [
-            2,
-            1.5,
-            1
-         ]
-         TryNplus1Fits: false
-         module_type: "GaussHitFinderSBN"
-      }
-      gaushitPT2dTPCWE: {
-         AllHitsInstanceName: ""
-         AreaMethod: 0
-         AreaNorms: [
-            1,
-            1,
-            1
-         ]
-         CalDataModuleLabel: "wire2channelroi2d:PHYSCRATEDATATPCWE"
-         Chi2NDF: 500
-         FilterHits: false
-         HitFilterAlg: {
-            AlgName: "HitFilterAlg"
-            MinPulseHeight: [
-               3,
-               3,
-               3
-            ]
-            MinPulseSigma: [
-               1,
-               1,
-               1
-            ]
-         }
-         HitFinderToolVec: {
-            CandidateHitsPlane0: {
-               Plane: 0
-               RoiThreshold: 5
-               tool_type: "CandHitStandard"
-            }
-            CandidateHitsPlane1: {
-               Plane: 1
-               RoiThreshold: 5
-               tool_type: "CandHitStandard"
-            }
-            CandidateHitsPlane2: {
-               Plane: 2
-               RoiThreshold: 5
-               tool_type: "CandHitStandard"
-            }
-         }
-         LongMaxHits: [
-            25,
-            25,
-            25
-         ]
-         LongPulseWidth: [
-            10,
-            10,
-            10
-         ]
-         MaxMultiHit: 5
-         PeakFitter: {
-            FloatBaseline: false
-            MaxWidthMult: 3
-            MinWidth: 1
-            PeakAmpRange: 2
-            PeakRangeFact: 2
-            tool_type: "PeakFitterMrqdt"
-         }
-         PulseHeightCuts: [
-            3,
-            3,
-            3
-         ]
-         PulseRatioCuts: [
-            3.5e-1,
-            4e-1,
-            2e-1
-         ]
-         PulseWidthCuts: [
-            2,
-            1.5,
-            1
-         ]
-         TryNplus1Fits: false
-         module_type: "GaussHitFinderSBN"
-      }
-      gaushitPT2dTPCWW: {
-         AllHitsInstanceName: ""
-         AreaMethod: 0
-         AreaNorms: [
-            1,
-            1,
-            1
-         ]
-         CalDataModuleLabel: "wire2channelroi2d:PHYSCRATEDATATPCWW"
-         Chi2NDF: 500
-         FilterHits: false
-         HitFilterAlg: {
-            AlgName: "HitFilterAlg"
-            MinPulseHeight: [
-               3,
-               3,
-               3
-            ]
-            MinPulseSigma: [
-               1,
-               1,
-               1
-            ]
-         }
-         HitFinderToolVec: {
-            CandidateHitsPlane0: {
-               Plane: 0
-               RoiThreshold: 5
-               tool_type: "CandHitStandard"
-            }
-            CandidateHitsPlane1: {
-               Plane: 1
-               RoiThreshold: 5
-               tool_type: "CandHitStandard"
-            }
-            CandidateHitsPlane2: {
-               Plane: 2
-               RoiThreshold: 5
-               tool_type: "CandHitStandard"
-            }
-         }
-         LongMaxHits: [
-            25,
-            25,
-            25
-         ]
-         LongPulseWidth: [
-            10,
-            10,
-            10
-         ]
-         MaxMultiHit: 5
-         PeakFitter: {
-            FloatBaseline: false
-            MaxWidthMult: 3
-            MinWidth: 1
-            PeakAmpRange: 2
-            PeakRangeFact: 2
-            tool_type: "PeakFitterMrqdt"
-         }
-         PulseHeightCuts: [
-            3,
-            3,
-            3
-         ]
-         PulseRatioCuts: [
-            3.5e-1,
-            4e-1,
-            2e-1
-         ]
-         PulseWidthCuts: [
-            2,
-            1.5,
-            1
-         ]
-         TryNplus1Fits: false
-         module_type: "GaussHitFinderSBN"
-      }
       mcassociationsGausCryoE: {
          HitParticleAssociations: {
             HitModuleLabelVec: [
@@ -2737,7 +2411,7 @@ physics: {
          HitCollectionTool: {
             tool_type: "LArPandoraHitCollectionToolICARUS"
          }
-         HitFinderModuleLabel: "combineHitsCryoE"
+         HitFinderModuleLabel: "cluster3DCryoE"
          PrintOverallRecoStatus: false
          ShouldPerformSliceId: true
          ShouldRunAllHitsCosmicReco: true
@@ -2760,7 +2434,7 @@ physics: {
          HitCollectionTool: {
             tool_type: "LArPandoraHitCollectionToolICARUS"
          }
-         HitFinderModuleLabel: "combineHitsCryoW"
+         HitFinderModuleLabel: "cluster3DCryoW"
          PrintOverallRecoStatus: false
          ShouldPerformSliceId: true
          ShouldRunAllHitsCosmicReco: true
@@ -3000,9 +2674,6 @@ physics: {
    reco: [
       "gaushit2dTPCEW",
       "gaushit2dTPCEE",
-      "combineHitsCryoE",
-      "gaushitPT2dTPCEW",
-      "gaushitPT2dTPCEE",
       "cluster3DCryoE",
       "pandoraGausCryoE",
       "pandoraTrackGausCryoE",
@@ -3010,9 +2681,6 @@ physics: {
       "SBNShowerGausCryoE",
       "gaushit2dTPCWW",
       "gaushit2dTPCWE",
-      "combineHitsCryoW",
-      "gaushitPT2dTPCWW",
-      "gaushitPT2dTPCWE",
       "cluster3DCryoW",
       "pandoraGausCryoW",
       "pandoraTrackGausCryoW",
@@ -3776,9 +3444,6 @@ services: {
                Cluster3DICARUS: {
                   limit: -1
                   reportEvery: 1
-               }
-               SimDriftElectrons: {
-                  limit: 0
                }
             }
             threshold: "WARNING"
