@@ -44,6 +44,16 @@ namespace analysis
         bool __runAll = true;
         std::string __analysisName;
 
+        inline void __printConfiguration()
+        {
+            std::cout << " Dataset to be run: " << std::endl;
+            for (auto const& [key, dataset]: __keys)
+                std::cout << " --> " << key << ": \t" << dataset << std::endl;
+            std::cout << " Variables: " << std::endl;
+            for (auto const& varName: __variablesName)
+                std::cout << " --> " << varName << std::endl;
+        }
+
     public:
         Analysis() = delete;
         Analysis(std::string);
@@ -60,10 +70,10 @@ namespace analysis
     inline Analysis<T>::Analysis (std::string name): 
         __analysisName{name}
     {
-        std::cout << "--------------------------" << std::endl;
-        std::cout << " Starting Analysis job..." << std::endl;
-        std::cout << " Analysis: " << name << std::endl;
-        std::cout << "--------------------------" << std::endl << std::endl;
+        std::cout << "----------------------------" << std::endl;
+        std::cout << " Loaded analysis" << std::endl;
+        std::cout << " Name: " << name << std::endl;
+        std::cout << "----------------------------" << std::endl << std::endl;
     }
 
     template<class T>
@@ -99,6 +109,13 @@ namespace analysis
     template <class T>
     void Analysis<T>::Go()
     {
+
+        std::cout << "----------------------------" << std::endl;
+        std::cout << " Starting analysis job" << std::endl;
+        std::cout << " Name: " << __analysisName << std::endl;
+        __printConfiguration();
+        std::cout << "----------------------------" << std::endl << std::endl;
+
         for (auto const& availableDataset: __loadedDefNames)
         {
             try

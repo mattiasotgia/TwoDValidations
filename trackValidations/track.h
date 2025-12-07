@@ -65,6 +65,8 @@ namespace track
                     {
 
                         // std::cout << "This is a PFP, with G4ID: " << pfp.trk.truth.bestmatch.G4ID << std::endl;
+                        // std::cout << "trk.truth.p.startE: " << pfp.trk.truth.p.startE << std::endl
+                        //           << "trk.truth.p.pdg:    " << pfp.trk.truth.p.pdg << std::endl;
 
                         if (pfp.trk.truth.bestmatch.G4ID == trueG4ID)
                         {
@@ -129,6 +131,12 @@ namespace track
 
                             // Vis. Energy (GeV) on PLANE
                             td.trueVisEnergy.push_back(true_particle.plane[true_particle.cryostat][PLANE].visE);
+                            // std::cout << "trueVisEnergy: " << true_particle.plane[true_particle.cryostat][PLANE].visE << std::endl;
+                            // std::cout << "true_particle.startE:   " << true_particle.startE << std::endl;
+                            // std::cout << "pfp.trk.truth.p.startE: " << pfp.trk.truth.p.startE << std::endl;
+                            // std::cout << "true_particle.endE:   " << true_particle.endE << std::endl;
+                            // std::cout << "pfp.trk.truth.p.endE: " << pfp.trk.truth.p.endE << std::endl;
+                            // break;
                         }
                     }
                 }

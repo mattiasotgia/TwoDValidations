@@ -8,12 +8,12 @@
 #include "track.h"
 #include "analysis.h"
 
-void nuMuValidations () 
+void nuMuValidations ()     
 {
     std::map<track::particle_t, std::unique_ptr<analysis::Analysis<ana::SpillMultiVar>>> analyses;
     analyses.emplace(MUON,   std::make_unique<analysis::Analysis<ana::SpillMultiVar>>("Muons")   );
-    analyses.emplace(PION,   std::make_unique<analysis::Analysis<ana::SpillMultiVar>>("Pions")   );
-    analyses.emplace(PROTON, std::make_unique<analysis::Analysis<ana::SpillMultiVar>>("Protons") );
+    // analyses.emplace(PION,   std::make_unique<analysis::Analysis<ana::SpillMultiVar>>("Pions")   );
+    // analyses.emplace(PROTON, std::make_unique<analysis::Analysis<ana::SpillMultiVar>>("Protons") );
 
     std::unique_ptr<TFile> writer(new TFile("writerTwoDValidations.root", "RECREATE"));
 
@@ -53,10 +53,13 @@ void nuMuValidations ()
 
         singleAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_1d_caf_numu", "configA");
         singleAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_2d_caf_numu", "configB");
-        singleAnalysis->AddDataset("", "configC");
-        singleAnalysis->AddDataset("", "configD");
-
         singleAnalysis->RunOnly({"configA", "configB"});
+
+        // singleAnalysis->AddDataset("/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/tmp/testCAFBacktrackerNew/stage0/1d_numu_baseline_redo.flat.caf.root",   "testA");
+        // singleAnalysis->AddDataset("/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/tmp/testCAFBacktrackerNew/stage0/2d_numu_nodnn_redo.flat.caf.root",      "testB");
+        // singleAnalysis->AddDataset("/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/tmp/testCAFBacktrackerNew/test_standard/stage1_dnn_yzsim.flat.caf.root", "testC");
+        // singleAnalysis->AddDataset("/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/tmp/testCAFBacktrackerNew/test_standard/stage1_yzsim.flat.caf.root",     "testD");
+        // singleAnalysis->RunOnly({"testA", "testB", "testC", "testD"});
 
         singleAnalysis->Go();
         singleAnalysis->WriteTo(writer.get());
