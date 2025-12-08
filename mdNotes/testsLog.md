@@ -67,8 +67,10 @@ Identical setting to be added to the 2D+DNNROI chain
 ```json
 # Tentative fix for mcreco
 physics.producers.mcreco.SimChannelLabel: "shifted"
-`
-# Tentative fix for caloskim`
+
+# Tentative fix for caloskim
 physics.analyzers.caloskimW.SimChannelproducer: "daq:simpleSC"
 physics.analyzers.caloskimE.SimChannelproducer: "daq:simpleSC"
 ```
+
+These steps are done to remove the YZ-sim labels (which are now on by default)
