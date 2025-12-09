@@ -1,0 +1,3 @@
+[submodule "plotStuff"]
+	path = plotStuff
+	url = git@github.com:mattiasotgia/CUP.git
