@@ -6,16 +6,17 @@
 #pragma once
 
 #include "track.h"
+#include "slice.h"
 #include "analysis.h"
 
 void nuMuValidations ()     
 {
+    std::unique_ptr<TFile> writer(new TFile("writerTwoDValidations.root", "RECREATE"));
+
     std::map<track::particle_t, std::unique_ptr<analysis::Analysis<ana::SpillMultiVar>>> analyses;
     analyses.emplace(MUON,   std::make_unique<analysis::Analysis<ana::SpillMultiVar>>("Muons")   );
-    // analyses.emplace(PION,   std::make_unique<analysis::Analysis<ana::SpillMultiVar>>("Pions")   );
-    // analyses.emplace(PROTON, std::make_unique<analysis::Analysis<ana::SpillMultiVar>>("Protons") );
-
-    std::unique_ptr<TFile> writer(new TFile("writerTwoDValidations.root", "RECREATE"));
+    analyses.emplace(PION,   std::make_unique<analysis::Analysis<ana::SpillMultiVar>>("Pions")   );
+    analyses.emplace(PROTON, std::make_unique<analysis::Analysis<ana::SpillMultiVar>>("Protons") );
 
     for (auto const& [particle, singleAnalysis]: analyses)
     {
@@ -51,18 +52,43 @@ void nuMuValidations ()
         singleAnalysis->AddVariable("nHitsTrue",             track::get<double>("nHitsTrue",                 particle));
         singleAnalysis->AddVariable("nHitsReco",             track::get<double>("nHitsReco",                 particle));
 
-        singleAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_1d_caf_numu", "configA");
-        singleAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_2d_caf_numu", "configB");
-        singleAnalysis->RunOnly({"configA", "configB"});
+        singleAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_1d_respun2_caf_numu", "configA");
+        singleAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_2d_respun2_caf_numu", "configB");
+        
+        singleAnalysis->AddDataset("/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/tmp/testCAFBacktrackerNew/stage0/1d_numu_baseline_redo.flat.caf.root",   "testA");
+        singleAnalysis->AddDataset("/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/tmp/testCAFBacktrackerNew/stage0/2d_numu_nodnn_redo.flat.caf.root",      "testB");
+        singleAnalysis->AddDataset("/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/tmp/testCAFBacktrackerNew/test_standard/stage1_dnn_yzsim.flat.caf.root", "testC");
+        singleAnalysis->AddDataset("/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/tmp/testCAFBacktrackerNew/test_standard/stage1_yzsim.flat.caf.root",     "testD");
 
-        // singleAnalysis->AddDataset("/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/tmp/testCAFBacktrackerNew/stage0/1d_numu_baseline_redo.flat.caf.root",   "testA");
-        // singleAnalysis->AddDataset("/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/tmp/testCAFBacktrackerNew/stage0/2d_numu_nodnn_redo.flat.caf.root",      "testB");
-        // singleAnalysis->AddDataset("/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/tmp/testCAFBacktrackerNew/test_standard/stage1_dnn_yzsim.flat.caf.root", "testC");
-        // singleAnalysis->AddDataset("/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/tmp/testCAFBacktrackerNew/test_standard/stage1_yzsim.flat.caf.root",     "testD");
+        singleAnalysis->RunOnly({"configA", "configB"});
         // singleAnalysis->RunOnly({"testA", "testB", "testC", "testD"});
 
         singleAnalysis->Go();
         singleAnalysis->WriteTo(writer.get());
     }
+
+    std::unique_ptr<analysis::Analysis<ana::Var>> sliceAnalysis(new analysis::Analysis<ana::Var>("GeneralSlice"));
+
+    sliceAnalysis->AddVariable("nPfpsPerSlice", slices::get("nPfpsPerSlice"));
+    sliceAnalysis->AddVariable("trueRecoDiffVertex3d", slices::get("trueRecoDiffVertex3d"));
+
+    sliceAnalysis->AddVariable("recoVertex.x", slices::get("recoVertex.x"));
+    sliceAnalysis->AddVariable("recoVertex.y", slices::get("recoVertex.y"));
+    sliceAnalysis->AddVariable("recoVertex.z", slices::get("recoVertex.z"));
+
+    sliceAnalysis->AddVariable("trueVertex.x", slices::get("trueVertex.x"));
+    sliceAnalysis->AddVariable("trueVertex.y", slices::get("trueVertex.y"));
+    sliceAnalysis->AddVariable("trueVertex.z", slices::get("trueVertex.z"));
+
+    sliceAnalysis->AddVariable("trueRecoDiffVertex.x", slices::get("trueRecoDiffVertex.x"));
+    sliceAnalysis->AddVariable("trueRecoDiffVertex.y", slices::get("trueRecoDiffVertex.y"));
+    sliceAnalysis->AddVariable("trueRecoDiffVertex.z", slices::get("trueRecoDiffVertex.z"));
+
+    sliceAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_1d_respun2_caf_numu", "configA");
+    sliceAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_2d_respun2_caf_numu", "configB");
+    sliceAnalysis->RunOnly({"configA", "configB"});
+
+    sliceAnalysis->Go();
+    sliceAnalysis->WriteTo(writer.get());
 }
 

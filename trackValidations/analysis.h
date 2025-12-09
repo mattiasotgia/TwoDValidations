@@ -168,7 +168,9 @@ namespace analysis
         file->mkdir(__analysisName.c_str());
         for (auto const& availableDataset: __loadedDefNames)
         {
-            __trees.at(availableDataset)->SaveTo(file->mkdir((__analysisName + "/" + availableDataset).c_str()));
+            std::string __dir = __analysisName + "/" + availableDataset + "D/";
+            file->mkdir(__dir.c_str());
+            __trees.at(availableDataset)->SaveTo(file->GetDirectory(__dir.c_str()));
         }
     }
 
