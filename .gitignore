@@ -346,3 +346,6 @@ pyrightconfig.json
 .ionide
 
 tmp/
+
+# Ignore local configuration for workspace
+twoDRecoStudies.code-workspace
