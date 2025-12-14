@@ -49,6 +49,7 @@ void nuMuValidations ()
 
         // longs first-level
         singleAnalysis->AddVariable("nMatches",              track::get<double>("nMatches",                  particle));
+        singleAnalysis->AddVariable("nBestMatches",          track::get<double>("nBestMatches",              particle));
         singleAnalysis->AddVariable("nHitsTrue",             track::get<double>("nHitsTrue",                 particle));
         singleAnalysis->AddVariable("nHitsReco",             track::get<double>("nHitsReco",                 particle));
 

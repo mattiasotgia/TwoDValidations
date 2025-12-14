@@ -46,7 +46,7 @@ namespace track
                 for (auto const& slice: spill->slc)
                 {
 
-                    long nMatches{0};
+                    long nMatches{0}, nBestMatches{0};
                     for (auto const& pfp: slice.reco.pfp)
                     {
                         // nMatches += std::count_if(
@@ -59,6 +59,8 @@ namespace track
                         {
                             if (match.G4ID == trueG4ID) nMatches++;
                         }
+
+                        if (pfp.trk.truth.bestmatch.G4ID == trueG4ID) nBestMatches++;
                     }
 
                     for (auto const& pfp: slice.reco.pfp)
@@ -124,6 +126,7 @@ namespace track
 
                             // Add nMatches
                             td.nMatches.push_back(nMatches);
+                            td.nBestMatches.push_back(nBestMatches);
 
                             // Add nHits
                             td.nHitsReco.push_back(pfp.trk.calo[PLANE].nhit);

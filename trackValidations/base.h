@@ -32,8 +32,8 @@ namespace base
             std::vector<double> muonChiSquare, protonChiSquare;                 //!< chi2 computed under the assumption of muon/proton
             std::vector<double> trackScore;                                     //!< Pandora's trackScore for the best matchedpfp
         } calo;                                                                 //!< calorimetric informations
-        std::vector<double> nMatches;                                             //!< Number of matches with this true particle
-        std::vector<double> nHitsTrue, nHitsReco;                                 //!< Number of hits in the bestmatch pfp to the true particle
+        std::vector<double> nMatches, nBestMatches;                             //!< Number of matches with this true particle
+        std::vector<double> nHitsTrue, nHitsReco;                               //!< Number of hits in the bestmatch pfp to the true particle
     };
 
     using VecDoubleMember = std::vector<double> trackData::*;
@@ -54,9 +54,10 @@ namespace base
     };
 
     inline const std::unordered_map<std::string, VecLongMember> topLevelLongs = {
-        {"nMatches", &trackData::nMatches   },
-        {"nHitsTrue", &trackData::nHitsTrue },
-        {"nHitsReco", &trackData::nHitsReco },
+        {"nMatches",        &trackData::nMatches    },
+        {"nBestMatches",    &trackData::nBestMatches},
+        {"nHitsTrue",       &trackData::nHitsTrue   },
+        {"nHitsReco",       &trackData::nHitsReco   },
     };
 
     inline const std::unordered_map<std::string, VecDoubleCaloMember> caloDoubleMembers = {
