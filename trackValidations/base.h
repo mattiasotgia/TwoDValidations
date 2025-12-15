@@ -19,7 +19,9 @@ namespace base
     struct trackData 
     {
         std::vector<double> purity, completeness;                               //!< Hit purity and hit completeness 
+        std::vector<double> purityBestmatch, completenessBestmatch;             //!< Hit purity and hit completeness for pfp bestmatch
         std::vector<double> energyCompleteness;                                 //!< Energy deposited over true energy ratio
+        std::vector<double> energyCompletenessAllMatches;
         std::vector<double> recoLength, trueLength, ratioLength, pullLength;    //!< ratio: reco/true; pull: (reco-true)/true
         std::vector<double> recoTrueDiffEndpoint3d;                             //!< 3d difference reco/true endpoint
         std::vector<double> trueVisEnergy;                                      //!< Vis. Energy (GeV) on PLANE
@@ -42,15 +44,18 @@ namespace base
     using VecDoublePointMember = std::vector<double> trackData::Point::*;
 
     inline const std::unordered_map<std::string, VecDoubleMember> topLevelDoubles = {
-        {"purity",                  &trackData::purity                  },
-        {"completeness",            &trackData::completeness            },
-        {"energyCompleteness",      &trackData::energyCompleteness      },
-        {"recoLength",              &trackData::recoLength              },
-        {"trueLength",              &trackData::trueLength              },
-        {"ratioLength",             &trackData::ratioLength             },
-        {"pullLength",              &trackData::pullLength              },
-        {"recoTrueDiffEndpoint3d",  &trackData::recoTrueDiffEndpoint3d  },
-        {"trueVisEnergy",           &trackData::trueVisEnergy           },
+        {"purity",                          &trackData::purity                      },
+        {"completeness",                    &trackData::completeness                },
+        {"purityBestmatch",                 &trackData::purityBestmatch             },
+        {"completenessBestmatch",           &trackData::completenessBestmatch       },
+        {"energyCompleteness",              &trackData::energyCompleteness          },
+        {"energyCompletenessAllMatches",    &trackData::energyCompletenessAllMatches},
+        {"recoLength",                      &trackData::recoLength                  },
+        {"trueLength",                      &trackData::trueLength                  },
+        {"ratioLength",                     &trackData::ratioLength                 },
+        {"pullLength",                      &trackData::pullLength                  },
+        {"recoTrueDiffEndpoint3d",          &trackData::recoTrueDiffEndpoint3d      },
+        {"trueVisEnergy",                   &trackData::trueVisEnergy               },
     };
 
     inline const std::unordered_map<std::string, VecLongMember> topLevelLongs = {
