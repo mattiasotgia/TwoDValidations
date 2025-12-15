@@ -1,0 +1,114 @@
+# Basic configuration for setting up the 
+
+[global]
+project = "twoDValidations"
+project_name = "" # toadd
+file = "/Users/msotgia/dev_areas/twoDValidationsStudies/trackValidations/writerTwoDValidations.root"
+# file = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/writerTwoDValidations.root"
+# outdir = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/plotStuff/samplePlots/configurationSingles1D/"
+outdir = "/Users/msotgia/dev_areas/twoDValidationsStudies/trackValidations/makePlots/configurationSingles1D/"
+
+
+[analysis_Muons]
+merge_on = "Evt"
+density = true
+
+[[analysis_Muons.dataset]]
+name = "Muons/DconfigB/configB"
+style = "style_2d"
+label = "2D signal proc."
+
+[[analysis_Muons.dataset]]
+name = "Muons/DconfigC/configC"
+# No `style` entr --> default to black line 2 pt
+label = "2D + DNNROI w/o Pulse Trains"
+style = "style_dnn"
+
+
+[[analysis_Muons.dataset]]
+name = "Muons/DconfigD/configD"
+# No `style` entr --> default to black line 2 pt
+label = "2D + DNNROI w/ Pulse Trains = 10"
+style = "style_dnnpt"
+
+[[analysis_Muons.dataset]]
+name = "Muons/DconfigA/configA"
+# No `style` entr --> default to black line 2 pt
+label = "1D signal proc."
+
+
+[[analysis_Muons.plot]]
+label = "Hit completeness"
+product = "completeness"
+yscale = "log"
+binning = {bins = 50, limits = [0, 1], flow = false}
+
+[[analysis_Muons.plot]]
+label = "Hit purity"
+product = "purity"
+yscale = "log"
+binning = {bins = 50, limits = [0, 1], flow = false}
+
+[[analysis_Muons.plot]]
+label = "Energy completeness"
+product = "energyCompleteness"
+yscale = "log"
+binning = {bins = 50, limits = [0, 1], flow = false}
+
+[[analysis_Muons.plot]]
+label = "Ratio reconstructed/true length $L_\\mathrm{reco}/L_\\mathrm{true}$"
+product = "ratioLength"
+yscale = "log"
+binning = {bins = 50, limits = [0, 2], flow = false}
+
+[[analysis_Muons.plot]]
+label = "$\\Delta_\\mathrm{reco, true}$ track endpoint"
+product = "recoTrueDiffEndpoint3d"
+yscale = "log"
+binning = {bins = 50, limits = [0, 500], flow = false, unit = "cm"}
+
+[[analysis_Muons.plot]]
+label = "$\\chi^2\\mu$"
+product = "calo.muonChiSquare"
+yscale = "log"
+binning = {bins = 50, limits = [0, 100], flow = false}
+
+[[analysis_Muons.plot]]
+label = "$\\chi^2\\mathrm{p}$"
+product = "calo.protonChiSquare"
+yscale = "log"
+binning = {bins = 50, limits = [0, 800], flow = false}
+
+[[analysis_Muons.plot]]
+label = "BDT Track classification score"
+product = "calo.trackScore"
+binning = {bins = 50, limits = [0, 1], flow = false}
+
+[[analysis_Muons.plot]]
+label = "Reco PFP mathed w/ true particle"
+product = "nMatches"
+yscale = "log"
+binning = {bins = 9, limits = [-0.5, 8.5], flow = false}
+
+[style_2d]
+histtype = "fill"
+# yerr = false
+color = "crimson"
+alpha = 0.5
+
+[style_dnnpt]
+histtype = "step"
+color = "red"
+yerr = false
+linestyle = ":"
+linewidth = 6
+
+[style_dnn]
+histtype = "step"
+color = "darkred"
+yerr = false
+linestyle = "--"
+linewidth = 4
+
+# this overwrites the default style if needed
+# [style_default]
