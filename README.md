@@ -5,7 +5,7 @@ Git repository with the code/stuff to handle the validations for two-d deconvolu
 
 Useful tools
 - TITUS evd for local usage is in [here](#setting-up-titus-evdpy-for-local-usage), instructions are a WIP
-- Log of the test between 1D/2D is in [here](mdNotes/testsLog.md)
+- Log of the test between 1D/2D is in [here](#initial-tests-logbook)
 
 ## Setting up TITUS (`evd.py`) for local usage
 
@@ -27,7 +27,7 @@ docker run -it --rm -e "DISPLAY=host.docker.internal:N" -v /path/where/is/your/d
 > **Warning** :shipit: (updated Nov. 26th)
 > The current `docker` image is not working correctly so for now this is NON-functioning code.
 
-## Initial tests
+## Initial tests (logbook)
 
 In `v10_06_00_04p04` at least there is something strange with the `reco` path
 
