@@ -66,8 +66,11 @@ namespace track
 
                         for (auto const& match: pfp.trk.truth.matches)
                         {
-                            if (match.G4ID == trueG4ID) nMatches++;
-                            allEnergyInMatches += match.energy / 3.;
+                            if (match.G4ID == trueG4ID) 
+                            {
+                                nMatches++;
+                                allEnergyInMatches += match.energy / 3.;
+                            }
                         }
 
                         if (pfp.trk.truth.bestmatch.G4ID == trueG4ID) nBestMatches++;
