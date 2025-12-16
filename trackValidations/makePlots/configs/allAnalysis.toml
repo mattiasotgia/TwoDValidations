@@ -7,6 +7,8 @@ file = "/Users/msotgia/dev_areas/twoDValidationsStudies/trackValidations/writerT
 # file = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/writerTwoDValidations.root"
 # outdir = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/plotStuff/samplePlots/configurationSingles1D/"
 outdir = "/Users/msotgia/dev_areas/twoDValidationsStudies/trackValidations/makePlots/configurationSingles1D/"
+fontsize = 13
+labelfontsize = 28
 
 # --------------------------------------------------------------------
 # =====================================================================
@@ -115,7 +117,7 @@ product = "completeness"
 yscale = "log"
 showmedian = ".1%"
 ylabel = "PFPs [#]"
-binning = {bins = 40, limits = [0, 1], flow = false}
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
 
 [[analysis_Muons.plot]]
 label = "Hit purity"
@@ -123,7 +125,7 @@ product = "purity"
 yscale = "log"
 showmedian = ".1%"
 ylabel = "PFPs [#]"
-binning = {bins = 40, limits = [0, 1], flow = false}
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
 
 [[analysis_Muons.plot]]
 label = "Hit completeness (from PFP bestmatch)"
@@ -131,7 +133,7 @@ product = "completenessBestmatch"
 yscale = "log"
 showmedian = ".1%"
 ylabel = "PFPs [#]"
-binning = {bins = 40, limits = [0, 1], flow = false}
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
 
 [[analysis_Muons.plot]]
 label = "Hit purity (from PFP bestmatch)"
@@ -139,78 +141,79 @@ product = "purityBestmatch"
 yscale = "log"
 showmedian = ".1%"
 ylabel = "PFPs [#]"
-binning = {bins = 40, limits = [0, 1], flow = false}
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
 
 [[analysis_Muons.plot]]
-label = "Energy completeness"
+label = "Best-match energy completeness"
 product = "energyCompleteness"
 yscale = "log"
 showmedian = ".1%"
 ylabel = "PFPs [#]"
-binning = {bins = 40, limits = [0, 1], flow = false}
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
 
 [[analysis_Muons.plot]]
-label = "Energy completeness $(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{dep}$"
+label = "\"All matches\" energy completeness\n$(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{dep}$"
 product = "energyCompletenessAllMatches"
-yscale = "log"
+# yscale = "log"
 showmedian = ".1%"
 ylabel = "PFPs [#]"
-binning = {bins = 40, limits = [0, 1], flow = false}
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
 
 [[analysis_Muons.plot]]
 label = "Ratio reconstructed/true length $L_\\mathrm{reco}/L_\\mathrm{true}$"
 product = "ratioLength"
 yscale = "log"
 ylabel = "PFPs [#]"
-binning = {bins = 40, limits = [0, 2], flow = false}
+binning = {bins = 40, limits = [0, 2], flow = "sum"}
 
 [[analysis_Muons.plot]]
 label = "Pull reconstructed/true length $\\delta_L/L_\\mathrm{true}$"
 product = "pullLength"
-yscale = "log"
+# yscale = "log"
 ylabel = "PFPs [#]"
-binning = {bins = 40, limits = [-2.0, 2.0], flow = false}
+binning = {bins = 40, limits = [-2.0, 2.0], flow = "sum"}
 
 [[analysis_Muons.plot]]
 label = "$\\Delta_\\mathrm{reco, true}$ track endpoint"
 product = "recoTrueDiffEndpoint3d"
 yscale = "log"
 ylabel = "PFPs [#]"
-binning = {bins = 40, limits = [0, 500], flow = false, unit = "cm"}
+binning = {bins = 40, limits = [0, 350], flow = "sum", unit = "cm"}
 
 [[analysis_Muons.plot]]
 label = "$\\chi^2_\\mu$"
 product = "calo.muonChiSquare"
 yscale = "log"
 ylabel = "PFPs [#]"
-binning = {bins = 40, limits = [0, 100], flow = false}
+binning = {bins = 40, limits = [0, 100], flow = "sum"}
 
 [[analysis_Muons.plot]]
 label = "$\\chi^2_\\mathrm{p}$"
 product = "calo.protonChiSquare"
 yscale = "log"
 ylabel = "PFPs [#]"
-binning = {bins = 40, limits = [0, 800], flow = false}
+binning = {bins = 40, limits = [0, 800], flow = "sum"}
 
 [[analysis_Muons.plot]]
 label = "BDT Track classification score"
 product = "calo.trackScore"
 ylabel = "PFPs [#]"
-binning = {bins = 40, limits = [0, 1], flow = false}
+showmedian = ".2f"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
 
 [[analysis_Muons.plot]]
-label = "Reco PFP matched w/ true particle"
+label = " Reco PFP # matched w/ true particle"
 product = "nMatches"
 ylabel = "PFPs [#]"
 # yscale = "log"
-binning = {bins = 8, limits = [0.5, 8.5], flow = false, integer = true}
+binning = {bins = 8, limits = [0.5, 8.5], flow = "sum", integer = true}
 
 [[analysis_Muons.plot]]
-label = "Reco PFP best-matched w/ true particle"
+label = "Reco PFP # best-matched w/ true particle"
 product = "nBestMatches"
 # yscale = "log"
 ylabel = "PFPs [#]"
-binning = {bins = 8, limits = [0.5, 8.5], flow = false, integer = true}
+binning = {bins = 8, limits = [0.5, 8.5], flow = "sum", integer = true}
 
 # --------------------------------------------------------------------
 
@@ -219,89 +222,108 @@ label = "Hit completeness"
 product = "completeness"
 yscale = "log"
 showmedian = ".1%"
-binning = {bins = 40, limits = [0, 1], flow = false}
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
 
 [[analysis_Protons.plot]]
 label = "Hit purity"
 product = "purity"
 yscale = "log"
 showmedian = ".1%"
-binning = {bins = 40, limits = [0, 1], flow = false}
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
 
 [[analysis_Protons.plot]]
 label = "Hit completeness (from PFP bestmatch)"
 product = "completenessBestmatch"
 yscale = "log"
 showmedian = ".1%"
-binning = {bins = 40, limits = [0, 1], flow = false}
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
 
 [[analysis_Protons.plot]]
 label = "Hit purity (from PFP bestmatch)"
 product = "purityBestmatch"
 yscale = "log"
 showmedian = ".1%"
-binning = {bins = 40, limits = [0, 1], flow = false}
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
 
 [[analysis_Protons.plot]]
-label = "Energy completeness"
+label = "Best-match energy completeness"
 product = "energyCompleteness"
 yscale = "log"
 showmedian = ".1%"
-binning = {bins = 40, limits = [0, 1], flow = false}
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
 
 [[analysis_Protons.plot]]
-label = "Energy completeness $(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{dep}$"
+label = "\"All matches\" energy completeness\n$(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{dep}$"
 product = "energyCompletenessAllMatches"
-yscale = "log"
+# yscale = "log"
 showmedian = ".1%"
-binning = {bins = 40, limits = [0, 1], flow = false}
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
 
 [[analysis_Protons.plot]]
 label = "Ratio reconstructed/true length $L_\\mathrm{reco}/L_\\mathrm{true}$"
 product = "ratioLength"
 yscale = "log"
-binning = {bins = 40, limits = [0, 2], flow = false}
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 2], flow = "sum"}
 
 [[analysis_Protons.plot]]
 label = "Pull reconstructed/true length $\\delta_L/L_\\mathrm{true}$"
 product = "pullLength"
-yscale = "log"
-binning = {bins = 40, limits = [-2.0, 2.0], flow = false}
+# yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [-2.0, 30.0], flow = "sum"}
+
+# [[analysis_Protons.plot]]
+# label = "True length (cm)"
+# product = "trueLength"
 
 [[analysis_Protons.plot]]
 label = "$\\Delta_\\mathrm{reco, true}$ track endpoint"
 product = "recoTrueDiffEndpoint3d"
 yscale = "log"
-binning = {bins = 40, limits = [0, 500], flow = false, unit = "cm"}
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 350], flow = "sum", unit = "cm"}
 
 [[analysis_Protons.plot]]
 label = "$\\chi^2_\\mu$"
 product = "calo.muonChiSquare"
 yscale = "log"
-binning = {bins = 40, limits = [0, 100], flow = false}
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 100], flow = "sum"}
 
 [[analysis_Protons.plot]]
 label = "$\\chi^2_\\mathrm{p}$"
 product = "calo.protonChiSquare"
 yscale = "log"
-binning = {bins = 40, limits = [0, 800], flow = false}
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 800], flow = "sum"}
 
 [[analysis_Protons.plot]]
 label = "BDT Track classification score"
 product = "calo.trackScore"
-binning = {bins = 40, limits = [0, 1], flow = false}
+showmedian = ".2f"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
 
 [[analysis_Protons.plot]]
-label = "Reco PFP matched w/ true particle"
+label = " Reco PFP # matched w/ true particle"
 product = "nMatches"
 # yscale = "log"
-binning = {bins = 8, limits = [0.5, 8.5], flow = false, integer = true}
+ylabel = "PFPs [#]"
+binning = {bins = 8, limits = [0.5, 8.5], flow = "sum", integer = true}
 
 [[analysis_Protons.plot]]
-label = "Reco PFP best-matched w/ true particle"
+label = "Reco PFP # best-matched w/ true particle"
 product = "nBestMatches"
 # yscale = "log"
-binning = {bins = 8, limits = [0.5, 8.5], flow = false, integer = true}
+ylabel = "PFPs [#]"
+binning = {bins = 8, limits = [0.5, 8.5], flow = "sum", integer = true}
 
 # --------------------------------------------------------------------
 
@@ -310,89 +332,104 @@ label = "Hit completeness"
 product = "completeness"
 yscale = "log"
 showmedian = ".1%"
-binning = {bins = 20, limits = [0, 1], flow = false}
+ylabel = "PFPs [#]"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
 
 [[analysis_Pions.plot]]
 label = "Hit purity"
 product = "purity"
 yscale = "log"
 showmedian = ".1%"
-binning = {bins = 20, limits = [0, 1], flow = false}
+ylabel = "PFPs [#]"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
 
 [[analysis_Pions.plot]]
 label = "Hit completeness (from PFP bestmatch)"
 product = "completenessBestmatch"
 yscale = "log"
 showmedian = ".1%"
-binning = {bins = 20, limits = [0, 1], flow = false}
+ylabel = "PFPs [#]"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
 
 [[analysis_Pions.plot]]
 label = "Hit purity (from PFP bestmatch)"
 product = "purityBestmatch"
 yscale = "log"
 showmedian = ".1%"
-binning = {bins = 20, limits = [0, 1], flow = false}
+ylabel = "PFPs [#]"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
 
 [[analysis_Pions.plot]]
-label = "Energy completeness"
+label = "Best-match energy completeness"
 product = "energyCompleteness"
 yscale = "log"
 showmedian = ".1%"
-binning = {bins = 20, limits = [0, 1], flow = false}
+ylabel = "PFPs [#]"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
 
 [[analysis_Pions.plot]]
-label = "Energy completeness $(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{dep}$"
+label = "\"All matches\" energy completeness\n$(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{dep}$"
 product = "energyCompletenessAllMatches"
-yscale = "log"
+# yscale = "log"
 showmedian = ".1%"
-binning = {bins = 20, limits = [0, 1], flow = false}
+ylabel = "PFPs [#]"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
 
 [[analysis_Pions.plot]]
 label = "Ratio reconstructed/true length $L_\\mathrm{reco}/L_\\mathrm{true}$"
 product = "ratioLength"
 yscale = "log"
-binning = {bins = 20, limits = [0, 2], flow = false}
+ylabel = "PFPs [#]"
+binning = {bins = 20, limits = [0, 2], flow = "sum"}
 
 [[analysis_Pions.plot]]
 label = "Pull reconstructed/true length $\\delta_L/L_\\mathrm{true}$"
 product = "pullLength"
-yscale = "log"
-binning = {bins = 20, limits = [-2.0, 2.0], flow = false}
+# yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 20, limits = [-2.0, 2.0], flow = "sum"}
 
 [[analysis_Pions.plot]]
 label = "$\\Delta_\\mathrm{reco, true}$ track endpoint"
 product = "recoTrueDiffEndpoint3d"
 yscale = "log"
-binning = {bins = 20, limits = [0, 500], flow = false, unit = "cm"}
+ylabel = "PFPs [#]"
+binning = {bins = 20, limits = [0, 350], flow = "sum", unit = "cm"}
 
 [[analysis_Pions.plot]]
 label = "$\\chi^2_\\mu$"
 product = "calo.muonChiSquare"
 yscale = "log"
-binning = {bins = 20, limits = [0, 100], flow = false}
+ylabel = "PFPs [#]"
+binning = {bins = 20, limits = [0, 100], flow = "sum"}
 
 [[analysis_Pions.plot]]
 label = "$\\chi^2_\\mathrm{p}$"
 product = "calo.protonChiSquare"
 yscale = "log"
-binning = {bins = 20, limits = [0, 800], flow = false}
+ylabel = "PFPs [#]"
+binning = {bins = 20, limits = [0, 800], flow = "sum"}
 
 [[analysis_Pions.plot]]
 label = "BDT Track classification score"
 product = "calo.trackScore"
-binning = {bins = 20, limits = [0, 1], flow = false}
+showmedian = ".2f"
+ylabel = "PFPs [#]"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
 
 [[analysis_Pions.plot]]
-label = "Reco PFP matched w/ true particle"
+label = " Reco PFP # matched w/ true particle"
 product = "nMatches"
 # yscale = "log"
-binning = {bins = 8, limits = [0.5, 8.5], flow = false, integer = true}
+ylabel = "PFPs [#]"
+binning = {bins = 8, limits = [0.5, 8.5], flow = "sum", integer = true}
 
 [[analysis_Pions.plot]]
-label = "Reco PFP best-matched w/ true particle"
+label = "Reco PFP # best-matched w/ true particle"
 product = "nBestMatches"
 # yscale = "log"
-binning = {bins = 8, limits = [0.5, 8.5], flow = false, integer = true}
+ylabel = "PFPs [#]"
+binning = {bins = 8, limits = [0.5, 8.5], flow = "sum", integer = true}
 
 # --------------------------------------------------------------------
 # =====================================================================
