@@ -99,5 +99,4 @@ void nuMuValidations ()
 
     sliceAnalysis->Go();
     sliceAnalysis->WriteTo(writer.get());
-}
-
+}    
