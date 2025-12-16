@@ -66,6 +66,7 @@ void nuMuValidations ()
         singleAnalysis->AddDataset("/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/tmp/testCAFBacktrackerNew/test_standard/stage1_dnn_yzsim.flat.caf.root", "testC");
         singleAnalysis->AddDataset("/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/tmp/testCAFBacktrackerNew/test_standard/stage1_yzsim.flat.caf.root",     "testD");
 
+        // singleAnalysis->RunOnly({"configA"});
         singleAnalysis->RunOnly({"configA", "configB", "configC", "configD"});
         // singleAnalysis->RunOnly({"testA", "testB", "testC", "testD"});
 

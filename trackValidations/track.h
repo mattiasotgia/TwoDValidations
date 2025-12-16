@@ -25,7 +25,33 @@ namespace track
 {
     using particle_t = const int;
     using PfpPtr = const caf::Proxy<caf::SRPFP> *;
+    using SlicePtr = const caf::Proxy<caf::SRSlice> *;
     using MatchPtr = const caf::Proxy<caf::SRParticleMatch> *;
+
+    void fillSomeVars(long& nMatches, long& nBestMatches, double& allEnergyInMatches, SlicePtr slice, const int trueG4ID, const int trueCryostat)
+    {
+        for (auto const& pfp: slice->reco.pfp)
+        {
+            // nMatches += std::count_if(
+            //     pfp.trk.truth.matches.begin(),
+            //     pfp.trk.truth.matches.end(),
+            //     [&] (auto const& match) { return match.G4ID == trueG4ID; }
+            // );
+
+            const int pfpCryostat{pfp.trk.start.x < 0 ? 0 : 1};
+
+            for (auto const& match: pfp.trk.truth.matches)
+            {
+                if (match.G4ID == trueG4ID and pfpCryostat == trueCryostat) 
+                {
+                    nMatches++;
+                    allEnergyInMatches += match.energy / 3.;
+                }
+            }
+
+            if (pfp.trk.truth.bestmatch.G4ID == trueG4ID and pfpCryostat == trueCryostat) nBestMatches++;
+        }
+    }
 
     template<class T>
     const ana::SpillMultiVar get(std::string what, particle_t particle)
@@ -43,59 +69,52 @@ namespace track
                 if (true_particle.cryostat == -1) continue;
 
                 PfpPtr selectedPfp = nullptr;
-                MatchPtr selectedPaticleMatch = nullptr;
+                MatchPtr selectedParticleMatch = nullptr;
 
-                int trueG4ID = true_particle.G4ID;
+                const int trueG4ID{true_particle.G4ID};
+                const int trueCryostat{true_particle.cryostat};
                 long nMatches{0}, nBestMatches{0};
                 
-                double maxMatchEnergy = -std::numeric_limits<double>::max();
+                double maxMatchEnergy{-std::numeric_limits<double>::max()};
                 double allEnergyInMatches{0.};
 
                 // std::cerr << "I'm here... G4ID = " << trueG4ID << std::endl;
 
                 for (auto const& slice: spill->slc)
                 {
-
-                    for (auto const& pfp: slice.reco.pfp)
-                    {
-                        // nMatches += std::count_if(
-                        //     pfp.trk.truth.matches.begin(),
-                        //     pfp.trk.truth.matches.end(),
-                        //     [&] (auto const& match) { return match.G4ID == trueG4ID; }
-                        // );
-
-                        for (auto const& match: pfp.trk.truth.matches)
-                        {
-                            if (match.G4ID == trueG4ID) 
-                            {
-                                nMatches++;
-                                allEnergyInMatches += match.energy / 3.;
-                            }
-                        }
-
-                        if (pfp.trk.truth.bestmatch.G4ID == trueG4ID) nBestMatches++;
-                    }
-
+                    fillSomeVars(nMatches, nBestMatches, allEnergyInMatches, &slice, trueG4ID, trueCryostat);
 
                     for (auto const& pfp: slice.reco.pfp)
                     {
                         // std::cout << "This is a PFP, with G4ID: " << pfp.trk.truth.bestmatch.G4ID << std::endl;
                         // std::cout << "trk.truth.p.startE: " << pfp.trk.truth.p.startE << std::endl
                         //           << "trk.truth.p.pdg:    " << pfp.trk.truth.p.pdg << std::endl;
+
+                        const int pfpCryostat{pfp.trk.start.x < 0 ? 0 : 1};
+
                         for (auto const& match: pfp.trk.truth.matches)
                         {
-                            if (match.G4ID == trueG4ID and (match.energy / 3.) > maxMatchEnergy)
+                            if (match.G4ID == trueG4ID and pfpCryostat == trueCryostat and (match.energy / 3.) > maxMatchEnergy)
                             {
                                 // Selected matched pfp to truth with highes energy match
                                 maxMatchEnergy       = (match.energy / 3.);
                                 selectedPfp          = &pfp;
-                                selectedPaticleMatch = &match;
+                                selectedParticleMatch = &match;
+
+                                // std::cout << "    --> Looking for energy match, now at E = " << maxMatchEnergy << std::endl;
                             } // Selection scope
                         } // Looping through matches
+
+                        // if (pfp.trk.truth.bestmatch.G4ID == trueG4ID and (pfp.trk.truth.bestmatch.energy / 3.) > maxMatchEnergy)
+                        // {
+                        //     maxMatchEnergy       = (pfp.trk.truth.bestmatch.energy / 3.);
+                        //     selectedPfp          = &pfp;
+                        //     selectedParticleMatch = &pfp.trk.truth.bestmatch;
+                        // }
                     } // Looping through pfps
                 } // Looping through slices
 
-                if ((selectedPfp != nullptr) and (selectedPaticleMatch != nullptr))
+                if ((selectedPfp != nullptr) and (selectedParticleMatch != nullptr))
                 {
                     // Here do stuff
                     // Selecting the pfp from slice.reco.pfp which
@@ -106,12 +125,24 @@ namespace track
                     //           << " and trackScore " << (*selectedPfp).trackScore << std::endl;
 
                     // break;
+
+                    // std::cout << "Did find the most energy match E = " << (*selectedParticleMatch).energy 
+                    //           << " (this is " << ((((*selectedParticleMatch).energy / 3.) == maxMatchEnergy) ? "" : "NOT") 
+                    //           << " equal to the maxMatchEnergy = " 
+                    //           << maxMatchEnergy << ")" << std::endl;
+
+                    // Double check
+                    if ((*selectedPfp).trk.truth.p.pdg != true_particle.pdg)
+                    {
+                        // std::cerr << "WARNING: This PFP is: " << (*selectedPfp).trk.truth.p.pdg << "; MC is: " << true_particle.pdg << std::endl;
+                        // throw std::logic_error("The selected PFP's truth matched true particle's pdg is NOT right");
+                    }
     
-                    td.purity.push_back((*selectedPaticleMatch).hit_purity);
-                    td.completeness.push_back((*selectedPaticleMatch).hit_completeness);
+                    td.purity.push_back((*selectedParticleMatch).hit_purity);
+                    td.completeness.push_back((*selectedParticleMatch).hit_completeness);
                     td.purityBestmatch.push_back((*selectedPfp).trk.truth.bestmatch.hit_purity);
                     td.completenessBestmatch.push_back((*selectedPfp).trk.truth.bestmatch.hit_completeness);
-                    // td.energyCompleteness.push_back((*selectedPaticleMatch).energy_completeness); 
+                    // td.energyCompleteness.push_back((*selectedParticleMatch).energy_completeness); 
                     td.energyCompleteness.push_back(maxMatchEnergy/(true_particle.startE - true_particle.endE));
                     td.energyCompletenessAllMatches.push_back(allEnergyInMatches/(true_particle.startE - true_particle.endE));
     
