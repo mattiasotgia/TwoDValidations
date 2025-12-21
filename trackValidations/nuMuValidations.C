@@ -56,10 +56,15 @@ void nuMuValidations ()
         singleAnalysis->AddVariable("nHitsTrue",                    track::get<double>("nHitsTrue",                     particle));
         singleAnalysis->AddVariable("nHitsReco",                    track::get<double>("nHitsReco",                     particle));
 
-        singleAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_1d_respun2_caf_numu", "configA");
-        singleAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_2d_respun2_caf_numu", "configB");
-        singleAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_stage1_noPulseTrains_numu_caf", "configC");
-        singleAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_stage1_pulseTrains_numu_caf", "configD");
+        singleAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_1d_respun2_caf_numu",              "configA");
+        singleAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_2d_respun2_caf_numu",              "configB");
+        singleAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_stage1_noPulseTrains_numu_caf",    "configC");
+        singleAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_stage1_pulseTrains_numu_caf",      "configD");
+
+        singleAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_numu_caf",                             "configAWithYZSim");
+        singleAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_yzsim_wc_numu_caf",                    "configBWithYZSim");
+        singleAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_yzsim_wcdnn_noPulseTrains_numu_caf",   "configCWithYZSim");
+        singleAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_yzsim_wcdnn_pulseTrains_numu_caf",     "configDWithYZSim");
         
         singleAnalysis->AddDataset("/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/tmp/testCAFBacktrackerNew/stage0/1d_numu_baseline_redo.flat.caf.root",   "testA");
         singleAnalysis->AddDataset("/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/tmp/testCAFBacktrackerNew/stage0/2d_numu_nodnn_redo.flat.caf.root",      "testB");
@@ -67,7 +72,7 @@ void nuMuValidations ()
         singleAnalysis->AddDataset("/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/tmp/testCAFBacktrackerNew/test_standard/stage1_yzsim.flat.caf.root",     "testD");
 
         // singleAnalysis->RunOnly({"configA"});
-        singleAnalysis->RunOnly({"configA", "configB", "configC", "configD"});
+        singleAnalysis->RunOnly({"configA", "configB", "configC", "configD", "configAWithYZSim", "configBWithYZSim", "configCWithYZSim", "configDWithYZSim"});
         // singleAnalysis->RunOnly({"testA", "testB", "testC", "testD"});
 
         singleAnalysis->Go();
@@ -95,6 +100,12 @@ void nuMuValidations ()
     sliceAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_2d_respun2_caf_numu", "configB");
     sliceAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_stage1_noPulseTrains_numu_caf", "configC");
     sliceAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_stage1_pulseTrains_numu_caf", "configD");
+
+    sliceAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_numu_caf",                             "configAWithYZSim");
+    sliceAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_yzsim_wc_numu_caf",                    "configBWithYZSim");
+    sliceAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_yzsim_wcdnn_noPulseTrains_numu_caf",   "configCWithYZSim");
+    sliceAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_yzsim_wcdnn_pulseTrains_numu_caf",     "configDWithYZSim");
+
     // sliceAnalysis->RunOnly({"configA", "configB"});
 
     sliceAnalysis->Go();
