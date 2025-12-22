@@ -22,6 +22,8 @@ namespace base
         std::vector<double> purityBestmatch, completenessBestmatch;             //!< Hit purity and hit completeness for pfp bestmatch
         std::vector<double> energyCompleteness;                                 //!< Energy deposited over true energy ratio
         std::vector<double> energyCompletenessAllMatches;
+        std::vector<double> energyMatch, energyAllMatches;
+        std::vector<double> trueEnergy;
         std::vector<double> recoLength, trueLength, ratioLength, pullLength;    //!< ratio: reco/true; pull: (reco-true)/true
         std::vector<double> recoTrueDiffEndpoint3d;                             //!< 3d difference reco/true endpoint
         std::vector<double> trueVisEnergy;                                      //!< Vis. Energy (GeV) on PLANE
@@ -56,6 +58,9 @@ namespace base
         {"pullLength",                      &trackData::pullLength                  },
         {"recoTrueDiffEndpoint3d",          &trackData::recoTrueDiffEndpoint3d      },
         {"trueVisEnergy",                   &trackData::trueVisEnergy               },
+        {"energyMatch" ,                    &trackData::energyMatch                 },
+        {"energyAllMatches",                &trackData::energyAllMatches            },
+        {"trueEnergy"  ,                    &trackData::trueEnergy                  },
     };
 
     inline const std::unordered_map<std::string, VecLongMember> topLevelLongs = {

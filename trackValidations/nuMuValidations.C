@@ -27,6 +27,9 @@ void nuMuValidations ()
         singleAnalysis->AddVariable("completenessBestmatch",        track::get<double>("completenessBestmatch",         particle));
         singleAnalysis->AddVariable("energyCompleteness",           track::get<double>("energyCompleteness",            particle));
         singleAnalysis->AddVariable("energyCompletenessAllMatches", track::get<double>("energyCompletenessAllMatches",  particle));
+        singleAnalysis->AddVariable("energyMatch",                  track::get<double>("energyMatch",                   particle));
+        singleAnalysis->AddVariable("energyAllMatches",             track::get<double>("energyAllMatches",              particle));
+        singleAnalysis->AddVariable("trueEnergy",                   track::get<double>("trueEnergy",                    particle));
         singleAnalysis->AddVariable("recoLength",                   track::get<double>("recoLength",                    particle));
         singleAnalysis->AddVariable("trueLength",                   track::get<double>("trueLength",                    particle));
         singleAnalysis->AddVariable("ratioLength",                  track::get<double>("ratioLength",                   particle));

@@ -145,6 +145,10 @@ namespace track
                     // td.energyCompleteness.push_back((*selectedParticleMatch).energy_completeness); 
                     td.energyCompleteness.push_back(maxMatchEnergy/(true_particle.startE - true_particle.endE));
                     td.energyCompletenessAllMatches.push_back(allEnergyInMatches/(true_particle.startE - true_particle.endE));
+
+                    td.energyMatch.push_back(maxMatchEnergy);
+                    td.energyAllMatches.push_back(allEnergyInMatches);
+                    td.trueEnergy.push_back(true_particle.startE - true_particle.endE);
     
                     td.recoLength.push_back((*selectedPfp).trk.len);
                     td.trueLength.push_back(true_particle.length);
