@@ -349,3 +349,6 @@ tmp/
 
 # Ignore local configuration for workspace
 twoDRecoStudies.code-workspace
+
+# Ignore Filippo's gibberish
+deltaThreeP/filippoToIgnore/
