@@ -7,7 +7,7 @@ file = "/Users/msotgia/dev_areas/twoDValidationsStudies/trackValidations/writerT
 # file = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/writerTwoDValidations.root"
 # outdir = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/plotStuff/samplePlots/configurationSingles1D/"
 outdir = "/Users/msotgia/dev_areas/twoDValidationsStudies/trackValidations/makePlots/configurationSingles1D/Slices/"
-fontsize = 13
+fontsize = 17
 labelfontsize = 28
 
 # --------------------------------------------------------------------

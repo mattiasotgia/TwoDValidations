@@ -1,0 +1,233 @@
+
+[global]
+project = "twoDValidations"
+project_name = "ICARUS BNB MC" # toadd
+file = "/Users/msotgia/dev_areas/twoDValidationsStudies/trackValidations/writerTwoDValidationsRedoCorrectBestmatch.root"
+# file = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/writerTwoDValidations.root"
+# outdir = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/plotStuff/samplePlots/configurationSingles1D/"
+outdir = "/Users/msotgia/dev_areas/twoDValidationsStudies/trackValidations/makePlots/testYZVsNoYZ/"
+fontsize = 17
+labelfontsize = 28
+
+# [analysis_Muons]
+# merge_on = "Evt"
+# # density = true
+# # figsize = [5.0, 3.5]
+# filter = [
+#     # {name = "filter_on", on = "completenessBestmatch", label = "Hit completeness", min = 0.5},
+#     # {name = "filter_on", on = "purityBestmatch", label = "Hit purity", min = 0.5}
+#     {name = "filter_on", on = "completeness", label = "Hit completeness", min = 0.5},
+#     {name = "filter_on", on = "purity", label = "Hit purity", min = 0.5}
+# ]
+
+[analysis_Protons]
+merge_on = "Evt"
+# density = true
+# figsize = [5.0, 3.5]
+filter = [
+    # {name = "filter_on", on = "completenessBestmatch", label = "Hit completeness", min = 0.5},
+    # {name = "filter_on", on = "purityBestmatch", label = "Hit purity", min = 0.5}
+    {name = "filter_on", on = "completeness", label = "Hit completeness", min = 0.5},
+    {name = "filter_on", on = "purity", label = "Hit purity", min = 0.5},
+    # {name = "filter_on", on = "trueLength", label = "Length (cm)", min = 2.3}
+]
+
+# [[analysis_Muons.dataset]]
+# name = "Muons/DconfigD/configD"
+# # No `style` entr --> default to black line 2 pt
+# label = "No YZ Sim."
+# style = "style_noyz"
+
+# [[analysis_Muons.dataset]]
+# name = "Muons/DconfigDWithYZSim/configDWithYZSim"
+# label = "With YZ Sim."
+# style = "style_yz"
+
+[[analysis_Protons.dataset]]
+name = "Protons/DconfigD/configD"
+# No `style` entr --> default to black line 2 pt
+label = "2D + DNNROI w/ PT = 10 \nNo YZ Sim."
+style = "style_noyz"
+
+# [[analysis_Protons.dataset]]
+# name = "Protons/DconfigAWithYZSim/configAWithYZSim"
+# # No `style` entr --> default to black line 2 pt
+# label = "1D Nominal \nWith YZ Sim."
+# style = "style_yzA"
+
+# [[analysis_Protons.dataset]]
+# name = "Protons/DconfigBWithYZSim/configBWithYZSim"
+# # No `style` entr --> default to black line 2 pt
+# label = "2D sig. proc. \nWith YZ Sim."
+# style = "style_yzB"
+
+# [[analysis_Protons.dataset]]
+# name = "Protons/DconfigCWithYZSim/configCWithYZSim"
+# # No `style` entr --> default to black line 2 pt
+# label = "2D + DNNROI w/o PT \nWith YZ Sim."
+# style = "style_yzC"
+
+# [[analysis_Protons.dataset]]
+# name = "Protons/DconfigDWithYZSim/configDWithYZSim"
+# # No `style` entr --> default to black line 2 pt
+# label = "2D + DNNROI w/ PT = 10 \nWith YZ Sim."
+# style = "style_yzD"
+
+[[analysis_Protons.dataset]]
+name = "Protons/DconfigDWithYZSim/configDWithYZSim"
+# No `style` entr --> default to black line 2 pt
+label = "2D + DNNROI w/ PT = 10 \nWith YZ Sim."
+style = "style_yz"
+
+
+[style_noyz]
+histtype = "step"
+color = "k"
+linewidth = 2
+
+[style_yz]
+histtype = "step"
+color = "crimson"
+linewidth = 4
+# linestyle = ":"
+
+# [style_yzA]
+# histtype = "step"
+# color = "crimson"
+# linewidth = 4
+# # linestyle = ":"
+
+# [style_yzB]
+# histtype = "step"
+# color = "limegreen"
+# linewidth = 4
+# # linestyle = ":"
+
+# [style_yzC]
+# histtype = "step"
+# color = "darkblue"
+# linewidth = 4
+# # linestyle = ":"
+
+# [style_yzD]
+# histtype = "step"
+# color = "gold"
+# linewidth = 4
+# # linestyle = ":"
+
+# [[analysis_Muons.plot]]
+# label = "Hit completeness"
+# product = "completeness"
+# yscale = "log"
+# showmedian = ".1%"
+# ylabel = "PFPs [#]"
+# binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+# [[analysis_Muons.plot]]
+# label = "Hit purity"
+# product = "purity"
+# yscale = "log"
+# showmedian = ".1%"
+# ylabel = "PFPs [#]"
+# binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+# [[analysis_Muons.plot]]
+# label = "Hit completeness (from PFP bestmatch)"
+# product = "completenessBestmatch"
+# yscale = "log"
+# showmedian = ".1%"
+# ylabel = "PFPs [#]"
+# binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+# [[analysis_Muons.plot]]
+# label = "Hit purity (from PFP bestmatch)"
+# product = "purityBestmatch"
+# yscale = "log"
+# showmedian = ".1%"
+# ylabel = "PFPs [#]"
+# binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+# [[analysis_Muons.plot]]
+# label = "Best-match energy completeness"
+# product = "energyCompleteness"
+# yscale = "log"
+# showmedian = ".1%"
+# ylabel = "PFPs [#]"
+# binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+# [[analysis_Muons.plot]]
+# label = "\"All matches\" energy completeness\n$(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{dep}$"
+# product = "energyCompletenessAllMatches"
+# yscale = "log"
+# showmedian = ".1%"
+# ylabel = "PFPs [#]"
+# binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+# [[analysis_Muons.plot]]
+# label = "BDT Track classification score"
+# product = "calo.trackScore"
+# ylabel = "PFPs [#]"
+# showmedian = ".2f"
+# binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "Hit completeness"
+product = "completeness"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "Hit purity"
+product = "purity"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "Hit completeness (from PFP bestmatch)"
+product = "completenessBestmatch"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "Hit purity (from PFP bestmatch)"
+product = "purityBestmatch"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "Best-match energy completeness"
+product = "energyCompleteness"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "\"All matches\" energy completeness\n$(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{dep}$"
+product = "energyCompletenessAllMatches"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 8], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "BDT Track classification score"
+product = "calo.trackScore"
+ylabel = "PFPs [#]"
+showmedian = ".2f"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+
+[[analysis_Protons.plot]]
+label = "True deposited energy (collection plane)"
+product = "trueVisEnergy"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 4], flow = "sum"}

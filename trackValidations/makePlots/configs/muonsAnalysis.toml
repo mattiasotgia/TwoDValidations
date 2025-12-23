@@ -58,7 +58,7 @@ binning = {bins = 50, limits = [0, 1], flow = false}
 [[analysis_Muons.plot]]
 label = "Ratio reconstructed/true length $L_\\mathrm{reco}/L_\\mathrm{true}$"
 product = "ratioLength"
-yscale = "log"
+# yscale = "log"
 binning = {bins = 50, limits = [0, 2], flow = false}
 
 [[analysis_Muons.plot]]

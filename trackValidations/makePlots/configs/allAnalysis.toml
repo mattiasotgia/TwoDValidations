@@ -7,7 +7,7 @@ file = "/Users/msotgia/dev_areas/twoDValidationsStudies/trackValidations/writerT
 # file = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/writerTwoDValidations.root"
 # outdir = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/plotStuff/samplePlots/configurationSingles1D/"
 outdir = "/Users/msotgia/dev_areas/twoDValidationsStudies/trackValidations/makePlots/configurationSingles1D/"
-fontsize = 13
+fontsize = 17
 labelfontsize = 28
 
 # --------------------------------------------------------------------
@@ -162,7 +162,7 @@ binning = {bins = 40, limits = [0, 1], flow = "sum"}
 [[analysis_Muons.plot]]
 label = "Ratio reconstructed/true length $L_\\mathrm{reco}/L_\\mathrm{true}$"
 product = "ratioLength"
-yscale = "log"
+# yscale = "log"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 2], flow = "sum"}
 
@@ -268,7 +268,7 @@ binning = {bins = 40, limits = [0, 1], flow = "sum"}
 [[analysis_Protons.plot]]
 label = "Ratio reconstructed/true length $L_\\mathrm{reco}/L_\\mathrm{true}$"
 product = "ratioLength"
-yscale = "log"
+# yscale = "log"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 2], flow = "sum"}
 
@@ -277,7 +277,7 @@ label = "Pull reconstructed/true length $\\delta_L/L_\\mathrm{true}$"
 product = "pullLength"
 # yscale = "log"
 ylabel = "PFPs [#]"
-binning = {bins = 40, limits = [-2.0, 30.0], flow = "sum"}
+binning = {bins = 40, limits = [-2.0, 2.0], flow = "sum"}
 
 # [[analysis_Protons.plot]]
 # label = "True length (cm)"
@@ -309,7 +309,7 @@ label = "BDT Track classification score"
 product = "calo.trackScore"
 showmedian = ".2f"
 ylabel = "PFPs [#]"
-binning = {bins = 40, limits = [0, 1], flow = "sum"}
+binning = {bins = 60, limits = [-0.35, 1.0], flow = "sum"}
 
 [[analysis_Protons.plot]]
 label = " Reco PFP # matched w/ true particle"
@@ -378,7 +378,7 @@ binning = {bins = 20, limits = [0, 1], flow = "sum"}
 [[analysis_Pions.plot]]
 label = "Ratio reconstructed/true length $L_\\mathrm{reco}/L_\\mathrm{true}$"
 product = "ratioLength"
-yscale = "log"
+# yscale = "log"
 ylabel = "PFPs [#]"
 binning = {bins = 20, limits = [0, 2], flow = "sum"}
 
@@ -415,7 +415,7 @@ label = "BDT Track classification score"
 product = "calo.trackScore"
 showmedian = ".2f"
 ylabel = "PFPs [#]"
-binning = {bins = 20, limits = [0, 1], flow = "sum"}
+binning = {bins = 60, limits = [-0.35, 1.0], flow = "sum"}
 
 [[analysis_Pions.plot]]
 label = " Reco PFP # matched w/ true particle"
