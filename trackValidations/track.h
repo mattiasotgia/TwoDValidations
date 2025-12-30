@@ -28,6 +28,12 @@ namespace track
     using SlicePtr = const caf::Proxy<caf::SRSlice> *;
     using MatchPtr = const caf::Proxy<caf::SRParticleMatch> *;
 
+    enum contained_t {
+        true_p,
+        reconstructed_p,
+        none_p
+    };
+
     void fillSomeVars(long& nMatches, long& nBestMatches, double& allEnergyInMatches, SlicePtr slice, const int trueG4ID, const int trueCryostat)
     {
         for (auto const& pfp: slice->reco.pfp)
@@ -54,7 +60,7 @@ namespace track
     }
 
     template<class T>
-    const ana::SpillMultiVar get(std::string what, particle_t particle)
+    const ana::SpillMultiVar get(std::string what, particle_t particle, contained_t contained = contained_t::none_p)
     {
         return ana::SpillMultiVar ([=](const caf::SRSpillProxy* spill) -> std::vector<T> 
         {
@@ -65,7 +71,7 @@ namespace track
                 bool isParticle{particle == std::abs(true_particle.pdg)};
 
                 if (not isParticle) continue;
-                if (not true_particle.contained) continue;
+                if (not true_particle.contained and contained == contained_t::true_p) continue;
                 if (true_particle.cryostat == -1) continue;
 
                 PfpPtr selectedPfp = nullptr;
@@ -78,7 +84,8 @@ namespace track
                 double maxMatchEnergy{-std::numeric_limits<double>::max()};
                 double allEnergyInMatches{0.};
 
-                // std::cerr << "I'm here... G4ID = " << trueG4ID << std::endl;
+                // std::cerr << "I'm here... G4ID = " << trueG4ID 
+                //           << " and there are " << spill->nslc << " slices in this reco" << std::endl;
 
                 for (auto const& slice: spill->slc)
                 {
@@ -202,6 +209,10 @@ namespace track
     
                     // Vis. Energy (GeV) on PLANE
                     td.trueVisEnergy.push_back(true_particle.plane[true_particle.cryostat][PLANE].visE);
+
+                    td.trueVisEnergyCollection.push_back(true_particle.plane[true_particle.cryostat][COLLECTION].visE);
+                    td.trueVisEnergyInduction2.push_back(true_particle.plane[true_particle.cryostat][INDUCTION2].visE);
+                    td.trueVisEnergyInduction1.push_back(true_particle.plane[true_particle.cryostat][INDUCTION1].visE);
 
                     // std::cout << "trueVisEnergy: " << true_particle.plane[true_particle.cryostat][PLANE].visE << std::endl;
                     // std::cout << "true_particle.startE:   " << true_particle.startE << std::endl;

@@ -27,6 +27,8 @@ namespace base
         std::vector<double> recoLength, trueLength, ratioLength, pullLength;    //!< ratio: reco/true; pull: (reco-true)/true
         std::vector<double> recoTrueDiffEndpoint3d;                             //!< 3d difference reco/true endpoint
         std::vector<double> trueVisEnergy;                                      //!< Vis. Energy (GeV) on PLANE
+        std::vector<double> trueVisEnergyInduction1, trueVisEnergyInduction2, trueVisEnergyCollection; 
+
         struct Point
         {
             std::vector<double> x, y, z;
@@ -60,7 +62,10 @@ namespace base
         {"trueVisEnergy",                   &trackData::trueVisEnergy               },
         {"energyMatch" ,                    &trackData::energyMatch                 },
         {"energyAllMatches",                &trackData::energyAllMatches            },
-        {"trueEnergy"  ,                    &trackData::trueEnergy                  },
+        {"trueEnergy",                      &trackData::trueEnergy                  },
+        {"trueVisEnergyInduction1",         &trackData::trueVisEnergyInduction1     },
+        {"trueVisEnergyInduction2",         &trackData::trueVisEnergyInduction2     },
+        {"trueVisEnergyCollection",         &trackData::trueVisEnergyCollection     },
     };
 
     inline const std::unordered_map<std::string, VecLongMember> topLevelLongs = {

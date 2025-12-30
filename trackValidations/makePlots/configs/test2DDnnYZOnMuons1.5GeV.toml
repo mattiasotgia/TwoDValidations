@@ -1,0 +1,179 @@
+
+[global]
+project = "validationYZSimulation"
+project_name = "ICARUS $\\mu$@1.5 GeV" # toadd
+project_label = "Test sample"
+file = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/writerMuonTestingYZSim.root"
+outdir = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/makePlots/testYZVsNoYZ/testMuons1.5GeV/"
+fontsize = 13
+labelfontsize = 28
+# file_dpi = 50
+
+[analysis_Muons]
+merge_on = "Evt"
+# filter = [
+#     {name = "filter_on", on = "completeness", label = "Hit completeness", min = 0.95},
+#     {name = "filter_on", on = "purity", label = "Hit purity", min = 0.95},
+#     {name = "filter_on", on = "trueEnergy", label = "True energy:GeV", min = 1.0}
+# ]
+filter = [
+    {name = "energy_completeness", product = "energyCompletenessWithVisE", definition = ["energyMatch", "trueVisEnergy"]},
+    {name = "energy_completeness", product = "energyCompletenessAllMatchesWithVisE", definition = ["energyAllMatches", "trueVisEnergy"]},
+]
+analysis_supplementaltext = "icaruscode_v10_06_00_07_develop"
+
+[[analysis_Muons.dataset]]
+name = "Muons/DtestNotYZ/testNotYZ"
+label = "2D + DNNROI w/ PT = 10 \nNo YZ Sim."
+style = "style_noyz"
+
+[[analysis_Muons.dataset]]
+name = "Muons/DtestWithYZ/testWithYZ"
+label = "2D + DNNROI w/ PT = 10 \nWith YZ Sim."
+style = "style_yz"
+
+[[analysis_Muons.dataset]]
+name = "Muons/DtestOneDDeconvNotYZ/testOneDDeconvNotYZ"
+label = "1D No YZ Sim."
+style = "style_1dnoyz"
+
+[[analysis_Muons.dataset]]
+name = "Muons/DtestOneDDeconvWithYZ/testOneDDeconvWithYZ"
+label = "1D With YZ Sim."
+style = "style_1dyz"
+
+# [style_noyz]
+# # histtype = "errorbar"
+# # color = "k"
+# yerr = true
+# # markersize = 18
+# # elinewidth = 2
+# histtype = "fill"
+# # fill = false
+# edgecolor = "k"
+# linewidth = 2
+# facecolor = "none"
+# # color = "k"
+# alpha = 0.5
+# hatch = "\\\\"
+
+[style_1dnoyz]
+histtype = "fill"
+# color = "cadetblue"
+yerr = true
+edgecolor = "cadetblue"
+facecolor = "none"
+linewidth = 1
+alpha = 0.5
+hatch = "OO"
+
+[style_noyz]
+histtype = "step"
+color = "cadetblue"
+yerr = true
+linewidth = 6
+
+[style_yz]
+histtype = "step"
+color = "crimson"
+linewidth = 3
+# linestyle = ":"
+
+[style_1dyz]
+histtype = "fill"
+# color = "orchid"
+yerr = true
+edgecolor = "crimson"
+facecolor = "none"
+linewidth = 1
+alpha = 0.5
+hatch = ".."
+
+[[analysis_Muons.plot]]
+label = "Hit completeness"
+product = "completeness"
+# yscale = "log"
+showmedian = ".1%"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "Hit purity"
+product = "purity"
+# yscale = "log"
+showmedian = ".1%"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "Best-match energy completeness"
+product = "energyCompleteness"
+# yscale = "log"
+showmedian = ".1%"
+binning = {bins = 20, limits = [0, 15], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "\"All matches\" energy completeness\n$(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{dep}$"
+product = "energyCompletenessAllMatches"
+# yscale = "log"
+showmedian = ".1%"
+binning = {bins = 20, limits = [0, 15], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "Best-match energy completeness $E_\\mathrm{bestmatch} / E_\\mathrm{vis}$"
+product = "energyCompletenessWithVisE"
+# yscale = "log"
+showmedian = ".1%"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "\"All matches\" energy completeness\n$(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{vis}$"
+product = "energyCompletenessAllMatchesWithVisE"
+# yscale = "log"
+showmedian = ".1%"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "Match energy"
+product = "energyMatch"
+showmedian = ".1f"
+binning = {bins = 20, limits = [0.001, 25.0], flow = "sum", unit = "GeV", scale = "log"}
+
+[[analysis_Muons.plot]]
+label = "All matches energy"
+product = "energyAllMatches"
+showmedian = ".1f"
+binning = {bins = 20, limits = [0.001, 25.0], flow = "sum", unit = "GeV", scale = "log"}
+
+[[analysis_Muons.plot]]
+label = "True energy"
+product = "trueEnergy"
+binning = {bins = 20, limits = [0.001, 2.5], flow = "sum", unit = "GeV", scale = "log"}
+
+[[analysis_Muons.plot]]
+label = "True visible energy (collection plane)"
+product = "trueVisEnergy"
+binning = {bins = 20, limits = [0.01, 20.0], flow = "sum", scale = "log"}
+
+[[analysis_Muons.plot]]
+label = "True visible energy (collection plane)"
+product = "trueVisEnergyCollection"
+binning = {bins = 20, limits = [0.01, 20.0], flow = "sum", scale = "log"}
+
+[[analysis_Muons.plot]]
+label = "True visible energy (induction-1 plane)"
+product = "trueVisEnergyInduction1"
+binning = {bins = 20, limits = [0.01, 20.0], flow = "sum", scale = "log"}
+
+[[analysis_Muons.plot]]
+label = "True visible energy (induction-2 plane)"
+product = "trueVisEnergyInduction2"
+binning = {bins = 20, limits = [0.01, 20.0], flow = "sum", scale = "log"}
+
+[[analysis_Muons.plot]]
+label = "Number of PFP match'd with MC particle"
+product = "nMatches"
+binning = {bins = 7, limits = [-0.5, 6.5]}
+
+[[analysis_Muons.plot]]
+label = "Number of PFP best-match'd with MC particle"
+product = "nBestMatches"
+binning = {bins = 7, limits = [-0.5, 6.5]}

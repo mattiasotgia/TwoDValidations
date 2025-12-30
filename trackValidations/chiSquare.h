@@ -8,6 +8,9 @@
 #include <TProfile.h>
 
 #define PLANE 2
+#define COLLECTION 2
+#define INDUCTION2 1
+#define INDUCTION1 0
 
 namespace chiSquare
 {

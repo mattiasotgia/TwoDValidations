@@ -3,10 +3,10 @@
 [global]
 project = "twoDValidations"
 project_name = "ICARUS BNB MC" # toadd
-file = "/Users/msotgia/dev_areas/twoDValidationsStudies/trackValidations/writerTwoDValidationsRedoCorrectBestmatch.root"
-# file = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/writerTwoDValidations.root"
-# outdir = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/plotStuff/samplePlots/configurationSingles1D/"
-outdir = "/Users/msotgia/dev_areas/twoDValidationsStudies/trackValidations/makePlots/configurationSingles1D/"
+# file = "/Users/msotgia/dev_areas/twoDValidationsStudies/trackValidations/writerTwoDValidationsRedoCorrectBestmatch.root"
+file = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/writerTwoDValidationsRedoCorrectBestmatch.root"
+outdir = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/plotStuff/samplePlots/configurationSingles1D/"
+# outdir = "/Users/msotgia/dev_areas/twoDValidationsStudies/trackValidations/makePlots/configurationSingles1D/"
 fontsize = 17
 labelfontsize = 28
 
@@ -215,6 +215,21 @@ product = "nBestMatches"
 ylabel = "PFPs [#]"
 binning = {bins = 8, limits = [0.5, 8.5], flow = "sum", integer = true}
 
+[[analysis_Muons.plot]]
+label = "True visible energy (induction-1 plane)"
+product = "trueVisEnergyInduction1"
+binning = {bins = 20, limits = [0.01, 20.0], flow = "sum", scale = "log"}
+
+[[analysis_Muons.plot]]
+label = "True visible energy (induction-2 plane)"
+product = "trueVisEnergyInduction2"
+binning = {bins = 20, limits = [0.01, 20.0], flow = "sum", scale = "log"}
+
+[[analysis_Muons.plot]]
+label = "True visible energy (collection plane)"
+product = "trueVisEnergyCollection"
+binning = {bins = 20, limits = [0.01, 20.0], flow = "sum", scale = "log"}
+
 # --------------------------------------------------------------------
 
 [[analysis_Protons.plot]]
@@ -325,6 +340,21 @@ product = "nBestMatches"
 ylabel = "PFPs [#]"
 binning = {bins = 8, limits = [0.5, 8.5], flow = "sum", integer = true}
 
+[[analysis_Protons.plot]]
+label = "True visible energy (induction-1 plane)"
+product = "trueVisEnergyInduction1"
+binning = {bins = 20, limits = [0.01, 20.0], flow = "sum", scale = "log"}
+
+[[analysis_Protons.plot]]
+label = "True visible energy (induction-2 plane)"
+product = "trueVisEnergyInduction2"
+binning = {bins = 20, limits = [0.01, 20.0], flow = "sum", scale = "log"}
+
+[[analysis_Protons.plot]]
+label = "True visible energy (collection plane)"
+product = "trueVisEnergyCollection"
+binning = {bins = 20, limits = [0.01, 20.0], flow = "sum", scale = "log"}
+
 # --------------------------------------------------------------------
 
 [[analysis_Pions.plot]]
@@ -430,6 +460,21 @@ product = "nBestMatches"
 # yscale = "log"
 ylabel = "PFPs [#]"
 binning = {bins = 8, limits = [0.5, 8.5], flow = "sum", integer = true}
+
+[[analysis_Pions.plot]]
+label = "True visible energy (induction-1 plane)"
+product = "trueVisEnergyInduction1"
+binning = {bins = 20, limits = [0.01, 20.0], flow = "sum", scale = "log"}
+
+[[analysis_Pions.plot]]
+label = "True visible energy (induction-2 plane)"
+product = "trueVisEnergyInduction2"
+binning = {bins = 20, limits = [0.01, 20.0], flow = "sum", scale = "log"}
+
+[[analysis_Pions.plot]]
+label = "True visible energy (collection plane)"
+product = "trueVisEnergyCollection"
+binning = {bins = 20, limits = [0.01, 20.0], flow = "sum", scale = "log"}
 
 # --------------------------------------------------------------------
 # =====================================================================
