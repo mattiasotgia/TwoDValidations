@@ -1,0 +1,54 @@
+#pragma once
+
+#include <string>
+#include <vector>
+
+namespace data
+{
+    std::vector<std::string> fileMuonHiE = {
+        "/exp/icarus/data/users/msotgia/twoDValidations/singleProd/muons1.5GeVOnly/prod_muon_1.5GeV_isotropic_icarus_active_gen_G4_DetSimWithYZ_allSimChannels.root"
+    };
+
+    std::vector<std::string> filesBeam = {
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuMu/out/03/1b/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_numu_v10_06_00_07_detsim_82521154_0-7dc674d4-9945-42fc-a0a8-85a2506b3f1d.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuMu/out/14/77/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_numu_v10_06_00_07_detsim_82521153_0-3ca2ab5c-37d8-4932-ac3d-444278d628b1.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuMu/out/17/a1/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_numu_v10_06_00_07_detsim_82521155_0-c0dda8a1-300c-4af4-924f-8962fa6d76cd.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuMu/out/1d/82/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_numu_v10_06_00_07_detsim_82521158_0-6c227ad2-c827-4b24-a266-618d0c77331a.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuMu/out/2a/9b/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_numu_v10_06_00_07_detsim_82521168_0-25c87a40-d1b4-448a-ba22-67c7a9025730.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuMu/out/3b/d6/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_numu_v10_06_00_07_detsim_82521157_0-ee371ab9-1444-4502-b423-e26590d4eab6.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuMu/out/45/13/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_numu_v10_06_00_07_detsim_82521164_0-1628af60-a885-4f23-86b1-3eaf129be537.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuMu/out/69/3c/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_numu_v10_06_00_07_detsim_82521171_0-331968e5-e67f-41b3-9e42-6a23dfdb0036.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuMu/out/69/6d/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_numu_v10_06_00_07_detsim_82521163_0-9d8cead7-652e-4072-a5ed-67f84c700b91.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuMu/out/7d/f0/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_numu_v10_06_00_07_detsim_82521166_0-8f74a3ba-5d79-413c-a62c-5025eaaecafa.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuMu/out/7f/2c/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_numu_v10_06_00_07_detsim_82521165_0-db279e4d-dc80-4353-b087-a91958d0f29f.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuMu/out/86/62/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_numu_v10_06_00_07_detsim_82521160_0-8ca2bb15-d3f5-4005-af11-61bec5debfbf.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuMu/out/89/ae/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_numu_v10_06_00_07_detsim_82521161_0-cadcb1f1-5f87-4f76-b232-269c1ba218ca.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuMu/out/aa/88/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_numu_v10_06_00_07_detsim_82521167_0-30c66bdb-e258-4d34-98c6-949983405060.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuMu/out/b1/76/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_numu_v10_06_00_07_detsim_82521169_0-a2b84c3a-8236-492e-936c-ef940c5f0d73.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuMu/out/b4/14/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_numu_v10_06_00_07_detsim_82521162_0-db15f97d-d323-4442-b74d-ccced9d614d4.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuMu/out/b8/4d/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_numu_v10_06_00_07_detsim_82521170_0-727c5852-515e-4a9a-a817-3c14e3be2e77.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuMu/out/c5/e0/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_numu_v10_06_00_07_detsim_82521159_0-ec741d24-56eb-4259-a889-b16ab6b9b4af.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuMu/out/ca/c6/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_numu_v10_06_00_07_detsim_82521172_0-9fad55f0-4ba4-4774-9c7f-02cb4c9e05eb.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuMu/out/cf/aa/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_numu_v10_06_00_07_detsim_82521156_0-55ae27b2-df2d-4cb7-b008-e81e2f81dcea.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuE/out/08/b3/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_nue_v10_06_00_07_detsim_82521137_0-e5407e04-28ce-4be2-ad9b-23d00b3c23b9.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuE/out/1b/21/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_nue_v10_06_00_07_detsim_82521144_0-47ee9e74-09e2-4a11-8ce6-922544353078.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuE/out/1d/11/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_nue_v10_06_00_07_detsim_82521134_0-9341304d-c74a-404b-809b-5d2e2c5a1e92.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuE/out/27/e0/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_nue_v10_06_00_07_detsim_82521147_0-e18f8888-633e-4320-a1c1-171e302bb9f0.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuE/out/39/5f/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_nue_v10_06_00_07_detsim_82521148_0-d8a5b591-0da2-43d8-b463-a4e53e53a761.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuE/out/3d/9f/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_nue_v10_06_00_07_detsim_82521135_0-8c2ae639-e4df-4d8b-9180-64cad0ae659a.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuE/out/5c/b0/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_nue_v10_06_00_07_detsim_82521146_0-80edb537-2349-4244-904e-d4d8fe0a8c90.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuE/out/6c/74/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_nue_v10_06_00_07_detsim_82521151_0-86ddf3e3-0932-4d79-aeb9-3608b7f38099.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuE/out/76/96/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_nue_v10_06_00_07_detsim_82521152_0-4f64efb1-fb43-4476-bd2b-48a69bc3599c.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuE/out/7e/14/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_nue_v10_06_00_07_detsim_82521145_0-158dc415-6f76-4497-a73d-8b17f1d5e7c1.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuE/out/86/5c/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_nue_v10_06_00_07_detsim_82521149_0-303b770d-e2f6-4a8f-904c-7a9f1b218c52.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuE/out/90/68/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_nue_v10_06_00_07_detsim_82521140_0-a2a964ba-83d7-4a5e-9a1d-8d18cd246456.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuE/out/a7/3b/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_nue_v10_06_00_07_detsim_82521141_0-d085f4e6-4c09-4d9c-bb6a-38d5aae0e3dd.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuE/out/b5/fc/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_nue_v10_06_00_07_detsim_82521142_0-4d1c4d6b-3a95-489d-9205-095d9a6146c2.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuE/out/c1/70/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_nue_v10_06_00_07_detsim_82521143_0-01288ba9-6a79-40fd-8d81-4158b5b5fc23.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuE/out/c9/5c/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_nue_v10_06_00_07_detsim_82521150_0-680047ee-ed8b-416e-9a7f-996f58eb5f57.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuE/out/d6/f9/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_nue_v10_06_00_07_detsim_82521133_0-5c44673f-8347-4d9e-8232-b816c2a1c86c.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuE/out/d7/f2/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_nue_v10_06_00_07_detsim_82521138_0-7f95354a-cc3f-468a-bebd-fc07656d64b5.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuE/out/da/81/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_nue_v10_06_00_07_detsim_82521139_0-5160fd12-38f9-4f6e-ba7f-d1fca3288403.root",
+        "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuE/out/fc/37/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_nue_v10_06_00_07_detsim_82521136_0-76a10fa2-69d7-44c8-9640-b18ff1ce19e7.root",
+    };
+}
