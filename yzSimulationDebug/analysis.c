@@ -24,7 +24,7 @@
 
 void analysis () 
 {
-    std::unique_ptr<TFile> writer(new TFile("yzSimulationDebugWriterBeamDataByTPC.root", "RECREATE"));
+    std::unique_ptr<TFile> writer(new TFile("yz_simulation_debug_muondata_addedEnergyHist.root", "RECREATE"));
     
     for (int scPass=0; scPass<360; scPass++)
     {
@@ -35,7 +35,7 @@ void analysis ()
 
         ana::YZHist simChannelHist(simChannelLabel);
 
-        for (gallery::Event event(data::filesBeam); !event.atEnd(); event.next())
+        for (gallery::Event event(data::fileMuonHiE); !event.atEnd(); event.next())
         {
             auto const& eventAuxiliary = event.eventAuxiliary();
             std::cout << "\tLooking at event " << eventAuxiliary.event() << "\r" << std::flush;
@@ -57,7 +57,7 @@ void analysis ()
                     {
                         for (auto const& ide: ides)
                         {
-                            simChannelHist.fill(ide.y, ide.z, ide.numElectrons, simWire.Channel());
+                            simChannelHist.fill(ide.y, ide.z, ide.numElectrons, ide.energy, simWire.Channel());
                         }
                     }
                 }
