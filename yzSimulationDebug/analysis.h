@@ -10,7 +10,7 @@
 
 #define PRESAMPLING 846
 #define TICKS 4096
-#define WIRES  53248
+#define WIRES  55295
 
 namespace ana
 {
