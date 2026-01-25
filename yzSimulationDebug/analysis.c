@@ -22,20 +22,66 @@
 #include "files.h"
 #include "analysis.h"
 
-void analysis () 
+
+void runner (data::Events, data::simChannelLabels, data::writerFileName, ana::Binning bins);
+
+void analysis ()
 {
-    std::unique_ptr<TFile> writer(new TFile("yz_simulation_debug_muondata_addedEnergyHist.root", "RECREATE"));
-    
-    for (int scPass=0; scPass<360; scPass++)
+    data::simChannelLabels simChnlPasses;
+
+    for (int i=0; i<360; i++)
     {
-        
-        std::string simChannelLabel{Form("daq:simpleSC%d", scPass)};
-        std::cout << "Looking at SimChannel " << scPass 
-                  << " with label " << simChannelLabel << std::endl;
+        simChnlPasses.push_back(Form("daq:simpleSC%d", i));
+    }
 
-        ana::YZHist simChannelHist(simChannelLabel);
+    runner (data::fileMuonHiENoYZProdV,   {"daq:simpleSC"}, 
+        "plots_muondata_v10_06_00_04p04_production/yz_simulation_debug_beamdata_addedEnergyHist_no_yz_productionVersion.root", ana::Binning(250, 0, 2.5));
+    runner (data::fileMuonHiEWithYZProdV, {"merge"}, 
+        "plots_muondata_v10_06_00_04p04_production/yz_simulation_debug_beamdata_addedEnergyHist_with_yz_productionVersion.root", ana::Binning(250, 0, 2.5));
+    
+    runner (data::fileMuonHiE, simChnlPasses, 
+        "plots_muondata_v10_07_xx_develop/yz_simulation_debug_muondata_addedEnergyHist.root", ana::Binning(2000, 0, 20));
+    runner (data::fileMuonHiE, {"merge"}, 
+        "plots_muondata_v10_07_xx_develop/yz_simulation_debug_muondata_addedEnergyHist_merge.root", ana::Binning(2000, 0, 20));
+    runner (data::fileMuonHiENoYZ, {"daq:simpleSC"}, 
+        "plots_muondata_v10_07_xx_develop/yz_simulation_debug_muondata_addedEnergyHist_noYZ.root", ana::Binning(250, 0, 2.5));
+}
 
-        for (gallery::Event event(data::fileMuonHiE); !event.atEnd(); event.next())
+void runner (data::Events whichEvents, data::simChannelLabels labels, data::writerFileName name, ana::Binning bins) 
+{
+
+    std::cout << "##################################################" << std::endl;
+    std::cout << "## Processing runner() with options" << std::endl;
+    std::cout << "##  data::Events whichEvents hase size " << whichEvents.size() << std::endl;
+    std::cout << "##  data::simChannelLabels labels = {" << std::flush;
+    for (int d = 0; d < std::min(2, (int)labels.size()); d++) 
+    {
+        std::cout << labels[d] << ", " << std::flush;
+    }
+    if (labels.size() > 1)
+    {
+        std::cout << "... }" << std::endl;
+    }
+    else
+    {
+        std::cout << "}" << std::endl; 
+    }
+    std::cout << "##  data::writerFileName name = " << name << std::endl;
+    std::cout << "##################################################" << std::endl;
+
+
+
+    std::unique_ptr<TFile> writer(new TFile(name.c_str(), "RECREATE"));
+    
+    for (auto const& simChannelLabel: labels)
+    {
+    
+        std::cout << "Looking at SimChannel with label "
+                  << simChannelLabel << std::endl;
+
+        ana::YZHist simChannelHist(simChannelLabel, bins);
+
+        for (gallery::Event event(whichEvents); !event.atEnd(); event.next())
         {
             auto const& eventAuxiliary = event.eventAuxiliary();
             std::cout << "\tLooking at event " << eventAuxiliary.event() << "\r" << std::flush;

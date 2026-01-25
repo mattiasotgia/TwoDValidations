@@ -14,10 +14,18 @@
 
 namespace ana
 {
+
+    struct Binning {
+        Binning(int nBins, double minEnergy, double maxEnergy): 
+            nBins(nBins), minEnergy(minEnergy), maxEnergy(maxEnergy) {};
+        int nBins;
+        double minEnergy, maxEnergy;
+    };
+
     class YZHist
     {
     public:
-        YZHist(std::string simChannel);
+        YZHist(std::string simChannel, Binning);
         YZHist(const YZHist&) = delete;
 
         void fill(double __y, double __z, double __charge, double __energy, int __channel);
@@ -42,7 +50,7 @@ namespace ana
     };
 }
 
-ana::YZHist::YZHist(std::string simChannel)
+ana::YZHist::YZHist(std::string simChannel, Binning binning = Binning(1000, 0, 20))
 {
 
     int yBins{105}; // One bin is ~3 cm 
@@ -51,7 +59,8 @@ ana::YZHist::YZHist(std::string simChannel)
     double yMin{-181.86}, yMax{134.96}; // TPC size
     double zMin{-894.951}, zMax{894.951};  // TPC size
 
-    double nBins{10}, minEnergy{0}, maxEnergy{0}; // Energy are in MeV
+    int nBins{binning.nBins};
+    double minEnergy{binning.minEnergy}, maxEnergy{binning.maxEnergy}; // Energy are in MeV
 
     m_EE_ind1 = std::make_unique<TH2D>("EE_I1", "", zBins, zMin, zMax, yBins, yMin, yMax);
     m_EE_ind2 = std::make_unique<TH2D>("EE_I2", "", zBins, zMin, zMax, yBins, yMin, yMax);
