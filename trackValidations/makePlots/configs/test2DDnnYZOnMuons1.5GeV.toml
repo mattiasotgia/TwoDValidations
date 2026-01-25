@@ -17,8 +17,11 @@ merge_on = "Evt"
 #     {name = "filter_on", on = "trueEnergy", label = "True energy:GeV", min = 1.0}
 # ]
 filter = [
-    {name = "energy_completeness", product = "energyCompletenessWithVisE", definition = ["energyMatch", "trueVisEnergy"]},
-    {name = "energy_completeness", product = "energyCompletenessAllMatchesWithVisE", definition = ["energyAllMatches", "trueVisEnergy"]},
+    {name = "ratio", product = "energyCompletenessWithVisE", elements = ["energyMatch", "trueVisEnergy"]},
+    {name = "ratio", product = "energyCompletenessAllMatchesWithVisE", elements = ["energyAllMatches", "trueVisEnergy"]},
+    {name = "ratio", product = "ratioVisECollectionTrueE", elements = ["trueVisEnergyCollection", "trueEnergy"]},
+    {name = "ratio", product = "ratioVisEInduction1TrueE", elements = ["trueVisEnergyInduction1", "trueEnergy"]},
+    {name = "ratio", product = "ratioVisEInduction2TrueE", elements = ["trueVisEnergyInduction2", "trueEnergy"]},
 ]
 analysis_supplementaltext = "icaruscode_v10_06_00_07_develop"
 
@@ -177,3 +180,35 @@ binning = {bins = 7, limits = [-0.5, 6.5]}
 label = "Number of PFP best-match'd with MC particle"
 product = "nBestMatches"
 binning = {bins = 7, limits = [-0.5, 6.5]}
+
+# [[analysis_Muons.plot]]
+# label = "$E_\\mathrm{vis}/E_\\mathrm{true}$ (collection plane)"
+# product = "ratioVisECollectionTrueE"
+# binning = {bins = 25, limits = [0.5, 1.25], flow = "sum"} #, scale = "log"}
+
+# [[analysis_Muons.plot]]
+# label = "$E_\\mathrm{vis}/E_\\mathrm{true}$ (induction-1 plane)"
+# product = "ratioVisEInduction1TrueE"
+# binning = {bins = 25, limits = [0.5, 1.25], flow = "sum"} #, scale = "log"}
+
+# [[analysis_Muons.plot]]
+# label = "$E_\\mathrm{vis}/E_\\mathrm{true}$ (induction-2 plane)"
+# product = "ratioVisEInduction2TrueE"
+# binning = {bins = 25, limits = [0.5, 1.25], flow = "sum"} #, scale = "log"}
+
+[[analysis_Muons.plot]]
+label = "$E_\\mathrm{vis}/E_\\mathrm{true}$ (collection plane)"
+product = "ratioVisECollectionTrueE"
+binning = {bins = 25, limits = [15, 20], flow = "sum"} #, scale = "log"}
+
+[[analysis_Muons.plot]]
+label = "$E_\\mathrm{vis}/E_\\mathrm{true}$ (induction-1 plane)"
+product = "ratioVisEInduction1TrueE"
+binning = {bins = 25, limits = [15, 20], flow = "sum"} #, scale = "log"}
+
+[[analysis_Muons.plot]]
+label = "$E_\\mathrm{vis}/E_\\mathrm{true}$ (induction-2 plane)"
+product = "ratioVisEInduction2TrueE"
+binning = {bins = 25, limits = [15, 20], flow = "sum"} #, scale = "log"}
+
+

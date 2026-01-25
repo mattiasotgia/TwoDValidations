@@ -3,10 +3,8 @@
 [global]
 project = "twoDValidations"
 project_name = "ICARUS BNB MC" # toadd
-# file = "/Users/msotgia/dev_areas/twoDValidationsStudies/trackValidations/writerTwoDValidationsRedoCorrectBestmatch.root"
 file = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/writerTwoDValidationsRedoCorrectBestmatch.root"
-outdir = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/plotStuff/samplePlots/configurationSingles1D/"
-# outdir = "/Users/msotgia/dev_areas/twoDValidationsStudies/trackValidations/makePlots/configurationSingles1D/"
+outdir = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/makePlots/configurationSingles1D/"
 fontsize = 17
 labelfontsize = 28
 
@@ -18,6 +16,7 @@ labelfontsize = 28
 merge_on = "Evt"
 # density = true
 # figsize = [5.0, 3.5]
+analysis_supplementaltext = "icaruscode_v10_06_00_07_develop"
 
 # --------------------------------------------------------------------
 
@@ -25,6 +24,7 @@ merge_on = "Evt"
 merge_on = "Evt"
 # density = true
 # figsize = [5.0, 3.5]
+analysis_supplementaltext = "icaruscode_v10_06_00_07_develop"
 
 # --------------------------------------------------------------------
 
@@ -32,6 +32,7 @@ merge_on = "Evt"
 merge_on = "Evt"
 # density = true
 # figsize = [5.0, 3.5]
+analysis_supplementaltext = "icaruscode_v10_06_00_07_develop"
 
 # --------------------------------------------------------------------
 # =====================================================================
