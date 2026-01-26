@@ -25,6 +25,14 @@ namespace data
         "/exp/icarus/data/users/msotgia/twoDValidations/singleProd/muons1.5GeVOnly/prod_muon_1.5GeV_isotropic_icarus_active_gen_G4_DetSimWithYZ_v10_06_00_04p04.root"
     };
 
+    Events fileMuonHiENoYZV10_06_00_06p03 = {
+        "/exp/icarus/data/users/msotgia/twoDValidations/singleProd/muons1.5GeVOnly/prod_muon_1.5GeV_isotropic_icarus_active_gen_G4_DetSimNoYZ_v10_06_00_06p03.root"
+    };
+
+    Events fileMuonHiEWithYZV10_06_00_06p03 = {
+        "/exp/icarus/data/users/msotgia/twoDValidations/singleProd/muons1.5GeVOnly/prod_muon_1.5GeV_isotropic_icarus_active_gen_G4_DetSimWithYZ_v10_06_00_06p03.root"
+    };
+
     Events filesBeam = {
         "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuMu/out/03/1b/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_numu_v10_06_00_07_detsim_82521154_0-7dc674d4-9945-42fc-a0a8-85a2506b3f1d.root",
         "/pnfs/icarus/scratch/users/msotgia/twoDValidations/v10_06_00_07_develop/BNB/DetsimWithYZ/RerunAllSimChannels/NuMu/out/14/77/msotgia_v10_06_00_07_BNB_detsimyzsim_allSimChannels_numu_v10_06_00_07_detsim_82521153_0-3ca2ab5c-37d8-4932-ac3d-444278d628b1.root",

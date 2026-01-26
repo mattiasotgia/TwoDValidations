@@ -45,6 +45,11 @@ void analysis ()
         "plots_muondata_v10_07_xx_develop/yz_simulation_debug_muondata_addedEnergyHist_merge.root", ana::Binning(2000, 0, 20));
     runner (data::fileMuonHiENoYZ, {"daq:simpleSC"}, 
         "plots_muondata_v10_07_xx_develop/yz_simulation_debug_muondata_addedEnergyHist_noYZ.root", ana::Binning(250, 0, 2.5));
+
+    runner (data::fileMuonHiENoYZV10_06_00_06p03, {"daq:simpleSC"},
+        "plots_muondata_v10_06_00_06p03/yz_simulation_debug_muondata_addedEnergyHist_no_yz_v10_06_00_06p03.root", ana::Binning(250, 0, 2.5));
+    runner (data::fileMuonHiEWithYZV10_06_00_06p03, {"merge"},
+        "plots_muondata_v10_06_00_06p03/yz_simulation_debug_muondata_addedEnergyHist_with_yz_v10_06_00_06p03.root", ana::Binning(250, 0, 2.5));
 }
 
 void runner (data::Events whichEvents, data::simChannelLabels labels, data::writerFileName name, ana::Binning bins) 
