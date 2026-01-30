@@ -10,7 +10,8 @@
 
 void muonTestingYZSim ()     
 {
-    std::unique_ptr<TFile> writer(new TFile("writerMuonTestingYZSim.root", "RECREATE"));
+    // std::unique_ptr<TFile> writer(new TFile("writerMuonTestingYZSim.root", "RECREATE"));
+    std::unique_ptr<TFile> writer(new TFile("writerMuonTestingProductionRelease.root", "RECREATE"));
 
     std::map<track::particle_t, std::unique_ptr<analysis::Analysis<ana::SpillMultiVar>>> analyses;
     analyses.emplace(MUON,   std::make_unique<analysis::Analysis<ana::SpillMultiVar>>("Muons")   );
@@ -61,11 +62,30 @@ void muonTestingYZSim ()
         singleAnalysis->AddVariable("nHitsTrue",                    track::get<double>("nHitsTrue",                     particle));
         singleAnalysis->AddVariable("nHitsReco",                    track::get<double>("nHitsReco",                     particle));
         
-        singleAnalysis->AddDataset("/exp/icarus/data/users/msotgia/twoDValidations/singleProd/muons1.5GeVOnly/prod_muon_1.5GeV_isotropic_icarus_active_gen_G4_DetSimNoYZ_MCStage0_MCStage1.flat.caf.root",   "testNotYZ");
-        singleAnalysis->AddDataset("/exp/icarus/data/users/msotgia/twoDValidations/singleProd/muons1.5GeVOnly/prod_muon_1.5GeV_isotropic_icarus_active_gen_G4_DetSimWithYZ_MCStage0_MCStage1.flat.caf.root",   "testWithYZ");
+        // singleAnalysis->AddDataset("/exp/icarus/data/users/msotgia/twoDValidations/singleProd/muons1.5GeVOnly/prod_muon_1.5GeV_isotropic_icarus_active_gen_G4_DetSimNoYZ_MCStage0_MCStage1.flat.caf.root",   "testNotYZ");
+        // singleAnalysis->AddDataset("/exp/icarus/data/users/msotgia/twoDValidations/singleProd/muons1.5GeVOnly/prod_muon_1.5GeV_isotropic_icarus_active_gen_G4_DetSimWithYZ_MCStage0_MCStage1.flat.caf.root",   "testWithYZ");
 
-        singleAnalysis->AddDataset("/exp/icarus/data/users/msotgia/twoDValidations/singleProd/muons1.5GeVOnly/1dDeconv/prod_muon_1.5GeV_isotropic_icarus_active_gen_G4_DetSimNoYZ_MCStage0_MCStage1.flat.caf.root",   "testOneDDeconvNotYZ");
-        singleAnalysis->AddDataset("/exp/icarus/data/users/msotgia/twoDValidations/singleProd/muons1.5GeVOnly/1dDeconv/prod_muon_1.5GeV_isotropic_icarus_active_gen_G4_DetSimWithYZ_MCStage0_MCStage1.flat.caf.root",   "testOneDDeconvWithYZ");
+        // singleAnalysis->AddDataset("/exp/icarus/data/users/msotgia/twoDValidations/singleProd/muons1.5GeVOnly/1dDeconv/prod_muon_1.5GeV_isotropic_icarus_active_gen_G4_DetSimNoYZ_MCStage0_MCStage1.flat.caf.root",   "testOneDDeconvNotYZ");
+        // singleAnalysis->AddDataset("/exp/icarus/data/users/msotgia/twoDValidations/singleProd/muons1.5GeVOnly/1dDeconv/prod_muon_1.5GeV_isotropic_icarus_active_gen_G4_DetSimWithYZ_MCStage0_MCStage1.flat.caf.root",   "testOneDDeconvWithYZ");
+
+        singleAnalysis->AddDataset(
+            "/exp/icarus/data/users/msotgia/twoDValidations/singleProd/muons1.5GeVOnly/test_yz_toCaf/stage1/without_yz_1d_stage1.flat.caf.root", "without_yz_1d_stage1");
+        singleAnalysis->AddDataset(
+            "/exp/icarus/data/users/msotgia/twoDValidations/singleProd/muons1.5GeVOnly/test_yz_toCaf/stage1/without_yz_2d_stage1.flat.caf.root", "without_yz_2d_stage1");
+        singleAnalysis->AddDataset(
+            "/exp/icarus/data/users/msotgia/twoDValidations/singleProd/muons1.5GeVOnly/test_yz_toCaf/stage1/without_yz_2ddnn_pt10_stage1.flat.caf.root", "without_yz_2ddnn_pt10_stage1");
+        singleAnalysis->AddDataset(
+            "/exp/icarus/data/users/msotgia/twoDValidations/singleProd/muons1.5GeVOnly/test_yz_toCaf/stage1/without_yz_2ddnn_stage1.flat.caf.root", "without_yz_2ddnn_stage1");
+
+
+        singleAnalysis->AddDataset(
+            "/exp/icarus/data/users/msotgia/twoDValidations/singleProd/muons1.5GeVOnly/test_yz_toCaf/stage1/with_yz_1d_stage1.flat.caf.root", "with_yz_1d_stage1");
+        singleAnalysis->AddDataset(
+            "/exp/icarus/data/users/msotgia/twoDValidations/singleProd/muons1.5GeVOnly/test_yz_toCaf/stage1/with_yz_2d_stage1.flat.caf.root", "with_yz_2d_stage1");
+        singleAnalysis->AddDataset(
+            "/exp/icarus/data/users/msotgia/twoDValidations/singleProd/muons1.5GeVOnly/test_yz_toCaf/stage1/with_yz_2ddnn_pt10_stage1.flat.caf.root", "with_yz_2ddnn_pt10_stage1");
+        singleAnalysis->AddDataset(
+            "/exp/icarus/data/users/msotgia/twoDValidations/singleProd/muons1.5GeVOnly/test_yz_toCaf/stage1/with_yz_2ddnn_stage1.flat.caf.root", "with_yz_2ddnn_stage1");
 
         // singleAnalysis->RunOnly({"testNotYZ"});
         singleAnalysis->Go();

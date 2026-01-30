@@ -1,0 +1,222 @@
+
+[global]
+project = "test2DDnnYZOnMuons1.5GeVProdRelease"
+project_name = "ICARUS $\\mu$@1.5 GeV" # toadd
+project_label = "Test sample"
+file = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/writerMuonTestingProductionRelease.root"
+outdir = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/makePlots/testYZVsNoYZ/testProdRelease/v10_06_00_06p03/testMuons1.5GeV/"
+fontsize = 13
+labelfontsize = 28
+# file_dpi = 50
+
+[analysis_Muons]
+merge_on = "Evt"
+# filter = [
+#     {name = "filter_on", on = "completeness", label = "Hit completeness", min = 0.95},
+#     {name = "filter_on", on = "purity", label = "Hit purity", min = 0.95},
+#     {name = "filter_on", on = "trueEnergy", label = "True energy:GeV", min = 1.0}
+# ]
+filter = [
+    {name = "ratio", product = "energyCompletenessWithVisE", elements = ["energyMatch", "trueVisEnergy"]},
+    {name = "ratio", product = "energyCompletenessAllMatchesWithVisE", elements = ["energyAllMatches", "trueVisEnergy"]},
+    {name = "ratio", product = "ratioVisECollectionTrueE", elements = ["trueVisEnergyCollection", "trueEnergy"]},
+    {name = "ratio", product = "ratioVisEInduction1TrueE", elements = ["trueVisEnergyInduction1", "trueEnergy"]},
+    {name = "ratio", product = "ratioVisEInduction2TrueE", elements = ["trueVisEnergyInduction2", "trueEnergy"]},
+]
+analysis_supplementaltext = "icaruscode_v10_06_00_06p03"
+
+[[analysis_Muons.dataset]]
+name = "Muons/Dwithout_yz_1d_stage1/without_yz_1d_stage1"
+label = "1D w/o YZ sim."
+style = "style_1d"
+
+[[analysis_Muons.dataset]]
+name = "Muons/Dwithout_yz_2d_stage1/without_yz_2d_stage1"
+label = "2D w/o YZ sim."
+style = "style_2d"
+
+[[analysis_Muons.dataset]]
+name = "Muons/Dwithout_yz_2ddnn_stage1/without_yz_2ddnn_stage1"
+label = "2D + DNNROI w/o YZ sim."
+style = "style_2ddnn"
+
+[[analysis_Muons.dataset]]
+name = "Muons/Dwithout_yz_2ddnn_pt10_stage1/without_yz_2ddnn_pt10_stage1"
+label = "2D + DNNROI (PT = 10) w/o YZ sim."
+style = "style_2ddnn_pt10"
+
+[[analysis_Muons.dataset]]
+name = "Muons/Dwith_yz_2ddnn_pt10_stage1/with_yz_2ddnn_pt10_stage1"
+label = "2D + DNNROI (PT = 10) w/ YZ sim."
+style = "style_yz_2ddnn_pt10"
+
+[[analysis_Muons.dataset]]
+name = "Muons/Dwith_yz_2ddnn_stage1/with_yz_2ddnn_stage1"
+label = "2D + DNNROI w/ YZ sim."
+style = "style_yz_2ddnn"
+
+[[analysis_Muons.dataset]]
+name = "Muons/Dwith_yz_2d_stage1/with_yz_2d_stage1"
+label = "2D w/ YZ sim."
+style = "style_yz_2d"
+
+[[analysis_Muons.dataset]]
+name = "Muons/Dwith_yz_1d_stage1/with_yz_1d_stage1"
+label = "1D w/ YZ sim."
+style = "style_yz_1d"
+
+## Plots
+
+[[analysis_Muons.plot]]
+label = "Hit completeness"
+product = "completeness"
+# yscale = "log"
+showmedian = ".1%"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "Hit purity"
+product = "purity"
+# yscale = "log"
+showmedian = ".1%"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "Best-match energy completeness"
+product = "energyCompleteness"
+# yscale = "log"
+showmedian = ".1%"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "\"All matches\" energy completeness\n$(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{dep}$"
+product = "energyCompletenessAllMatches"
+# yscale = "log"
+showmedian = ".1%"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "Best-match energy completeness $E_\\mathrm{bestmatch} / E_\\mathrm{vis}$"
+product = "energyCompletenessWithVisE"
+# yscale = "log"
+showmedian = ".1%"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "\"All matches\" energy completeness\n$(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{vis}$"
+product = "energyCompletenessAllMatchesWithVisE"
+# yscale = "log"
+showmedian = ".1%"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "Match energy"
+product = "energyMatch"
+showmedian = ".1f"
+binning = {bins = 20, limits = [0.0, 2.5], flow = "sum", unit = "GeV"}
+
+[[analysis_Muons.plot]]
+label = "All matches energy"
+product = "energyAllMatches"
+showmedian = ".1f"
+binning = {bins = 20, limits = [0.0, 2.5], flow = "sum", unit = "GeV"}
+
+[[analysis_Muons.plot]]
+label = "True energy"
+product = "trueEnergy"
+binning = {bins = 20, limits = [0.0, 2.5], flow = "sum", unit = "GeV"}
+
+[[analysis_Muons.plot]]
+label = "True visible energy (collection plane)"
+product = "trueVisEnergy"
+binning = {bins = 20, limits = [0.0, 2.5], flow = "sum", unit = "GeV"}
+
+[[analysis_Muons.plot]]
+label = "True visible energy (collection plane)"
+product = "trueVisEnergyCollection"
+binning = {bins = 20, limits = [0.0, 2.5], flow = "sum", unit = "GeV"}
+
+[[analysis_Muons.plot]]
+label = "True visible energy (induction-1 plane)"
+product = "trueVisEnergyInduction1"
+binning = {bins = 20, limits = [0.0, 2.5], flow = "sum", unit = "GeV"}
+
+[[analysis_Muons.plot]]
+label = "True visible energy (induction-2 plane)"
+product = "trueVisEnergyInduction2"
+binning = {bins = 20, limits = [0.0, 2.5], flow = "sum", unit = "GeV"}
+
+[[analysis_Muons.plot]]
+label = "Number of PFP match'd with MC particle"
+product = "nMatches"
+binning = {bins = 7, limits = [-0.5, 6.5]}
+
+[[analysis_Muons.plot]]
+label = "Number of PFP best-match'd with MC particle"
+product = "nBestMatches"
+binning = {bins = 7, limits = [-0.5, 6.5]}
+
+[[analysis_Muons.plot]]
+label = "$E_\\mathrm{vis}/E_\\mathrm{true}$ (collection plane)"
+product = "ratioVisECollectionTrueE"
+binning = {bins = 25, limits = [0, 1], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "$E_\\mathrm{vis}/E_\\mathrm{true}$ (induction-1 plane)"
+product = "ratioVisEInduction1TrueE"
+binning = {bins = 25, limits = [0, 1], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "$E_\\mathrm{vis}/E_\\mathrm{true}$ (induction-2 plane)"
+product = "ratioVisEInduction2TrueE"
+binning = {bins = 25, limits = [0, 1], flow = "sum"}
+
+
+# STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES
+# S STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYL
+# ES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STY
+# LES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES ST
+# YLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES S
+# TYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES 
+# STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES
+
+
+[style_yz_1d]
+color = "C0"
+lw = 1
+yerr = false
+
+[style_yz_2d]
+color = "C1"
+lw = 3
+yerr = false
+
+[style_yz_2ddnn]
+color = "C2"
+lw = 6
+yerr = false
+
+[style_yz_2ddnn_pt10]
+color = "C3"
+lw = 9
+yerr = false
+
+[style_1d]
+histtype = "fill"
+color = "C0"
+alpha = 0.25
+
+[style_2d]
+histtype = "fill"
+color = "C1"
+alpha = 0.25
+
+[style_2ddnn]
+histtype = "fill"
+color = "C2"
+alpha = 0.25
+
+[style_2ddnn_pt10]
+histtype = "fill"
+color = "C3"
+alpha = 0.25

@@ -5,7 +5,7 @@ project_name = "ICARUS BNB MC" # toadd
 # file = "/Users/msotgia/dev_areas/twoDValidationsStudies/trackValidations/writerTwoDValidationsRedoCorrectBestmatch.root"
 # outdir = "/Users/msotgia/dev_areas/twoDValidationsStudies/trackValidations/makePlots/testYZVsNoYZ/TestVisEnergy/"
 file = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/writerTwoDValidationsRedoCorrectBestmatch.root"
-outdir = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/makePlots/testYZVsNoYZ/TestVisEnergy/"
+outdir = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/makePlots/testYZVsNoYZForInfrastructure/"
 fontsize = 17
 labelfontsize = 28
 
@@ -17,35 +17,15 @@ filter = [
     # {name = "filter_on", on = "trueEnergy", label = "True energy:GeV", min = 1.0}
 ]
 
-# [analysis_Protons]
-# merge_on = "Evt"
-# filter = [
-#     {name = "filter_on", on = "completeness", label = "Hit completeness", min = 0.95},
-#     {name = "filter_on", on = "purity", label = "Hit purity", min = 0.95},
-#     {name = "filter_on", on = "trueEnergy", label = "True energy:GeV", min = 1.0}
-# ]
-
 [[analysis_Muons.dataset]]
 name = "Muons/DconfigD/configD"
 label = "2D + DNNROI w/ PT = 10 \nNo YZ Sim."
 style = "style_noyz"
 
-
 [[analysis_Muons.dataset]]
 name = "Muons/DconfigDWithYZSim/configDWithYZSim"
 label = "2D + DNNROI w/ PT = 10 \nWith YZ Sim."
 style = "style_yz"
-
-# [[analysis_Protons.dataset]]
-# name = "Protons/DconfigD/configD"
-# label = "2D + DNNROI w/ PT = 10 \nNo YZ Sim."
-# style = "style_noyz"
-
-# [[analysis_Protons.dataset]]
-# name = "Protons/DconfigDWithYZSim/configDWithYZSim"
-# label = "2D + DNNROI w/ PT = 10 \nWith YZ Sim."
-# style = "style_yz"
-
 
 [style_noyz]
 histtype = "step"
@@ -108,68 +88,11 @@ binning = {bins = 40, limits = [0.001, 25.0], flow = "sum", unit = "GeV"}
 label = "True energy"
 product = "trueEnergy"
 # binning = {bins = 40, limits = [0.001, 25.0], flow = "sum", unit = "GeV", scale = "log"}
-binning = {bins = 40, limits = [0.001, 25.0], flow = "sum", unit = "GeV"}
+binning = {bins = 40, limits = [0.001, 2.5], flow = "sum", unit = "GeV"}
 
 [[analysis_Muons.plot]]
 label = "True visible energy (collection plane)"
-product = "trueVisEnergy"
+product = "trueVisEnergyCollection"
 ylabel = "PFPs [#]"
 # yscale = "log"
 binning = {bins = 40, limits = [0, 20], flow = "sum"}
-
-# [[analysis_Protons.plot]]
-# label = "Hit completeness"
-# product = "completeness"
-# # yscale = "log"
-# showmedian = ".1%"
-# ylabel = "PFPs [#]"
-# binning = {bins = 40, limits = [0, 1], flow = "sum"}
-
-# [[analysis_Protons.plot]]
-# label = "Hit purity"
-# product = "purity"
-# # yscale = "log"
-# showmedian = ".1%"
-# ylabel = "PFPs [#]"
-# binning = {bins = 40, limits = [0, 1], flow = "sum"}
-
-# [[analysis_Protons.plot]]
-# label = "Best-match energy completeness"
-# product = "energyCompleteness"
-# yscale = "log"
-# showmedian = ".1%"
-# ylabel = "PFPs [#]"
-# binning = {bins = 40, limits = [0, 8], flow = "sum"}
-
-# [[analysis_Protons.plot]]
-# label = "\"All matches\" energy completeness\n$(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{dep}$"
-# product = "energyCompletenessAllMatches"
-# yscale = "log"
-# showmedian = ".1%"
-# ylabel = "PFPs [#]"
-# binning = {bins = 40, limits = [0, 8], flow = "sum"}
-
-# [[analysis_Protons.plot]]
-# label = "Match energy"
-# product = "energyMatch"
-# showmedian = ".1f"
-# binning = {bins = 40, limits = [0.001, 25.0], flow = "sum", unit = "GeV", scale = "log"}
-
-# [[analysis_Protons.plot]]
-# label = "All matches energy"
-# product = "energyAllMatches"
-# showmedian = ".1f"
-# binning = {bins = 40, limits = [0.001, 25.0], flow = "sum", unit = "GeV", scale = "log"}
-
-# [[analysis_Protons.plot]]
-# label = "True energy"
-# product = "trueEnergy"
-# showmedian = ".1f"
-# binning = {bins = 40, limits = [0.001, 2.5], flow = "sum", unit = "GeV", scale = "log"}
-
-# [[analysis_Protons.plot]]
-# label = "True deposited energy (collection plane)"
-# product = "trueVisEnergy"
-# ylabel = "PFPs [#]"
-# yscale = "log"
-# binning = {bins = 40, limits = [0, 4], flow = "sum"}
