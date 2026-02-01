@@ -48,7 +48,12 @@ namespace analysis
         {
             std::cout << " Dataset to be run: " << std::endl;
             for (auto const& [key, dataset]: __keys)
-                std::cout << " --> " << key << ": \t" << dataset << std::endl;
+            {
+                if (std::find(__loadedDefNames.begin(), __loadedDefNames.end(), key) != __loadedDefNames.end())
+                    std::cout << " --> \e[1;32m" << key << ": \t" << dataset << "\e[0m" << std::endl;
+                else
+                    std::cout << " --> " << key << ": \t" << dataset << " (\e[5;91mdataset not used\e[0m)" << std::endl;
+            }
             std::cout << " Variables: " << std::endl;
             for (auto const& varName: __variablesName)
                 std::cout << " --> " << varName << std::endl;

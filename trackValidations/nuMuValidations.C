@@ -70,14 +70,31 @@ void nuMuValidations ()
         singleAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_yzsim_wc_numu_caf",                    "configBWithYZSim");
         singleAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_yzsim_wcdnn_noPulseTrains_numu_caf",   "configCWithYZSim");
         singleAnalysis->AddDataset("msotgia_v10_06_00_07_BNB_yzsim_wcdnn_pulseTrains_numu_caf",     "configDWithYZSim");
+
+        singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_BNB_1k_numu_yzsim_caf",                         "configAWithYZSimRespun");
+        singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_BNB_wcdnnroi_1k_numu_yzsim_pulseTrains_caf",    "configCWithYZSimRespun");
+        singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_BNB_wcdnnroi_1k_numu_yzsim_noPulseTrains_caf",  "configDWithYZSimRespun");
+        singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_BNB_wcdnnroi_1k_numu_yzsim_pulseTrains_withCluster3D_caf",    "configCWithYZSimWithCluster3D");
+        singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_BNB_wcdnnroi_1k_numu_yzsim_noPulseTrains_withCluster3D_caf",  "configDWithYZSimWithCluster3D");
         
-        singleAnalysis->AddDataset("/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/tmp/testCAFBacktrackerNew/stage0/1d_numu_baseline_redo.flat.caf.root",   "testA");
-        singleAnalysis->AddDataset("/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/tmp/testCAFBacktrackerNew/stage0/2d_numu_nodnn_redo.flat.caf.root",      "testB");
-        singleAnalysis->AddDataset("/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/tmp/testCAFBacktrackerNew/test_standard/stage1_dnn_yzsim.flat.caf.root", "testC");
-        singleAnalysis->AddDataset("/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/tmp/testCAFBacktrackerNew/test_standard/stage1_yzsim.flat.caf.root",     "testD");
+        // singleAnalysis->AddDataset("/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/tmp/testCAFBacktrackerNew/stage0/1d_numu_baseline_redo.flat.caf.root",   "testA");
+        // singleAnalysis->AddDataset("/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/tmp/testCAFBacktrackerNew/stage0/2d_numu_nodnn_redo.flat.caf.root",      "testB");
+        // singleAnalysis->AddDataset("/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/tmp/testCAFBacktrackerNew/test_standard/stage1_dnn_yzsim.flat.caf.root", "testC");
+        // singleAnalysis->AddDataset("/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/tmp/testCAFBacktrackerNew/test_standard/stage1_yzsim.flat.caf.root",     "testD");
 
         // singleAnalysis->RunOnly({"configA"});
-        singleAnalysis->RunOnly({"configA", "configB", "configC", "configD", "configAWithYZSim", "configBWithYZSim", "configCWithYZSim", "configDWithYZSim"});
+        // singleAnalysis->RunOnly({
+        //     "configA", "configB", "configC", "configD",
+        //     "configAWithYZSim", "configBWithYZSim", "configCWithYZSim", "configDWithYZSim"
+        // });
+
+        singleAnalysis->RunOnly({
+            "configA", "configC", "configD", 
+            "configAWithYZSimRespun", 
+            "configCWithYZSimRespun", "configDWithYZSimRespun",
+            "configCWithYZSimWithCluster3D", "configDWithYZSimWithCluster3D",
+        });
+        
         // singleAnalysis->RunOnly({"testA", "testB", "testC", "testD"});
 
         singleAnalysis->Go();
