@@ -24,8 +24,8 @@ filter = [
     {name = "ratio", product = "ratioVisECollectionTrueE", elements = ["trueVisEnergyCollection", "trueEnergy"]},
     {name = "ratio", product = "ratioVisEInduction1TrueE", elements = ["trueVisEnergyInduction1", "trueEnergy"]},
     {name = "ratio", product = "ratioVisEInduction2TrueE", elements = ["trueVisEnergyInduction2", "trueEnergy"]},
-    {name = "filter_on", on = "completeness", label = "Hit completeness", min = 0.6},
-    {name = "filter_on", on = "purity", label = "Hit purity", min = 0.6},
+    {name = "filter_on", on = "completeness", label = "Hit completeness", min = 0.4},
+    {name = "filter_on", on = "purity", label = "Hit purity", min = 0.4},
 ]
 analysis_supplementaltext = "icaruscode_v10_06_00_06p03"
 
@@ -41,8 +41,8 @@ filter = [
     {name = "ratio", product = "ratioVisECollectionTrueE", elements = ["trueVisEnergyCollection", "trueEnergy"]},
     {name = "ratio", product = "ratioVisEInduction1TrueE", elements = ["trueVisEnergyInduction1", "trueEnergy"]},
     {name = "ratio", product = "ratioVisEInduction2TrueE", elements = ["trueVisEnergyInduction2", "trueEnergy"]},
-    {name = "filter_on", on = "completeness", label = "Hit completeness", min = 0.6},
-    {name = "filter_on", on = "purity", label = "Hit purity", min = 0.6},
+    {name = "filter_on", on = "completeness", label = "Hit completeness", min = 0.4},
+    {name = "filter_on", on = "purity", label = "Hit purity", min = 0.4},
 ]
 analysis_supplementaltext = "icaruscode_v10_06_00_06p03"
 
@@ -58,8 +58,8 @@ filter = [
     {name = "ratio", product = "ratioVisECollectionTrueE", elements = ["trueVisEnergyCollection", "trueEnergy"]},
     {name = "ratio", product = "ratioVisEInduction1TrueE", elements = ["trueVisEnergyInduction1", "trueEnergy"]},
     {name = "ratio", product = "ratioVisEInduction2TrueE", elements = ["trueVisEnergyInduction2", "trueEnergy"]},
-    {name = "filter_on", on = "completeness", label = "Hit completeness", min = 0.6},
-    {name = "filter_on", on = "purity", label = "Hit purity", min = 0.6},
+    {name = "filter_on", on = "completeness", label = "Hit completeness", min = 0.4},
+    {name = "filter_on", on = "purity", label = "Hit purity", min = 0.4},
 ]
 analysis_supplementaltext = "icaruscode_v10_06_00_06p03"
 

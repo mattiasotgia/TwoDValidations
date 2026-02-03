@@ -78,6 +78,16 @@ name = "Muons/DconfigAWithYZSimRespun/configAWithYZSimRespun"
 label = "1D w/ YZ"
 style = "style_1d"
 
+[[analysis_Muons.dataset]]
+name = "Muons/DconfigDWithYZSimWithCluster3D/configDWithYZSimWithCluster3D"
+label = "2D+DNNROI (LongMaxHits = 10) w/ YZ\nUsing cluster3D"
+style = "style_dnnpt_cluster3d"
+
+[[analysis_Muons.dataset]]
+name = "Muons/DconfigCWithYZSimWithCluster3D/configCWithYZSimWithCluster3D"
+label = "2D+DNNROI (LongMaxHits = 0) w/ YZ\nUsing cluster3D"
+style = "style_dnn_cluster3d"
+
 # --------------------------------------------------------------------
 
 [[analysis_Protons.dataset]]
@@ -95,6 +105,16 @@ name = "Protons/DconfigAWithYZSimRespun/configAWithYZSimRespun"
 label = "1D w/ YZ"
 style = "style_1d"
 
+[[analysis_Protons.dataset]]
+name = "Protons/DconfigDWithYZSimWithCluster3D/configDWithYZSimWithCluster3D"
+label = "2D+DNNROI (LongMaxHits = 10) w/ YZ\nUsing cluster3D"
+style = "style_dnnpt_cluster3d"
+
+[[analysis_Protons.dataset]]
+name = "Protons/DconfigCWithYZSimWithCluster3D/configCWithYZSimWithCluster3D"
+label = "2D+DNNROI (LongMaxHits = 0) w/ YZ\nUsing cluster3D"
+style = "style_dnn_cluster3d"
+
 # --------------------------------------------------------------------
 
 [[analysis_Pions.dataset]]
@@ -111,6 +131,16 @@ style = "style_dnn"
 name = "Pions/DconfigAWithYZSimRespun/configAWithYZSimRespun"
 label = "1D w/ YZ"
 style = "style_1d"
+
+[[analysis_Pions.dataset]]
+name = "Pions/DconfigDWithYZSimWithCluster3D/configDWithYZSimWithCluster3D"
+label = "2D+DNNROI (LongMaxHits = 10) w/ YZ\nUsing cluster3D"
+style = "style_dnnpt_cluster3d"
+
+[[analysis_Pions.dataset]]
+name = "Pions/DconfigCWithYZSimWithCluster3D/configCWithYZSimWithCluster3D"
+label = "2D+DNNROI (LongMaxHits = 0) w/ YZ\nUsing cluster3D"
+style = "style_dnn_cluster3d"
 
 # --------------------------------------------------------------------
 # =====================================================================
@@ -689,3 +719,23 @@ histtype = "step"
 color = "tab:blue"
 yerr = false
 linewidth = 7
+
+[style_dnn_cluster3d]
+histtype = "errorbar"
+marker = "v"
+mfc = "tab:orange"
+color = "tab:orange"
+mec = "k"
+# yerr = false
+linestyle = ""
+markersize = 8
+
+[style_dnnpt_cluster3d]
+histtype = "errorbar"
+marker = "^"
+mfc = "tab:blue"
+color = "tab:blue"
+mec = "k"
+# yerr = false
+linestyle = ""
+markersize = 8
