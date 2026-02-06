@@ -1,0 +1,312 @@
+
+[global]
+project = "TEST__allParticle_prodRelease_QC_comparingYZ"
+project_name = "ICARUS BNB $\\nu_\\mu$" # toadd
+project_label = "Work in progress"
+file = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/writerTwoDValidationsRedoCorrectBestmatch.root"
+outdir = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/makePlots/TEST/newProdWithStableRelease/QualityCut/comparingYZ/"
+fontsize = 13
+labelfontsize = 28
+# file_dpi = 50
+
+# --------------------------------------------------------------------
+# =====================================================================
+# --------------------------------------------------------------------
+
+[analysis_Muons]
+merge_on = "Evt"
+# filter = [
+#     {name = "filter_on", on = "trueEnergy", label = "True energy:GeV", min = 1.0}
+# ]
+filter = [
+    {name = "ratio", product = "energyCompletenessWithVisE", elements = ["energyMatch", "trueVisEnergyCollection"]},
+    {name = "ratio", product = "energyCompletenessAllMatchesWithVisE", elements = ["energyAllMatches", "trueVisEnergyCollection"]},
+    {name = "ratio", product = "ratioVisECollectionTrueE", elements = ["trueVisEnergyCollection", "trueEnergy"]},
+    {name = "ratio", product = "ratioVisEInduction1TrueE", elements = ["trueVisEnergyInduction1", "trueEnergy"]},
+    {name = "ratio", product = "ratioVisEInduction2TrueE", elements = ["trueVisEnergyInduction2", "trueEnergy"]},
+    {name = "ratio", product = "normalizedEndPointDistanceOnTruth", elements = ["recoTrueDiffEndpoint3d", "trueLength"]},
+    {name = "ratio", product = "normalizedEndPointDistanceOnReco", elements = ["recoTrueDiffEndpoint3d", "recoLength"]},
+    {name = "filter_on", on = "completeness", label = "Hit completeness", min = 0.4},
+    {name = "filter_on", on = "purity", label = "Hit purity", min = 0.4},
+]
+analysis_supplementaltext = "icaruscode_v10_06_00_01p03_develop (w/o YZ_sim)\nicaruscode_v10_06_00_06p03 (w/ YZ_sim)"
+
+# --------------------------------------------------------------------
+
+[analysis_Protons]
+merge_on = "Evt"
+# density = true
+# figsize = [5.0, 3.5]
+filter = [
+    {name = "ratio", product = "energyCompletenessWithVisE", elements = ["energyMatch", "trueVisEnergyCollection"]},
+    {name = "ratio", product = "energyCompletenessAllMatchesWithVisE", elements = ["energyAllMatches", "trueVisEnergyCollection"]},
+    {name = "ratio", product = "ratioVisECollectionTrueE", elements = ["trueVisEnergyCollection", "trueEnergy"]},
+    {name = "ratio", product = "ratioVisEInduction1TrueE", elements = ["trueVisEnergyInduction1", "trueEnergy"]},
+    {name = "ratio", product = "ratioVisEInduction2TrueE", elements = ["trueVisEnergyInduction2", "trueEnergy"]},
+    {name = "ratio", product = "normalizedEndPointDistanceOnTruth", elements = ["recoTrueDiffEndpoint3d", "trueLength"]},
+    {name = "ratio", product = "normalizedEndPointDistanceOnReco", elements = ["recoTrueDiffEndpoint3d", "recoLength"]},
+    {name = "filter_on", on = "completeness", label = "Hit completeness", min = 0.4},
+    {name = "filter_on", on = "purity", label = "Hit purity", min = 0.4},
+]
+analysis_supplementaltext = "icaruscode_v10_06_00_01p03_develop (w/o YZ_sim)\nicaruscode_v10_06_00_06p03 (w/ YZ_sim)"
+
+# --------------------------------------------------------------------
+# =====================================================================
+# --------------------------------------------------------------------
+
+[[analysis_Muons.dataset]]
+name = "Muons/DconfigDWithYZSimRespun/configDWithYZSimRespun"
+label = "2D+DNNROI (LongMaxHits = 10) w/ YZ"
+style = "style_dnnpt"
+
+[[analysis_Muons.dataset]]
+name = "Muons/DconfigCWithYZSimRespun/configCWithYZSimRespun"
+label = "2D+DNNROI (LongMaxHits = 1) w/ YZ"
+style = "style_dnn"
+
+[[analysis_Muons.dataset]]
+name = "Muons/DconfigAWithYZSimRespun/configAWithYZSimRespun"
+label = "1D w/ YZ"
+style = "style_1d"
+
+[[analysis_Muons.dataset]]
+name = "Muons/DconfigD/configD"
+label = "2D+DNNROI (LongMaxHits = 10) w/o YZ"
+style = "style_dnnpt_cluster3d"
+
+[[analysis_Muons.dataset]]
+name = "Muons/DconfigC/configC"
+label = "2D+DNNROI (LongMaxHits = 1) w/o YZ"
+style = "style_dnn_cluster3d"
+
+[[analysis_Muons.dataset]]
+name = "Muons/DconfigA/configA"
+label = "1D w/o YZ"
+style = "style_1d_cluster3d"
+
+# --------------------------------------------------------------------
+
+[[analysis_Protons.dataset]]
+name = "Protons/DconfigDWithYZSimRespun/configDWithYZSimRespun"
+label = "2D+DNNROI (LongMaxHits = 10) w/ YZ"
+style = "style_dnnpt"
+
+[[analysis_Protons.dataset]]
+name = "Protons/DconfigCWithYZSimRespun/configCWithYZSimRespun"
+label = "2D+DNNROI (LongMaxHits = 1) w/ YZ"
+style = "style_dnn"
+
+[[analysis_Protons.dataset]]
+name = "Protons/DconfigAWithYZSimRespun/configAWithYZSimRespun"
+label = "1D w/ YZ"
+style = "style_1d"
+
+[[analysis_Protons.dataset]]
+name = "Protons/DconfigD/configD"
+label = "2D+DNNROI (LongMaxHits = 10) w/o YZ"
+style = "style_dnnpt_cluster3d"
+
+[[analysis_Protons.dataset]]
+name = "Protons/DconfigC/configC"
+label = "2D+DNNROI (LongMaxHits = 1) w/o YZ"
+style = "style_dnn_cluster3d"
+
+[[analysis_Protons.dataset]]
+name = "Protons/DconfigA/configA"
+label = "1D w/o YZ"
+style = "style_1d_cluster3d"
+
+# --------------------------------------------------------------------
+# =====================================================================
+# --------------------------------------------------------------------
+
+[[analysis_Muons.plot]]
+label = "Best-match energy completeness"
+product = "energyCompleteness"
+# yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+ratio = {compare = ["Muons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Muons/DconfigC/configC"]}
+
+[[analysis_Muons.plot]]
+label = "\"All matches\" energy completeness\n$(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{dep}$"
+product = "energyCompletenessAllMatches"
+# yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+ratio = {compare = ["Muons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Muons/DconfigC/configC"], comparison = "pull", style = "bar"}
+
+[[analysis_Muons.plot]]
+label = "$\\chi^2_\\mu$"
+product = "calo.muonChiSquare"
+yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 100], flow = "sum"}
+ratio = [
+    {compare = ["Muons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Muons/DconfigC/configC"], comparison = "pull", style = "bar"},
+    {compare = ["Muons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Muons/DconfigD/configD"], style = "bar"}
+]
+
+[[analysis_Muons.plot]]
+label = "$\\chi^2_\\mathrm{p}$"
+product = "calo.protonChiSquare"
+yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 800], flow = "sum"}
+# ratio = [
+#     {compare = ["Muons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Muons/DconfigC/configC"], comparison = "pull", style = "bar", color = "tab:orange"},
+#     {compare = ["Muons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Muons/DconfigD/configD"], comparison = "pull", style = "bar", color = "tab:blue"},
+#     {compare = ["Muons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Muons/DconfigA/configA"], comparison = "pull", style = "bar", color = "k"}
+# ]
+
+# --------------------------------------------------------------------
+
+[[analysis_Protons.plot]]
+label = "Best-match energy completeness"
+product = "energyCompleteness"
+# yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "\"All matches\" energy completeness\n$(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{dep}$"
+product = "energyCompletenessAllMatches"
+# yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "$\\chi^2_\\mu$"
+product = "calo.muonChiSquare"
+yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 100], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "$\\chi^2_\\mathrm{p}$"
+product = "calo.protonChiSquare"
+yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 800], flow = "sum"}
+
+# --------------------------------------------------------------------
+# =====================================================================
+# --------------------------------------------------------------------
+
+# STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES
+# S STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYL
+# ES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STY
+# LES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES ST
+# YLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES S
+# TYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES 
+# STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES
+
+
+# [style_yz_1d]
+# color = "C0"
+# lw = 1
+# yerr = false
+
+# [style_yz_2d]
+# color = "C1"
+# lw = 3
+# yerr = false
+
+# [style_yz_2ddnn]
+# color = "C2"
+# lw = 6
+# yerr = false
+
+# [style_yz_2ddnn_pt10]
+# color = "C3"
+# lw = 9
+# yerr = false
+
+# [style_1d]
+# histtype = "fill"
+# color = "C0"
+# alpha = 0.25
+
+# [style_2d]
+# histtype = "fill"
+# color = "C1"
+# alpha = 0.25
+
+# [style_2ddnn]
+# histtype = "fill"
+# color = "C2"
+# alpha = 0.25
+
+# [style_2ddnn_pt10]
+# histtype = "fill"
+# color = "C3"
+# alpha = 0.25
+
+# --------------------------------------------------------------------
+# =====================================================================
+# --------------------------------------------------------------------
+
+# Possible choices 
+# ['fill', 'step', 'errorbar', 'band', 'bar', 'barstep']
+
+# this overwrites the default style if needed
+[style_default]
+histtype = "errorbar"
+color = "k"
+linewidth = 1
+
+[style_1d]
+histtype = "step"
+yerr = false
+color = "k"
+# alpha = 0.5
+# linestyle = ":"
+linewidth = 1
+
+[style_dnn]
+histtype = "step"
+color = "tab:orange"
+yerr = false
+linestyle = "--"
+linewidth = 5
+
+[style_dnnpt]
+histtype = "step"
+color = "tab:blue"
+yerr = false
+linewidth = 7
+
+[style_dnn_cluster3d]
+histtype = "errorbar"
+marker = "v"
+mfc = "tab:orange"
+color = "tab:orange"
+mec = "k"
+# yerr = false
+linestyle = ""
+markersize = 8
+
+[style_dnnpt_cluster3d]
+histtype = "errorbar"
+marker = "^"
+mfc = "tab:blue"
+color = "tab:blue"
+mec = "k"
+# yerr = false
+linestyle = ""
+markersize = 8
+
+
+[style_1d_cluster3d]
+histtype = "errorbar"
+marker = "o"
+mfc = "none"
+color = "k"
+mec = "k"
+# yerr = false
+linestyle = ""
+markersize = 8

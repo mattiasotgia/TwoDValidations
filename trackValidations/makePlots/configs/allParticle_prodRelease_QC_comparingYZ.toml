@@ -178,6 +178,11 @@ yscale = "log"
 showmedian = ".1%"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 1], flow = "sum"}
+ratio = [
+    {compare = ["Muons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Muons/DconfigA/configA"], comparison = "pull", color = "k"},
+    {compare = ["Muons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Muons/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
+    {compare = ["Muons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Muons/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+]
 
 [[analysis_Muons.plot]]
 label = "Hit purity"
@@ -186,6 +191,11 @@ yscale = "log"
 showmedian = ".1%"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 1], flow = "sum"}
+ratio = [
+    {compare = ["Muons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Muons/DconfigA/configA"], comparison = "pull", color = "k"},
+    {compare = ["Muons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Muons/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
+    {compare = ["Muons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Muons/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+]
 
 [[analysis_Muons.plot]]
 label = "Hit completeness (from PFP bestmatch)"
@@ -210,6 +220,11 @@ product = "energyCompleteness"
 showmedian = ".1%"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 1], flow = "sum"}
+ratio = [
+    {compare = ["Muons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Muons/DconfigA/configA"], comparison = "pull", color = "k"},
+    {compare = ["Muons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Muons/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
+    {compare = ["Muons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Muons/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+]
 
 [[analysis_Muons.plot]]
 label = "\"All matches\" energy completeness\n$(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{dep}$"
@@ -218,6 +233,11 @@ product = "energyCompletenessAllMatches"
 showmedian = ".1%"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 1], flow = "sum"}
+ratio = [
+    {compare = ["Muons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Muons/DconfigA/configA"], comparison = "pull", color = "k"},
+    {compare = ["Muons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Muons/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
+    {compare = ["Muons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Muons/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+]
 
 [[analysis_Muons.plot]]
 label = "Ratio reconstructed/true length $L_\\mathrm{reco}/L_\\mathrm{true}$"
@@ -267,6 +287,11 @@ product = "calo.muonChiSquare"
 yscale = "log"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 100], flow = "sum"}
+ratio = [
+    {compare = ["Muons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Muons/DconfigA/configA"], comparison = "pull", color = "k"},
+    {compare = ["Muons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Muons/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
+    {compare = ["Muons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Muons/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+]
 
 [[analysis_Muons.plot]]
 label = "$\\chi^2_\\mathrm{p}$"
@@ -274,6 +299,11 @@ product = "calo.protonChiSquare"
 yscale = "log"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 800], flow = "sum"}
+ratio = [
+    {compare = ["Muons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Muons/DconfigA/configA"], comparison = "pull", color = "k"},
+    {compare = ["Muons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Muons/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
+    {compare = ["Muons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Muons/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+]
 
 [[analysis_Muons.plot]]
 label = "BDT Track classification score"
@@ -355,6 +385,11 @@ yscale = "log"
 showmedian = ".1%"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 1], flow = "sum"}
+ratio = [
+    {compare = ["Protons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Protons/DconfigA/configA"], comparison = "pull", color = "k"},
+    {compare = ["Protons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Protons/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
+    {compare = ["Protons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Protons/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+]
 
 [[analysis_Protons.plot]]
 label = "Hit purity"
@@ -363,6 +398,11 @@ yscale = "log"
 showmedian = ".1%"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 1], flow = "sum"}
+ratio = [
+    {compare = ["Protons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Protons/DconfigA/configA"], comparison = "pull", color = "k"},
+    {compare = ["Protons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Protons/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
+    {compare = ["Protons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Protons/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+]
 
 [[analysis_Protons.plot]]
 label = "Hit completeness (from PFP bestmatch)"
@@ -387,6 +427,11 @@ product = "energyCompleteness"
 showmedian = ".1%"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 1], flow = "sum"}
+ratio = [
+    {compare = ["Protons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Protons/DconfigA/configA"], comparison = "pull", color = "k"},
+    {compare = ["Protons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Protons/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
+    {compare = ["Protons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Protons/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+]
 
 [[analysis_Protons.plot]]
 label = "\"All matches\" energy completeness\n$(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{dep}$"
@@ -395,6 +440,11 @@ product = "energyCompletenessAllMatches"
 showmedian = ".1%"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 1], flow = "sum"}
+ratio = [
+    {compare = ["Protons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Protons/DconfigA/configA"], comparison = "pull", color = "k"},
+    {compare = ["Protons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Protons/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
+    {compare = ["Protons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Protons/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+]
 
 [[analysis_Protons.plot]]
 label = "Ratio reconstructed/true length $L_\\mathrm{reco}/L_\\mathrm{true}$"
@@ -442,6 +492,11 @@ product = "calo.muonChiSquare"
 yscale = "log"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 100], flow = "sum"}
+ratio = [
+    {compare = ["Protons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Protons/DconfigA/configA"], comparison = "pull", color = "k"},
+    {compare = ["Protons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Protons/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
+    {compare = ["Protons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Protons/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+]
 
 [[analysis_Protons.plot]]
 label = "$\\chi^2_\\mathrm{p}$"
@@ -449,6 +504,11 @@ product = "calo.protonChiSquare"
 yscale = "log"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 800], flow = "sum"}
+ratio = [
+    {compare = ["Protons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Protons/DconfigA/configA"], comparison = "pull", color = "k"},
+    {compare = ["Protons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Protons/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
+    {compare = ["Protons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Protons/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+]
 
 [[analysis_Protons.plot]]
 label = "BDT Track classification score"
@@ -530,6 +590,11 @@ yscale = "log"
 showmedian = ".1%"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 1], flow = "sum"}
+ratio = [
+    {compare = ["Pions/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Pions/DconfigA/configA"], comparison = "pull", color = "k"},
+    {compare = ["Pions/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Pions/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
+    {compare = ["Pions/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Pions/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+]
 
 [[analysis_Pions.plot]]
 label = "Hit purity"
@@ -538,6 +603,11 @@ yscale = "log"
 showmedian = ".1%"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 1], flow = "sum"}
+ratio = [
+    {compare = ["Pions/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Pions/DconfigA/configA"], comparison = "pull", color = "k"},
+    {compare = ["Pions/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Pions/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
+    {compare = ["Pions/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Pions/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+]
 
 [[analysis_Pions.plot]]
 label = "Hit completeness (from PFP bestmatch)"
@@ -562,6 +632,11 @@ product = "energyCompleteness"
 showmedian = ".1%"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 1], flow = "sum"}
+ratio = [
+    {compare = ["Pions/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Pions/DconfigA/configA"], comparison = "pull", color = "k"},
+    {compare = ["Pions/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Pions/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
+    {compare = ["Pions/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Pions/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+]
 
 [[analysis_Pions.plot]]
 label = "\"All matches\" energy completeness\n$(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{dep}$"
@@ -570,6 +645,11 @@ product = "energyCompletenessAllMatches"
 showmedian = ".1%"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 1], flow = "sum"}
+ratio = [
+    {compare = ["Pions/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Pions/DconfigA/configA"], comparison = "pull", color = "k"},
+    {compare = ["Pions/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Pions/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
+    {compare = ["Pions/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Pions/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+]
 
 [[analysis_Pions.plot]]
 label = "Ratio reconstructed/true length $L_\\mathrm{reco}/L_\\mathrm{true}$"
@@ -617,6 +697,11 @@ product = "calo.muonChiSquare"
 yscale = "log"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 100], flow = "sum"}
+ratio = [
+    {compare = ["Pions/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Pions/DconfigA/configA"], comparison = "pull", color = "k"},
+    {compare = ["Pions/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Pions/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
+    {compare = ["Pions/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Pions/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+]
 
 [[analysis_Pions.plot]]
 label = "$\\chi^2_\\mathrm{p}$"
@@ -624,6 +709,11 @@ product = "calo.protonChiSquare"
 yscale = "log"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 800], flow = "sum"}
+ratio = [
+    {compare = ["Pions/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Pions/DconfigA/configA"], comparison = "pull", color = "k"},
+    {compare = ["Pions/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Pions/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
+    {compare = ["Pions/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Pions/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+]
 
 [[analysis_Pions.plot]]
 label = "BDT Track classification score"
