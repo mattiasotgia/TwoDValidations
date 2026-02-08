@@ -1,3 +1,6 @@
 [submodule "plotStuff"]
 	path = plotStuff
 	url = https://github.com/mattiasotgia/CUP
+[submodule "hitTuning"]
+	path = hitTuning
+	url = https://github.com/mattiasotgia/hitTuning
