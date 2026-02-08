@@ -73,18 +73,16 @@ void runner (data::Events whichEvents, data::hitLabels labels, data::writerDirec
     // std::cout << "##  data::writerFileName name = " << name << std::endl;
     std::cout << "##################################################" << std::endl;
 
+    ana::hitHist ind1("ind1");
+    ana::hitHist ind2("ind2");
+    ana::hitHist coll("coll");
     
-
     for (gallery::Event event(whichEvents); !event.atEnd(); event.next())
     {
 
-        where->cd();
-        const char* eventWithNo{Form("event_%d", event.eventAuxiliary().event())};
-        auto directory = where->mkdir(eventWithNo);
+        // const char* eventWithNo{Form("event_%d", event.eventAuxiliary().event())};
+        // auto directory = where->mkdir(eventWithNo);
 
-        ana::hitHist ind1("ind1");
-        ana::hitHist ind2("ind2");
-        ana::hitHist coll("coll");
 
         for (auto const label: labels)
         {
@@ -107,11 +105,13 @@ void runner (data::Events whichEvents, data::hitLabels labels, data::writerDirec
                 }
             }
         }
-        ind1.writeTo(directory);
-        ind2.writeTo(directory);
-        coll.writeTo(directory);
         
     }
+
+    where->cd();
+    ind1.writeTo(where);
+    ind2.writeTo(where);
+    coll.writeTo(where);
 
     return;
 }
