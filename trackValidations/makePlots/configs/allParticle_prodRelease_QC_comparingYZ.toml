@@ -179,9 +179,9 @@ showmedian = ".1%"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 1], flow = "sum"}
 ratio = [
-    {compare = ["Muons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Muons/DconfigA/configA"], comparison = "pull", color = "k"},
-    {compare = ["Muons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Muons/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
-    {compare = ["Muons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Muons/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+    {compare = ["Muons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Muons/DconfigA/configA"], comparison = "asymmetry", color = "k"},
+    {compare = ["Muons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Muons/DconfigC/configC"], comparison = "asymmetry", color = "tab:orange"},
+    {compare = ["Muons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Muons/DconfigD/configD"], comparison = "asymmetry", color = "tab:blue"},
 ]
 
 [[analysis_Muons.plot]]
@@ -192,9 +192,9 @@ showmedian = ".1%"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 1], flow = "sum"}
 ratio = [
-    {compare = ["Muons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Muons/DconfigA/configA"], comparison = "pull", color = "k"},
-    {compare = ["Muons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Muons/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
-    {compare = ["Muons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Muons/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+    {compare = ["Muons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Muons/DconfigA/configA"], comparison = "asymmetry", color = "k"},
+    {compare = ["Muons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Muons/DconfigC/configC"], comparison = "asymmetry", color = "tab:orange"},
+    {compare = ["Muons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Muons/DconfigD/configD"], comparison = "asymmetry", color = "tab:blue"},
 ]
 
 [[analysis_Muons.plot]]
@@ -221,9 +221,9 @@ showmedian = ".1%"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 1], flow = "sum"}
 ratio = [
-    {compare = ["Muons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Muons/DconfigA/configA"], comparison = "pull", color = "k"},
-    {compare = ["Muons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Muons/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
-    {compare = ["Muons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Muons/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+    {compare = ["Muons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Muons/DconfigA/configA"], comparison = "asymmetry", color = "k"},
+    {compare = ["Muons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Muons/DconfigC/configC"], comparison = "asymmetry", color = "tab:orange"},
+    {compare = ["Muons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Muons/DconfigD/configD"], comparison = "asymmetry", color = "tab:blue"},
 ]
 
 [[analysis_Muons.plot]]
@@ -234,9 +234,9 @@ showmedian = ".1%"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 1], flow = "sum"}
 ratio = [
-    {compare = ["Muons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Muons/DconfigA/configA"], comparison = "pull", color = "k"},
-    {compare = ["Muons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Muons/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
-    {compare = ["Muons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Muons/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+    {compare = ["Muons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Muons/DconfigA/configA"], comparison = "asymmetry", color = "k"},
+    {compare = ["Muons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Muons/DconfigC/configC"], comparison = "asymmetry", color = "tab:orange"},
+    {compare = ["Muons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Muons/DconfigD/configD"], comparison = "asymmetry", color = "tab:blue"},
 ]
 
 [[analysis_Muons.plot]]
@@ -288,9 +288,9 @@ yscale = "log"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 100], flow = "sum"}
 ratio = [
-    {compare = ["Muons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Muons/DconfigA/configA"], comparison = "pull", color = "k"},
-    {compare = ["Muons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Muons/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
-    {compare = ["Muons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Muons/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+    {compare = ["Muons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Muons/DconfigA/configA"], comparison = "asymmetry", color = "k"},
+    {compare = ["Muons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Muons/DconfigC/configC"], comparison = "asymmetry", color = "tab:orange"},
+    {compare = ["Muons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Muons/DconfigD/configD"], comparison = "asymmetry", color = "tab:blue"},
 ]
 
 [[analysis_Muons.plot]]
@@ -300,9 +300,9 @@ yscale = "log"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 800], flow = "sum"}
 ratio = [
-    {compare = ["Muons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Muons/DconfigA/configA"], comparison = "pull", color = "k"},
-    {compare = ["Muons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Muons/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
-    {compare = ["Muons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Muons/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+    {compare = ["Muons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Muons/DconfigA/configA"], comparison = "asymmetry", color = "k"},
+    {compare = ["Muons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Muons/DconfigC/configC"], comparison = "asymmetry", color = "tab:orange"},
+    {compare = ["Muons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Muons/DconfigD/configD"], comparison = "asymmetry", color = "tab:blue"},
 ]
 
 [[analysis_Muons.plot]]
@@ -386,9 +386,9 @@ showmedian = ".1%"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 1], flow = "sum"}
 ratio = [
-    {compare = ["Protons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Protons/DconfigA/configA"], comparison = "pull", color = "k"},
-    {compare = ["Protons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Protons/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
-    {compare = ["Protons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Protons/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+    {compare = ["Protons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Protons/DconfigA/configA"], comparison = "asymmetry", color = "k"},
+    {compare = ["Protons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Protons/DconfigC/configC"], comparison = "asymmetry", color = "tab:orange"},
+    {compare = ["Protons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Protons/DconfigD/configD"], comparison = "asymmetry", color = "tab:blue"},
 ]
 
 [[analysis_Protons.plot]]
@@ -399,9 +399,9 @@ showmedian = ".1%"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 1], flow = "sum"}
 ratio = [
-    {compare = ["Protons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Protons/DconfigA/configA"], comparison = "pull", color = "k"},
-    {compare = ["Protons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Protons/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
-    {compare = ["Protons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Protons/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+    {compare = ["Protons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Protons/DconfigA/configA"], comparison = "asymmetry", color = "k"},
+    {compare = ["Protons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Protons/DconfigC/configC"], comparison = "asymmetry", color = "tab:orange"},
+    {compare = ["Protons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Protons/DconfigD/configD"], comparison = "asymmetry", color = "tab:blue"},
 ]
 
 [[analysis_Protons.plot]]
@@ -428,9 +428,9 @@ showmedian = ".1%"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 1], flow = "sum"}
 ratio = [
-    {compare = ["Protons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Protons/DconfigA/configA"], comparison = "pull", color = "k"},
-    {compare = ["Protons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Protons/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
-    {compare = ["Protons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Protons/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+    {compare = ["Protons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Protons/DconfigA/configA"], comparison = "asymmetry", color = "k"},
+    {compare = ["Protons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Protons/DconfigC/configC"], comparison = "asymmetry", color = "tab:orange"},
+    {compare = ["Protons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Protons/DconfigD/configD"], comparison = "asymmetry", color = "tab:blue"},
 ]
 
 [[analysis_Protons.plot]]
@@ -441,9 +441,9 @@ showmedian = ".1%"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 1], flow = "sum"}
 ratio = [
-    {compare = ["Protons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Protons/DconfigA/configA"], comparison = "pull", color = "k"},
-    {compare = ["Protons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Protons/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
-    {compare = ["Protons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Protons/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+    {compare = ["Protons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Protons/DconfigA/configA"], comparison = "asymmetry", color = "k"},
+    {compare = ["Protons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Protons/DconfigC/configC"], comparison = "asymmetry", color = "tab:orange"},
+    {compare = ["Protons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Protons/DconfigD/configD"], comparison = "asymmetry", color = "tab:blue"},
 ]
 
 [[analysis_Protons.plot]]
@@ -493,9 +493,9 @@ yscale = "log"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 100], flow = "sum"}
 ratio = [
-    {compare = ["Protons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Protons/DconfigA/configA"], comparison = "pull", color = "k"},
-    {compare = ["Protons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Protons/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
-    {compare = ["Protons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Protons/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+    {compare = ["Protons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Protons/DconfigA/configA"], comparison = "asymmetry", color = "k"},
+    {compare = ["Protons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Protons/DconfigC/configC"], comparison = "asymmetry", color = "tab:orange"},
+    {compare = ["Protons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Protons/DconfigD/configD"], comparison = "asymmetry", color = "tab:blue"},
 ]
 
 [[analysis_Protons.plot]]
@@ -505,9 +505,9 @@ yscale = "log"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 800], flow = "sum"}
 ratio = [
-    {compare = ["Protons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Protons/DconfigA/configA"], comparison = "pull", color = "k"},
-    {compare = ["Protons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Protons/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
-    {compare = ["Protons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Protons/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+    {compare = ["Protons/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Protons/DconfigA/configA"], comparison = "asymmetry", color = "k"},
+    {compare = ["Protons/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Protons/DconfigC/configC"], comparison = "asymmetry", color = "tab:orange"},
+    {compare = ["Protons/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Protons/DconfigD/configD"], comparison = "asymmetry", color = "tab:blue"},
 ]
 
 [[analysis_Protons.plot]]
@@ -591,9 +591,9 @@ showmedian = ".1%"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 1], flow = "sum"}
 ratio = [
-    {compare = ["Pions/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Pions/DconfigA/configA"], comparison = "pull", color = "k"},
-    {compare = ["Pions/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Pions/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
-    {compare = ["Pions/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Pions/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+    {compare = ["Pions/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Pions/DconfigA/configA"], comparison = "asymmetry", color = "k"},
+    {compare = ["Pions/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Pions/DconfigC/configC"], comparison = "asymmetry", color = "tab:orange"},
+    {compare = ["Pions/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Pions/DconfigD/configD"], comparison = "asymmetry", color = "tab:blue"},
 ]
 
 [[analysis_Pions.plot]]
@@ -604,9 +604,9 @@ showmedian = ".1%"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 1], flow = "sum"}
 ratio = [
-    {compare = ["Pions/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Pions/DconfigA/configA"], comparison = "pull", color = "k"},
-    {compare = ["Pions/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Pions/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
-    {compare = ["Pions/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Pions/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+    {compare = ["Pions/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Pions/DconfigA/configA"], comparison = "asymmetry", color = "k"},
+    {compare = ["Pions/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Pions/DconfigC/configC"], comparison = "asymmetry", color = "tab:orange"},
+    {compare = ["Pions/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Pions/DconfigD/configD"], comparison = "asymmetry", color = "tab:blue"},
 ]
 
 [[analysis_Pions.plot]]
@@ -633,9 +633,9 @@ showmedian = ".1%"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 1], flow = "sum"}
 ratio = [
-    {compare = ["Pions/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Pions/DconfigA/configA"], comparison = "pull", color = "k"},
-    {compare = ["Pions/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Pions/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
-    {compare = ["Pions/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Pions/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+    {compare = ["Pions/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Pions/DconfigA/configA"], comparison = "asymmetry", color = "k"},
+    {compare = ["Pions/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Pions/DconfigC/configC"], comparison = "asymmetry", color = "tab:orange"},
+    {compare = ["Pions/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Pions/DconfigD/configD"], comparison = "asymmetry", color = "tab:blue"},
 ]
 
 [[analysis_Pions.plot]]
@@ -646,9 +646,9 @@ showmedian = ".1%"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 1], flow = "sum"}
 ratio = [
-    {compare = ["Pions/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Pions/DconfigA/configA"], comparison = "pull", color = "k"},
-    {compare = ["Pions/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Pions/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
-    {compare = ["Pions/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Pions/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+    {compare = ["Pions/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Pions/DconfigA/configA"], comparison = "asymmetry", color = "k"},
+    {compare = ["Pions/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Pions/DconfigC/configC"], comparison = "asymmetry", color = "tab:orange"},
+    {compare = ["Pions/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Pions/DconfigD/configD"], comparison = "asymmetry", color = "tab:blue"},
 ]
 
 [[analysis_Pions.plot]]
@@ -698,9 +698,9 @@ yscale = "log"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 100], flow = "sum"}
 ratio = [
-    {compare = ["Pions/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Pions/DconfigA/configA"], comparison = "pull", color = "k"},
-    {compare = ["Pions/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Pions/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
-    {compare = ["Pions/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Pions/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+    {compare = ["Pions/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Pions/DconfigA/configA"], comparison = "asymmetry", color = "k"},
+    {compare = ["Pions/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Pions/DconfigC/configC"], comparison = "asymmetry", color = "tab:orange"},
+    {compare = ["Pions/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Pions/DconfigD/configD"], comparison = "asymmetry", color = "tab:blue"},
 ]
 
 [[analysis_Pions.plot]]
@@ -710,9 +710,9 @@ yscale = "log"
 ylabel = "PFPs [#]"
 binning = {bins = 40, limits = [0, 800], flow = "sum"}
 ratio = [
-    {compare = ["Pions/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Pions/DconfigA/configA"], comparison = "pull", color = "k"},
-    {compare = ["Pions/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Pions/DconfigC/configC"], comparison = "pull", color = "tab:orange"},
-    {compare = ["Pions/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Pions/DconfigD/configD"], comparison = "pull", color = "tab:blue"},
+    {compare = ["Pions/DconfigAWithYZSimRespun/configAWithYZSimRespun", "Pions/DconfigA/configA"], comparison = "asymmetry", color = "k"},
+    {compare = ["Pions/DconfigCWithYZSimRespun/configCWithYZSimRespun", "Pions/DconfigC/configC"], comparison = "asymmetry", color = "tab:orange"},
+    {compare = ["Pions/DconfigDWithYZSimRespun/configDWithYZSimRespun", "Pions/DconfigD/configD"], comparison = "asymmetry", color = "tab:blue"},
 ]
 
 [[analysis_Pions.plot]]
