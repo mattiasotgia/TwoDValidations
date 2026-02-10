@@ -21,11 +21,19 @@
 #include "analysis.h"
 
 
-void runner (data::Events whichEvents, data::hitLabels labels, data::writerDirectory where);
+void runner (data::Events whichEvents, data::hitLabels labels, data::writerDirectory where, bool = false);
+
+std::string resolveTpc (int tpc, int cryo)
+{
+    std::string stringCryo{cryo == 0 ? "E" : "W"};
+    std::string stringTpc{tpc <= 1 ? "E" : "W"};
+    return stringCryo+stringTpc;
+}
 
 void analysis ()
 {
-    std::unique_ptr<TFile> writer(new TFile("write.root", "RECREATE"));
+    std::unique_ptr<TFile> writer(new TFile("writeBeamData.root", "RECREATE"));
+    
     data::eventMap run1d = {
         {"with_yz_1d", data::with_yz_1d},
         {"without_yz_1d", data::without_yz_1d},
@@ -33,10 +41,16 @@ void analysis ()
 
     data::eventMap run2d = {
         {"with_yz_wcdnn", data::with_yz_wcdnn},
-        {"without_yz_wcdnn", data::without_yz_wcdnn},
+        // {"without_yz_wcdnn", data::without_yz_wcdnn},
         {"with_yz_wcdnn_pt10", data::with_yz_wcdnn_pt10},
+        // {"without_yz_wcdnn_pt10", data::without_yz_wcdnn_pt10}
+    };
+
+    data::eventMap run2dOld = {
+        {"without_yz_wcdnn", data::without_yz_wcdnn},
         {"without_yz_wcdnn_pt10", data::without_yz_wcdnn_pt10}
     };
+
 
     for (auto const [key, events]: run1d)
     {
@@ -49,9 +63,15 @@ void analysis ()
         auto where = writer->mkdir(key.c_str());
         runner(events, {"combineHitsCryoE", "combineHitsCryoW"}, where);
     }
+
+    for (auto const [key, events]: run2dOld)
+    {
+        auto where = writer->mkdir(key.c_str());
+        runner(events, {"cluster3DCryoE", "cluster3DCryoW"}, where);
+    }
 }
 
-void runner (data::Events whichEvents, data::hitLabels labels, data::writerDirectory where) 
+void runner (data::Events whichEvents, data::hitLabels labels, data::writerDirectory where, bool debug) 
 {
 
     std::cout << "##################################################" << std::endl;
@@ -73,16 +93,13 @@ void runner (data::Events whichEvents, data::hitLabels labels, data::writerDirec
     // std::cout << "##  data::writerFileName name = " << name << std::endl;
     std::cout << "##################################################" << std::endl;
 
-    ana::hitHist ind1("ind1");
-    ana::hitHist ind2("ind2");
-    ana::hitHist coll("coll");
+    ana::tpcHist EE("EE");
+    ana::tpcHist EW("EW");
+    ana::tpcHist WE("WE");
+    ana::tpcHist WW("WW");
     
     for (gallery::Event event(whichEvents); !event.atEnd(); event.next())
     {
-
-        // const char* eventWithNo{Form("event_%d", event.eventAuxiliary().event())};
-        // auto directory = where->mkdir(eventWithNo);
-
 
         for (auto const label: labels)
         {
@@ -91,17 +108,49 @@ void runner (data::Events whichEvents, data::hitLabels labels, data::writerDirec
             
             for (auto const& hit: hits)
             {
-                if (hit.WireID().planeID().deepestIndex() == 0)
+                try
                 {
-                    ind1.fill(hit);
+                    if (debug)
+                    {
+                        std::cout << "This hit has WireID: " << hit.WireID().deepestIndex()
+                                  << ", PlaneID: " << hit.WireID().asPlaneID().deepestIndex()
+                                  << ", TPCID: " << hit.WireID().asTPCID().deepestIndex()
+                                  << ", CryostatID: " << hit.WireID().asCryostatID().deepestIndex()
+                                  << ", resolves in " << resolveTpc(
+                                    hit.WireID().asTPCID().deepestIndex(), 
+                                    hit.WireID().asCryostatID().deepestIndex()
+                                ) << std::endl;
+                    }
+
+                    if (hit.WireID().asCryostatID().deepestIndex() == 0)
+                    {
+                        // East cryostat
+                        if (hit.WireID().asTPCID().deepestIndex() <= 1)
+                        {
+                            EE.fill(hit);
+                        }
+                        else
+                        {
+                            EW.fill(hit);
+                        }
+                    }
+                    else
+                    {
+                        // West cryostat
+                        if (hit.WireID().asTPCID().deepestIndex() <= 1)
+                        {
+                            WE.fill(hit);
+                        }
+                        else
+                        {
+                            WW.fill(hit);
+                        }
+                    }
                 }
-                if (hit.WireID().planeID().deepestIndex() == 1)
+                catch (std::exception& e)
                 {
-                    ind2.fill(hit);
-                }
-                if (hit.WireID().planeID().deepestIndex() == 2)
-                {
-                    coll.fill(hit);
+                    std::cout << "Error in filling the hit histogram: " << e.what() << std::endl;
+                    continue;
                 }
             }
         }
@@ -109,9 +158,11 @@ void runner (data::Events whichEvents, data::hitLabels labels, data::writerDirec
     }
 
     where->cd();
-    ind1.writeTo(where);
-    ind2.writeTo(where);
-    coll.writeTo(where);
+    EE.writeTo(where);
+    EW.writeTo(where);
+    WE.writeTo(where);
+    WW.writeTo(where);
+
 
     return;
 }
