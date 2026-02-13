@@ -352,3 +352,7 @@ twoDRecoStudies.code-workspace
 
 # Ignore Filippo's gibberish
 deltaThreeP/filippoToIgnore/
+
+# Ignore envs 
+.env
+*/.env
