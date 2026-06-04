@@ -1,0 +1,757 @@
+
+[global]
+project = "hit_finder_tuning_validation_post_reco_fixed_low_mem"
+project_name = "ICARUS BNB $\\nu_\\mu$ + overlay" # toadd
+project_label = "Work in progress"
+file = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/writerTwoDValidationsHitFinderStudies.root"
+outdir = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/hitTuning/plots/validationPlots/lowMem/"
+fontsize = 13
+labelfontsize = 28
+# file_dpi = 50
+
+# --------------------------------------------------------------------
+# =====================================================================
+# --------------------------------------------------------------------
+
+[analysis_Muons]
+merge_on = "Evt"
+# filter = [
+#     {name = "filter_on", on = "trueEnergy", label = "True energy:GeV", min = 1.0}
+# ]
+filter = [
+    {name = "ratio", product = "energyCompletenessWithVisE", elements = ["energyMatch", "trueVisEnergyCollection"]},
+    {name = "ratio", product = "energyCompletenessAllMatchesWithVisE", elements = ["energyAllMatches", "trueVisEnergyCollection"]},
+    {name = "ratio", product = "ratioVisECollectionTrueE", elements = ["trueVisEnergyCollection", "trueEnergy"]},
+    {name = "ratio", product = "ratioVisEInduction1TrueE", elements = ["trueVisEnergyInduction1", "trueEnergy"]},
+    {name = "ratio", product = "ratioVisEInduction2TrueE", elements = ["trueVisEnergyInduction2", "trueEnergy"]},
+    {name = "ratio", product = "normalizedEndPointDistanceOnTruth", elements = ["recoTrueDiffEndpoint3d", "trueLength"]},
+    {name = "ratio", product = "normalizedEndPointDistanceOnReco", elements = ["recoTrueDiffEndpoint3d", "recoLength"]},
+    {name = "filter_on", on = "completeness", label = "Hit completeness", min = 0.4},
+    {name = "filter_on", on = "purity", label = "Hit purity", min = 0.4},
+]
+analysis_supplementaltext = "icaruscode_v10_06_00_06p03:feature/msotgia_add_mvicenzi_reco_stage1\nsbncode:feature/msotgia_hitTuning"
+
+# --------------------------------------------------------------------
+
+[analysis_Protons]
+merge_on = "Evt"
+# density = true
+# figsize = [5.0, 3.5]
+filter = [
+    {name = "ratio", product = "energyCompletenessWithVisE", elements = ["energyMatch", "trueVisEnergyCollection"]},
+    {name = "ratio", product = "energyCompletenessAllMatchesWithVisE", elements = ["energyAllMatches", "trueVisEnergyCollection"]},
+    {name = "ratio", product = "ratioVisECollectionTrueE", elements = ["trueVisEnergyCollection", "trueEnergy"]},
+    {name = "ratio", product = "ratioVisEInduction1TrueE", elements = ["trueVisEnergyInduction1", "trueEnergy"]},
+    {name = "ratio", product = "ratioVisEInduction2TrueE", elements = ["trueVisEnergyInduction2", "trueEnergy"]},
+    {name = "ratio", product = "normalizedEndPointDistanceOnTruth", elements = ["recoTrueDiffEndpoint3d", "trueLength"]},
+    {name = "ratio", product = "normalizedEndPointDistanceOnReco", elements = ["recoTrueDiffEndpoint3d", "recoLength"]},
+    {name = "filter_on", on = "completeness", label = "Hit completeness", min = 0.4},
+    {name = "filter_on", on = "purity", label = "Hit purity", min = 0.4},
+]
+analysis_supplementaltext = "icaruscode_v10_06_00_06p03:feature/msotgia_add_mvicenzi_reco_stage1\nsbncode:feature/msotgia_hitTuning"
+
+# --------------------------------------------------------------------
+
+[analysis_Pions]
+merge_on = "Evt"
+# density = true
+# figsize = [5.0, 3.5]
+filter = [
+    {name = "ratio", product = "energyCompletenessWithVisE", elements = ["energyMatch", "trueVisEnergyCollection"]},
+    {name = "ratio", product = "energyCompletenessAllMatchesWithVisE", elements = ["energyAllMatches", "trueVisEnergyCollection"]},
+    {name = "ratio", product = "ratioVisECollectionTrueE", elements = ["trueVisEnergyCollection", "trueEnergy"]},
+    {name = "ratio", product = "ratioVisEInduction1TrueE", elements = ["trueVisEnergyInduction1", "trueEnergy"]},
+    {name = "ratio", product = "ratioVisEInduction2TrueE", elements = ["trueVisEnergyInduction2", "trueEnergy"]},
+    {name = "ratio", product = "normalizedEndPointDistanceOnTruth", elements = ["recoTrueDiffEndpoint3d", "trueLength"]},
+    {name = "ratio", product = "normalizedEndPointDistanceOnReco", elements = ["recoTrueDiffEndpoint3d", "recoLength"]},
+    {name = "filter_on", on = "completeness", label = "Hit completeness", min = 0.4},
+    {name = "filter_on", on = "purity", label = "Hit purity", min = 0.4},
+]
+analysis_supplementaltext = "icaruscode_v10_06_00_06p03:feature/msotgia_add_mvicenzi_reco_stage1\nsbncode:feature/msotgia_hitTuning"
+
+# --------------------------------------------------------------------
+# =====================================================================
+# --------------------------------------------------------------------
+
+[[analysis_Muons.dataset]]
+name = "Muons/D1eNp0pi0_noPulse/1eNp0pi0_noPulse"
+label = "$\\mathrm{1e Np 0\\pi^0}$ tune"
+style = "style_1eNp0pi0"
+
+[[analysis_Muons.dataset]]
+name = "Muons/D1eNpMpi0_noPulse/1eNpMpi0_noPulse"
+label = "$\\mathrm{1e Np M\\pi^0}$ tune"
+style = "style_1eNpMpi0"
+
+[[analysis_Muons.dataset]]
+name = "Muons/D1uNp_noPulse/1uNp_noPulse"
+label = "$\\mathrm{1\\mu Np}$ tune"
+style = "style_1uNp"
+
+[[analysis_Muons.dataset]]
+name = "Muons/DnominalParameters/nominalParameters"
+label = "Default hit finder"
+style = "style_nominal"
+
+[[analysis_Muons.dataset]]
+name = "Muons/DspineParameters/spineParameters"
+label = "SPINE hit finder tune (LongMaxHits = 10)"
+style = "style_spine"
+
+# --------------------------------------------------------------------
+
+[[analysis_Protons.dataset]]
+name = "Protons/D1eNp0pi0_noPulse/1eNp0pi0_noPulse"
+label = "$\\mathrm{1e Np 0\\pi^0}$ tune"
+style = "style_1eNp0pi0"
+
+[[analysis_Protons.dataset]]
+name = "Protons/D1eNpMpi0_noPulse/1eNpMpi0_noPulse"
+label = "$\\mathrm{1e Np M\\pi^0}$ tune"
+style = "style_1eNpMpi0"
+
+[[analysis_Protons.dataset]]
+name = "Protons/D1uNp_noPulse/1uNp_noPulse"
+label = "$\\mathrm{1\\mu Np}$ tune"
+style = "style_1uNp"
+
+[[analysis_Protons.dataset]]
+name = "Protons/DnominalParameters/nominalParameters"
+label = "Default hit finder"
+style = "style_nominal"
+
+[[analysis_Protons.dataset]]
+name = "Protons/DspineParameters/spineParameters"
+label = "SPINE hit finder tune (LongMaxHits = 10)"
+style = "style_spine"
+
+
+# --------------------------------------------------------------------
+
+[[analysis_Pions.dataset]]
+name = "Pions/D1eNp0pi0_noPulse/1eNp0pi0_noPulse"
+label = "$\\mathrm{1e Np 0\\pi^0}$ tune"
+style = "style_1eNp0pi0"
+
+[[analysis_Pions.dataset]]
+name = "Pions/D1eNpMpi0_noPulse/1eNpMpi0_noPulse"
+label = "$\\mathrm{1e Np M\\pi^0}$ tune"
+style = "style_1eNpMpi0"
+
+[[analysis_Pions.dataset]]
+name = "Pions/D1uNp_noPulse/1uNp_noPulse"
+label = "$\\mathrm{1\\mu Np}$ tune"
+style = "style_1uNp"
+
+[[analysis_Pions.dataset]]
+name = "Pions/DnominalParameters/nominalParameters"
+label = "Default hit finder"
+style = "style_nominal"
+
+[[analysis_Pions.dataset]]
+name = "Pions/DspineParameters/spineParameters"
+label = "SPINE hit finder tune (LongMaxHits = 10)"
+style = "style_spine"
+
+# --------------------------------------------------------------------
+# =====================================================================
+# --------------------------------------------------------------------
+
+[[analysis_Muons.plot]]
+label = "Hit completeness"
+product = "completeness"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "Hit purity"
+product = "purity"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "Hit completeness (from PFP bestmatch)"
+product = "completenessBestmatch"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "Hit purity (from PFP bestmatch)"
+product = "purityBestmatch"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "Best-match energy completeness"
+product = "energyCompleteness"
+# yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "\"All matches\" energy completeness\n$(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{dep}$"
+product = "energyCompletenessAllMatches"
+# yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "Energy completeness"
+product = "energyCompletenessDefault"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "Ratio reconstructed/true length $L_\\mathrm{reco}/L_\\mathrm{true}$"
+product = "ratioLength"
+# yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 2], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "Best-match energy completeness $E_\\mathrm{bestmatch} / E_\\mathrm{vis}$"
+product = "energyCompletenessWithVisE"
+# yscale = "log"
+showmedian = ".1%"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "Pull reconstructed/true length $\\delta_L/L_\\mathrm{true}$"
+product = "pullLength"
+# yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [-2.0, 2.0], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "$\\Delta_\\mathrm{reco, true}$ track endpoint"
+product = "recoTrueDiffEndpoint3d"
+yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 350], flow = "sum", unit = "cm"}
+
+[[analysis_Muons.plot]]
+label = "$\\frac{\\Delta_\\mathrm{reco, true}}{L_\\mathrm{true}}$ track endpoint"
+product = "normalizedEndPointDistanceOnTruth"
+yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "$\\frac{\\Delta_\\mathrm{reco, true}}{L_\\mathrm{reco}}$ track endpoint"
+product = "normalizedEndPointDistanceOnReco"
+yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "$\\chi^2_\\mu$"
+product = "calo.muonChiSquare"
+yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 100], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "$\\chi^2_\\mathrm{p}$"
+product = "calo.protonChiSquare"
+yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 800], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "BDT Track classification score"
+product = "calo.trackScore"
+ylabel = "PFPs [#]"
+showmedian = ".2f"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "\"All matches\" energy completeness\n$(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{vis}$"
+product = "energyCompletenessAllMatchesWithVisE"
+# yscale = "log"
+showmedian = ".1%"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "Match energy"
+product = "energyMatch"
+showmedian = ".1f"
+binning = {bins = 20, limits = [0.0, 2.5], flow = "sum", unit = "GeV"}
+
+[[analysis_Muons.plot]]
+label = "All matches energy"
+product = "energyAllMatches"
+showmedian = ".1f"
+binning = {bins = 20, limits = [0.0, 2.5], flow = "sum", unit = "GeV"}
+
+[[analysis_Muons.plot]]
+label = "True energy"
+product = "trueEnergy"
+binning = {bins = 20, limits = [0.0, 2.5], flow = "sum", unit = "GeV"}
+
+[[analysis_Muons.plot]]
+label = "True visible energy (collection plane)"
+product = "trueVisEnergyCollection"
+binning = {bins = 20, limits = [0.0, 2.5], flow = "sum", unit = "GeV"}
+
+[[analysis_Muons.plot]]
+label = "True visible energy (induction-1 plane)"
+product = "trueVisEnergyInduction1"
+binning = {bins = 20, limits = [0.0, 2.5], flow = "sum", unit = "GeV"}
+
+[[analysis_Muons.plot]]
+label = "True visible energy (induction-2 plane)"
+product = "trueVisEnergyInduction2"
+binning = {bins = 20, limits = [0.0, 2.5], flow = "sum", unit = "GeV"}
+
+[[analysis_Muons.plot]]
+label = "Number of PFP match'd with MC particle"
+product = "nMatches"
+binning = {bins = 7, limits = [-0.5, 6.5]}
+
+[[analysis_Muons.plot]]
+label = "Number of PFP best-match'd with MC particle"
+product = "nBestMatches"
+binning = {bins = 7, limits = [-0.5, 6.5]}
+
+[[analysis_Muons.plot]]
+label = "$E_\\mathrm{vis}/E_\\mathrm{true}$ (collection plane)"
+product = "ratioVisECollectionTrueE"
+binning = {bins = 25, limits = [0, 1], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "$E_\\mathrm{vis}/E_\\mathrm{true}$ (induction-1 plane)"
+product = "ratioVisEInduction1TrueE"
+binning = {bins = 25, limits = [0, 1], flow = "sum"}
+
+[[analysis_Muons.plot]]
+label = "$E_\\mathrm{vis}/E_\\mathrm{true}$ (induction-2 plane)"
+product = "ratioVisEInduction2TrueE"
+binning = {bins = 25, limits = [0, 1], flow = "sum"}
+
+# --------------------------------------------------------------------
+
+[[analysis_Protons.plot]]
+label = "Hit completeness"
+product = "completeness"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "Hit purity"
+product = "purity"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "Hit completeness (from PFP bestmatch)"
+product = "completenessBestmatch"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "Hit purity (from PFP bestmatch)"
+product = "purityBestmatch"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "Best-match energy completeness"
+product = "energyCompleteness"
+# yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "\"All matches\" energy completeness\n$(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{dep}$"
+product = "energyCompletenessAllMatches"
+# yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "Energy completeness"
+product = "energyCompletenessDefault"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "Ratio reconstructed/true length $L_\\mathrm{reco}/L_\\mathrm{true}$"
+product = "ratioLength"
+# yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 2], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "Best-match energy completeness $E_\\mathrm{bestmatch} / E_\\mathrm{vis}$"
+product = "energyCompletenessWithVisE"
+# yscale = "log"
+showmedian = ".1%"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "Pull reconstructed/true length $\\delta_L/L_\\mathrm{true}$"
+product = "pullLength"
+# yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [-2.0, 2.0], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "$\\Delta_\\mathrm{reco, true}$ track endpoint"
+product = "recoTrueDiffEndpoint3d"
+yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 350], flow = "sum", unit = "cm"}
+
+[[analysis_Protons.plot]]
+label = "$\\frac{\\Delta_\\mathrm{reco, true}}{L_\\mathrm{true}}$ track endpoint"
+product = "normalizedEndPointDistanceOnTruth"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "$\\frac{\\Delta_\\mathrm{reco, true}}{L_\\mathrm{reco}}$ track endpoint"
+product = "normalizedEndPointDistanceOnReco"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "$\\chi^2_\\mu$"
+product = "calo.muonChiSquare"
+yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 100], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "$\\chi^2_\\mathrm{p}$"
+product = "calo.protonChiSquare"
+yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 800], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "BDT Track classification score"
+product = "calo.trackScore"
+ylabel = "PFPs [#]"
+showmedian = ".2f"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "\"All matches\" energy completeness\n$(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{vis}$"
+product = "energyCompletenessAllMatchesWithVisE"
+# yscale = "log"
+showmedian = ".1%"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "Match energy"
+product = "energyMatch"
+showmedian = ".1f"
+binning = {bins = 20, limits = [0.0, 2.5], flow = "sum", unit = "GeV"}
+
+[[analysis_Protons.plot]]
+label = "All matches energy"
+product = "energyAllMatches"
+showmedian = ".1f"
+binning = {bins = 20, limits = [0.0, 2.5], flow = "sum", unit = "GeV"}
+
+[[analysis_Protons.plot]]
+label = "True energy"
+product = "trueEnergy"
+binning = {bins = 20, limits = [0.0, 2.5], flow = "sum", unit = "GeV"}
+
+[[analysis_Protons.plot]]
+label = "True visible energy (collection plane)"
+product = "trueVisEnergyCollection"
+binning = {bins = 20, limits = [0.0, 2.5], flow = "sum", unit = "GeV"}
+
+[[analysis_Protons.plot]]
+label = "True visible energy (induction-1 plane)"
+product = "trueVisEnergyInduction1"
+binning = {bins = 20, limits = [0.0, 2.5], flow = "sum", unit = "GeV"}
+
+[[analysis_Protons.plot]]
+label = "True visible energy (induction-2 plane)"
+product = "trueVisEnergyInduction2"
+binning = {bins = 20, limits = [0.0, 2.5], flow = "sum", unit = "GeV"}
+
+[[analysis_Protons.plot]]
+label = "Number of PFP match'd with MC particle"
+product = "nMatches"
+binning = {bins = 7, limits = [-0.5, 6.5]}
+
+[[analysis_Protons.plot]]
+label = "Number of PFP best-match'd with MC particle"
+product = "nBestMatches"
+binning = {bins = 7, limits = [-0.5, 6.5]}
+
+[[analysis_Protons.plot]]
+label = "$E_\\mathrm{vis}/E_\\mathrm{true}$ (collection plane)"
+product = "ratioVisECollectionTrueE"
+binning = {bins = 25, limits = [0, 1], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "$E_\\mathrm{vis}/E_\\mathrm{true}$ (induction-1 plane)"
+product = "ratioVisEInduction1TrueE"
+binning = {bins = 25, limits = [0, 1], flow = "sum"}
+
+[[analysis_Protons.plot]]
+label = "$E_\\mathrm{vis}/E_\\mathrm{true}$ (induction-2 plane)"
+product = "ratioVisEInduction2TrueE"
+binning = {bins = 25, limits = [0, 1], flow = "sum"}
+
+# --------------------------------------------------------------------
+
+[[analysis_Pions.plot]]
+label = "Hit completeness"
+product = "completeness"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Pions.plot]]
+label = "Hit purity"
+product = "purity"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Pions.plot]]
+label = "Hit completeness (from PFP bestmatch)"
+product = "completenessBestmatch"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Pions.plot]]
+label = "Hit purity (from PFP bestmatch)"
+product = "purityBestmatch"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Pions.plot]]
+label = "Best-match energy completeness"
+product = "energyCompleteness"
+# yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Pions.plot]]
+label = "\"All matches\" energy completeness\n$(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{dep}$"
+product = "energyCompletenessAllMatches"
+# yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Pions.plot]]
+label = "Energy completeness"
+product = "energyCompletenessDefault"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Pions.plot]]
+label = "Ratio reconstructed/true length $L_\\mathrm{reco}/L_\\mathrm{true}$"
+product = "ratioLength"
+# yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 2], flow = "sum"}
+
+[[analysis_Pions.plot]]
+label = "Best-match energy completeness $E_\\mathrm{bestmatch} / E_\\mathrm{vis}$"
+product = "energyCompletenessWithVisE"
+# yscale = "log"
+showmedian = ".1%"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
+
+[[analysis_Pions.plot]]
+label = "Pull reconstructed/true length $\\delta_L/L_\\mathrm{true}$"
+product = "pullLength"
+# yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [-2.0, 2.0], flow = "sum"}
+
+[[analysis_Pions.plot]]
+label = "$\\Delta_\\mathrm{reco, true}$ track endpoint"
+product = "recoTrueDiffEndpoint3d"
+yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 350], flow = "sum", unit = "cm"}
+
+[[analysis_Pions.plot]]
+label = "$\\frac{\\Delta_\\mathrm{reco, true}}{L_\\mathrm{true}}$ track endpoint"
+product = "normalizedEndPointDistanceOnTruth"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Pions.plot]]
+label = "$\\frac{\\Delta_\\mathrm{reco, true}}{L_\\mathrm{reco}}$ track endpoint"
+product = "normalizedEndPointDistanceOnReco"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Pions.plot]]
+label = "$\\chi^2_\\mu$"
+product = "calo.muonChiSquare"
+yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 100], flow = "sum"}
+
+[[analysis_Pions.plot]]
+label = "$\\chi^2_\\mathrm{p}$"
+product = "calo.protonChiSquare"
+yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 800], flow = "sum"}
+
+[[analysis_Pions.plot]]
+label = "BDT Track classification score"
+product = "calo.trackScore"
+ylabel = "PFPs [#]"
+showmedian = ".2f"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analysis_Pions.plot]]
+label = "\"All matches\" energy completeness\n$(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{vis}$"
+product = "energyCompletenessAllMatchesWithVisE"
+# yscale = "log"
+showmedian = ".1%"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
+
+[[analysis_Pions.plot]]
+label = "Match energy"
+product = "energyMatch"
+showmedian = ".1f"
+binning = {bins = 20, limits = [0.0, 2.5], flow = "sum", unit = "GeV"}
+
+[[analysis_Pions.plot]]
+label = "All matches energy"
+product = "energyAllMatches"
+showmedian = ".1f"
+binning = {bins = 20, limits = [0.0, 2.5], flow = "sum", unit = "GeV"}
+
+[[analysis_Pions.plot]]
+label = "True energy"
+product = "trueEnergy"
+binning = {bins = 20, limits = [0.0, 2.5], flow = "sum", unit = "GeV"}
+
+[[analysis_Pions.plot]]
+label = "True visible energy (collection plane)"
+product = "trueVisEnergyCollection"
+binning = {bins = 20, limits = [0.0, 2.5], flow = "sum", unit = "GeV"}
+
+[[analysis_Pions.plot]]
+label = "True visible energy (induction-1 plane)"
+product = "trueVisEnergyInduction1"
+binning = {bins = 20, limits = [0.0, 2.5], flow = "sum", unit = "GeV"}
+
+[[analysis_Pions.plot]]
+label = "True visible energy (induction-2 plane)"
+product = "trueVisEnergyInduction2"
+binning = {bins = 20, limits = [0.0, 2.5], flow = "sum", unit = "GeV"}
+
+[[analysis_Pions.plot]]
+label = "Number of PFP match'd with MC particle"
+product = "nMatches"
+binning = {bins = 7, limits = [-0.5, 6.5]}
+
+[[analysis_Pions.plot]]
+label = "Number of PFP best-match'd with MC particle"
+product = "nBestMatches"
+binning = {bins = 7, limits = [-0.5, 6.5]}
+
+[[analysis_Pions.plot]]
+label = "$E_\\mathrm{vis}/E_\\mathrm{true}$ (collection plane)"
+product = "ratioVisECollectionTrueE"
+binning = {bins = 25, limits = [0, 1], flow = "sum"}
+
+[[analysis_Pions.plot]]
+label = "$E_\\mathrm{vis}/E_\\mathrm{true}$ (induction-1 plane)"
+product = "ratioVisEInduction1TrueE"
+binning = {bins = 25, limits = [0, 1], flow = "sum"}
+
+[[analysis_Pions.plot]]
+label = "$E_\\mathrm{vis}/E_\\mathrm{true}$ (induction-2 plane)"
+product = "ratioVisEInduction2TrueE"
+binning = {bins = 25, limits = [0, 1], flow = "sum"}
+
+# --------------------------------------------------------------------
+# =====================================================================
+# --------------------------------------------------------------------
+
+# STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES
+# S STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYL
+# ES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STY
+# LES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES ST
+# YLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES S
+# TYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES 
+# STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES
+
+# --------------------------------------------------------------------
+# =====================================================================
+# --------------------------------------------------------------------
+
+# Possible choices 
+# ['fill', 'step', 'errorbar', 'band', 'bar', 'barstep']
+
+# this overwrites the default style if needed
+[style_nominal]
+histtype = "step"
+yerr = false
+color = "k"
+linewidth = 1
+
+[style_spine]
+histtype = "errorbar"
+yerr = true
+color = "gray"
+# alpha = 0.5
+# linestyle = ":"
+linewidth = 3
+
+[style_1uNp]
+histtype = "step"
+color = "tab:orange"
+yerr = false
+linestyle = "--"
+linewidth = 5
+
+[style_1eNpMpi0]
+histtype = "step"
+color = "tab:blue"
+yerr = false
+linewidth = 7
+
+[style_1eNp0pi0]
+histtype = "step"
+color = "tab:green"
+yerr = false
+linewidth = 9

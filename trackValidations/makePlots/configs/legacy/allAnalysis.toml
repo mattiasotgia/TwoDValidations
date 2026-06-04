@@ -1,0 +1,513 @@
+# Basic configuration for setting up the 
+
+[global]
+project = "twoDValidations"
+project_name = "ICARUS BNB MC" # toadd
+file = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/writerTwoDValidationsRedoCorrectBestmatch.root"
+outdir = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/makePlots/configurationSingles1D/"
+fontsize = 17
+labelfontsize = 28
+
+# --------------------------------------------------------------------
+# =====================================================================
+# --------------------------------------------------------------------
+
+[analyses.Muons]
+merge_on = "Evt"
+# density = true
+# figsize = [5.0, 3.5]
+analysis_supplementaltext = "icaruscode_v10_06_00_07_develop"
+
+# --------------------------------------------------------------------
+
+[analyses.Protons]
+merge_on = "Evt"
+# density = true
+# figsize = [5.0, 3.5]
+analysis_supplementaltext = "icaruscode_v10_06_00_07_develop"
+
+# --------------------------------------------------------------------
+
+[analyses.Pions]
+merge_on = "Evt"
+# density = true
+# figsize = [5.0, 3.5]
+analysis_supplementaltext = "icaruscode_v10_06_00_07_develop"
+
+# --------------------------------------------------------------------
+# =====================================================================
+# --------------------------------------------------------------------
+
+[[analyses.Muons.datasets]]
+name = "Muons/DconfigD/configD"
+# No `style` entr --> default to black line 2 pt
+label = "2D + DNNROI\nw/ Pulse Trains = 10"
+style = "style_dnnpt"
+
+[[analyses.Muons.datasets]]
+name = "Muons/DconfigC/configC"
+# No `style` entr --> default to black line 2 pt
+label = "2D + DNNROI\nw/o Pulse Trains"
+style = "style_dnn"
+
+[[analyses.Muons.datasets]]
+name = "Muons/DconfigB/configB"
+style = "style_2d"
+label = "2D signal proc."
+
+[[analyses.Muons.datasets]]
+name = "Muons/DconfigA/configA"
+# No `style` entr --> default to black line 2 pt
+label = "1D signal proc."
+
+# --------------------------------------------------------------------
+
+[[analyses.Protons.datasets]]
+name = "Protons/DconfigD/configD"
+# No `style` entr --> default to black line 2 pt
+label = "2D + DNNROI\nw/ Pulse Trains = 10"
+style = "style_dnnpt"
+
+[[analyses.Protons.datasets]]
+name = "Protons/DconfigC/configC"
+# No `style` entr --> default to black line 2 pt
+label = "2D + DNNROI\nw/o Pulse Trains"
+style = "style_dnn"
+
+[[analyses.Protons.datasets]]
+name = "Protons/DconfigB/configB"
+style = "style_2d"
+label = "2D signal proc."
+
+[[analyses.Protons.datasets]]
+name = "Protons/DconfigA/configA"
+# No `style` entr --> default to black line 2 pt
+label = "1D signal proc."
+
+# --------------------------------------------------------------------
+
+[[analyses.Pions.datasets]]
+name = "Pions/DconfigD/configD"
+# No `style` entr --> default to black line 2 pt
+label = "2D + DNNROI\nw/ Pulse Trains = 10"
+style = "style_dnnpt"
+
+[[analyses.Pions.datasets]]
+name = "Pions/DconfigC/configC"
+# No `style` entr --> default to black line 2 pt
+label = "2D + DNNROI\nw/o Pulse Trains"
+style = "style_dnn"
+
+[[analyses.Pions.datasets]]
+name = "Pions/DconfigB/configB"
+style = "style_2d"
+label = "2D signal proc."
+
+[[analyses.Pions.datasets]]
+name = "Pions/DconfigA/configA"
+# No `style` entr --> default to black line 2 pt
+label = "1D signal proc."
+
+# --------------------------------------------------------------------
+# =====================================================================
+# --------------------------------------------------------------------
+
+[[analyses.Muons.plot]]
+label = "Hit completeness"
+product = "completeness"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analyses.Muons.plot]]
+label = "Hit purity"
+product = "purity"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analyses.Muons.plot]]
+label = "Hit completeness (from PFP bestmatch)"
+product = "completenessBestmatch"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analyses.Muons.plot]]
+label = "Hit purity (from PFP bestmatch)"
+product = "purityBestmatch"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analyses.Muons.plot]]
+label = "Best-match energy completeness"
+product = "energyCompleteness"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analyses.Muons.plot]]
+label = "\"All matches\" energy completeness\n$(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{dep}$"
+product = "energyCompletenessAllMatches"
+# yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analyses.Muons.plot]]
+label = "Ratio reconstructed/true length $L_\\mathrm{reco}/L_\\mathrm{true}$"
+product = "ratioLength"
+# yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 2], flow = "sum"}
+
+[[analyses.Muons.plot]]
+label = "Pull reconstructed/true length $\\delta_L/L_\\mathrm{true}$"
+product = "pullLength"
+# yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [-2.0, 2.0], flow = "sum"}
+
+[[analyses.Muons.plot]]
+label = "$\\Delta_\\mathrm{reco, true}$ track endpoint"
+product = "recoTrueDiffEndpoint3d"
+yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 350], flow = "sum", unit = "cm"}
+
+[[analyses.Muons.plot]]
+label = "$\\chi^2_\\mu$"
+product = "calo.muonChiSquare"
+yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 100], flow = "sum"}
+
+[[analyses.Muons.plot]]
+label = "$\\chi^2_\\mathrm{p}$"
+product = "calo.protonChiSquare"
+yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 800], flow = "sum"}
+
+[[analyses.Muons.plot]]
+label = "BDT Track classification score"
+product = "calo.trackScore"
+ylabel = "PFPs [#]"
+showmedian = ".2f"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analyses.Muons.plot]]
+label = " Reco PFP # matched w/ true particle"
+product = "nMatches"
+ylabel = "PFPs [#]"
+# yscale = "log"
+binning = {bins = 8, limits = [0.5, 8.5], flow = "sum", integer = true}
+
+[[analyses.Muons.plot]]
+label = "Reco PFP # best-matched w/ true particle"
+product = "nBestMatches"
+# yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 8, limits = [0.5, 8.5], flow = "sum", integer = true}
+
+[[analyses.Muons.plot]]
+label = "True visible energy (induction-1 plane)"
+product = "trueVisEnergyInduction1"
+binning = {bins = 20, limits = [0.01, 20.0], flow = "sum", scale = "log"}
+
+[[analyses.Muons.plot]]
+label = "True visible energy (induction-2 plane)"
+product = "trueVisEnergyInduction2"
+binning = {bins = 20, limits = [0.01, 20.0], flow = "sum", scale = "log"}
+
+[[analyses.Muons.plot]]
+label = "True visible energy (collection plane)"
+product = "trueVisEnergyCollection"
+binning = {bins = 20, limits = [0.01, 20.0], flow = "sum", scale = "log"}
+
+# --------------------------------------------------------------------
+
+[[analyses.Protons.plot]]
+label = "Hit completeness"
+product = "completeness"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analyses.Protons.plot]]
+label = "Hit purity"
+product = "purity"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analyses.Protons.plot]]
+label = "Hit completeness (from PFP bestmatch)"
+product = "completenessBestmatch"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analyses.Protons.plot]]
+label = "Hit purity (from PFP bestmatch)"
+product = "purityBestmatch"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analyses.Protons.plot]]
+label = "Best-match energy completeness"
+product = "energyCompleteness"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analyses.Protons.plot]]
+label = "\"All matches\" energy completeness\n$(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{dep}$"
+product = "energyCompletenessAllMatches"
+# yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 1], flow = "sum"}
+
+[[analyses.Protons.plot]]
+label = "Ratio reconstructed/true length $L_\\mathrm{reco}/L_\\mathrm{true}$"
+product = "ratioLength"
+# yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 2], flow = "sum"}
+
+[[analyses.Protons.plot]]
+label = "Pull reconstructed/true length $\\delta_L/L_\\mathrm{true}$"
+product = "pullLength"
+# yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [-2.0, 2.0], flow = "sum"}
+
+# [[analyses.Protons.plot]]
+# label = "True length (cm)"
+# product = "trueLength"
+
+[[analyses.Protons.plot]]
+label = "$\\Delta_\\mathrm{reco, true}$ track endpoint"
+product = "recoTrueDiffEndpoint3d"
+yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 350], flow = "sum", unit = "cm"}
+
+[[analyses.Protons.plot]]
+label = "$\\chi^2_\\mu$"
+product = "calo.muonChiSquare"
+yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 100], flow = "sum"}
+
+[[analyses.Protons.plot]]
+label = "$\\chi^2_\\mathrm{p}$"
+product = "calo.protonChiSquare"
+yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 40, limits = [0, 800], flow = "sum"}
+
+[[analyses.Protons.plot]]
+label = "BDT Track classification score"
+product = "calo.trackScore"
+showmedian = ".2f"
+ylabel = "PFPs [#]"
+binning = {bins = 60, limits = [-0.35, 1.0], flow = "sum"}
+
+[[analyses.Protons.plot]]
+label = " Reco PFP # matched w/ true particle"
+product = "nMatches"
+# yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 8, limits = [0.5, 8.5], flow = "sum", integer = true}
+
+[[analyses.Protons.plot]]
+label = "Reco PFP # best-matched w/ true particle"
+product = "nBestMatches"
+# yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 8, limits = [0.5, 8.5], flow = "sum", integer = true}
+
+[[analyses.Protons.plot]]
+label = "True visible energy (induction-1 plane)"
+product = "trueVisEnergyInduction1"
+binning = {bins = 20, limits = [0.01, 20.0], flow = "sum", scale = "log"}
+
+[[analyses.Protons.plot]]
+label = "True visible energy (induction-2 plane)"
+product = "trueVisEnergyInduction2"
+binning = {bins = 20, limits = [0.01, 20.0], flow = "sum", scale = "log"}
+
+[[analyses.Protons.plot]]
+label = "True visible energy (collection plane)"
+product = "trueVisEnergyCollection"
+binning = {bins = 20, limits = [0.01, 20.0], flow = "sum", scale = "log"}
+
+# --------------------------------------------------------------------
+
+[[analyses.Pions.plot]]
+label = "Hit completeness"
+product = "completeness"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
+
+[[analyses.Pions.plot]]
+label = "Hit purity"
+product = "purity"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
+
+[[analyses.Pions.plot]]
+label = "Hit completeness (from PFP bestmatch)"
+product = "completenessBestmatch"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
+
+[[analyses.Pions.plot]]
+label = "Hit purity (from PFP bestmatch)"
+product = "purityBestmatch"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
+
+[[analyses.Pions.plot]]
+label = "Best-match energy completeness"
+product = "energyCompleteness"
+yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
+
+[[analyses.Pions.plot]]
+label = "\"All matches\" energy completeness\n$(\\sum_\\mathrm{matched~pfp} E_\\mathrm{match}) / E_\\mathrm{dep}$"
+product = "energyCompletenessAllMatches"
+# yscale = "log"
+showmedian = ".1%"
+ylabel = "PFPs [#]"
+binning = {bins = 20, limits = [0, 1], flow = "sum"}
+
+[[analyses.Pions.plot]]
+label = "Ratio reconstructed/true length $L_\\mathrm{reco}/L_\\mathrm{true}$"
+product = "ratioLength"
+# yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 20, limits = [0, 2], flow = "sum"}
+
+[[analyses.Pions.plot]]
+label = "Pull reconstructed/true length $\\delta_L/L_\\mathrm{true}$"
+product = "pullLength"
+# yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 20, limits = [-2.0, 2.0], flow = "sum"}
+
+[[analyses.Pions.plot]]
+label = "$\\Delta_\\mathrm{reco, true}$ track endpoint"
+product = "recoTrueDiffEndpoint3d"
+yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 20, limits = [0, 350], flow = "sum", unit = "cm"}
+
+[[analyses.Pions.plot]]
+label = "$\\chi^2_\\mu$"
+product = "calo.muonChiSquare"
+yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 20, limits = [0, 100], flow = "sum"}
+
+[[analyses.Pions.plot]]
+label = "$\\chi^2_\\mathrm{p}$"
+product = "calo.protonChiSquare"
+yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 20, limits = [0, 800], flow = "sum"}
+
+[[analyses.Pions.plot]]
+label = "BDT Track classification score"
+product = "calo.trackScore"
+showmedian = ".2f"
+ylabel = "PFPs [#]"
+binning = {bins = 60, limits = [-0.35, 1.0], flow = "sum"}
+
+[[analyses.Pions.plot]]
+label = " Reco PFP # matched w/ true particle"
+product = "nMatches"
+# yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 8, limits = [0.5, 8.5], flow = "sum", integer = true}
+
+[[analyses.Pions.plot]]
+label = "Reco PFP # best-matched w/ true particle"
+product = "nBestMatches"
+# yscale = "log"
+ylabel = "PFPs [#]"
+binning = {bins = 8, limits = [0.5, 8.5], flow = "sum", integer = true}
+
+[[analyses.Pions.plot]]
+label = "True visible energy (induction-1 plane)"
+product = "trueVisEnergyInduction1"
+binning = {bins = 20, limits = [0.01, 20.0], flow = "sum", scale = "log"}
+
+[[analyses.Pions.plot]]
+label = "True visible energy (induction-2 plane)"
+product = "trueVisEnergyInduction2"
+binning = {bins = 20, limits = [0.01, 20.0], flow = "sum", scale = "log"}
+
+[[analyses.Pions.plot]]
+label = "True visible energy (collection plane)"
+product = "trueVisEnergyCollection"
+binning = {bins = 20, limits = [0.01, 20.0], flow = "sum", scale = "log"}
+
+# --------------------------------------------------------------------
+# =====================================================================
+# --------------------------------------------------------------------
+
+# Possible choices 
+# ['fill', 'step', 'errorbar', 'band', 'bar', 'barstep']
+
+# this overwrites the default style if needed
+[style_default]
+histtype = "errorbar"
+color = "k"
+linewidth = 1
+
+[style_2d]
+histtype = "step"
+yerr = false
+color = "tab:green"
+# alpha = 0.5
+linestyle = ":"
+linewidth = 3
+
+[style_dnn]
+histtype = "step"
+color = "tab:orange"
+yerr = false
+linestyle = "--"
+linewidth = 5
+
+[style_dnnpt]
+histtype = "step"
+color = "tab:blue"
+yerr = false
+linewidth = 7
+

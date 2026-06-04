@@ -1,0 +1,480 @@
+
+[global]
+project = "hit_finder_tuning_validation_post_reco_fixed_low_mem_only_2d"
+project_name = "ICARUS BNB $\\nu_\\mu$ + overlay" # toadd
+project_label = "Work in progress"
+file = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/trackValidations/writerTwoDValidationsHitFinderStudies.root"
+outdir = "/exp/icarus/app/users/msotgia/analysis/twoDRecoStudies/hitTuning/plots/validationPlots/lowMem/2d/"
+fontsize = 13
+labelfontsize = 20
+# file_dpi = 50
+
+# --------------------------------------------------------------------
+# =====================================================================
+# --------------------------------------------------------------------
+
+[analyses.Muons]
+merge_on = "Evt"
+# filter = [
+#     {name = "filter_on", on = "trueEnergy", label = "True energy:GeV", min = 1.0}
+# ]
+filter = [
+    {name = "ratio", product = "energyCompletenessWithVisE", elements = ["energyMatch", "trueVisEnergyCollection"]},
+    {name = "ratio", product = "energyCompletenessAllMatchesWithVisE", elements = ["energyAllMatches", "trueVisEnergyCollection"]},
+    {name = "ratio", product = "ratioVisECollectionTrueE", elements = ["trueVisEnergyCollection", "trueEnergy"]},
+    {name = "ratio", product = "ratioVisEInduction1TrueE", elements = ["trueVisEnergyInduction1", "trueEnergy"]},
+    {name = "ratio", product = "ratioVisEInduction2TrueE", elements = ["trueVisEnergyInduction2", "trueEnergy"]},
+    {name = "ratio", product = "normalizedEndPointDistanceOnTruth", elements = ["recoTrueDiffEndpoint3d", "trueLength"]},
+    {name = "ratio", product = "normalizedEndPointDistanceOnReco", elements = ["recoTrueDiffEndpoint3d", "recoLength"]},
+    {name = "filter_on", on = "completeness", label = "Hit completeness", min = 0.4},
+    {name = "filter_on", on = "purity", label = "Hit purity", min = 0.4},
+    {name = "ratio", product = "test", elements = ["completeness", "energyCompleteness"]},
+]
+analysis_supplementaltext = "icaruscode_v10_06_00_06p03:feature/msotgia_add_mvicenzi_reco_stage1\nsbncode:feature/msotgia_hitTuning"
+
+# --------------------------------------------------------------------
+
+[analyses.Protons]
+merge_on = "Evt"
+# density = true
+# figsize = [5.0, 3.5]
+filter = [
+    {name = "ratio", product = "energyCompletenessWithVisE", elements = ["energyMatch", "trueVisEnergyCollection"]},
+    {name = "ratio", product = "energyCompletenessAllMatchesWithVisE", elements = ["energyAllMatches", "trueVisEnergyCollection"]},
+    {name = "ratio", product = "ratioVisECollectionTrueE", elements = ["trueVisEnergyCollection", "trueEnergy"]},
+    {name = "ratio", product = "ratioVisEInduction1TrueE", elements = ["trueVisEnergyInduction1", "trueEnergy"]},
+    {name = "ratio", product = "ratioVisEInduction2TrueE", elements = ["trueVisEnergyInduction2", "trueEnergy"]},
+    {name = "ratio", product = "normalizedEndPointDistanceOnTruth", elements = ["recoTrueDiffEndpoint3d", "trueLength"]},
+    {name = "ratio", product = "normalizedEndPointDistanceOnReco", elements = ["recoTrueDiffEndpoint3d", "recoLength"]},
+    {name = "filter_on", on = "completeness", label = "Hit completeness", min = 0.4},
+    {name = "filter_on", on = "purity", label = "Hit purity", min = 0.4},
+    {name = "ratio", product = "test", elements = ["completeness", "energyCompleteness"]},
+]
+analysis_supplementaltext = "icaruscode_v10_06_00_06p03:feature/msotgia_add_mvicenzi_reco_stage1\nsbncode:feature/msotgia_hitTuning"
+
+# --------------------------------------------------------------------
+
+[analyses.Pions]
+merge_on = "Evt"
+# density = true
+# figsize = [5.0, 3.5]
+filter = [
+    {name = "ratio", product = "energyCompletenessWithVisE", elements = ["energyMatch", "trueVisEnergyCollection"]},
+    {name = "ratio", product = "energyCompletenessAllMatchesWithVisE", elements = ["energyAllMatches", "trueVisEnergyCollection"]}, 
+    {name = "ratio", product = "ratioVisECollectionTrueE", elements = ["trueVisEnergyCollection", "trueEnergy"]},
+    {name = "ratio", product = "ratioVisEInduction1TrueE", elements = ["trueVisEnergyInduction1", "trueEnergy"]},
+    {name = "ratio", product = "ratioVisEInduction2TrueE", elements = ["trueVisEnergyInduction2", "trueEnergy"]},
+    {name = "ratio", product = "normalizedEndPointDistanceOnTruth", elements = ["recoTrueDiffEndpoint3d", "trueLength"]},
+    {name = "ratio", product = "normalizedEndPointDistanceOnReco", elements = ["recoTrueDiffEndpoint3d", "recoLength"]},
+    {name = "filter_on", on = "completeness", label = "Hit completeness", min = 0.4},
+    {name = "filter_on", on = "purity", label = "Hit purity", min = 0.4},
+    {name = "ratio", product = "test", elements = ["completeness", "energyCompleteness"]},
+
+]
+analysis_supplementaltext = "icaruscode_v10_06_00_06p03:feature/msotgia_add_mvicenzi_reco_stage1\nsbncode:feature/msotgia_hitTuning"
+
+# --------------------------------------------------------------------
+# =====================================================================
+# --------------------------------------------------------------------
+
+[[analyses.Muons.datasets]]
+name = "Muons/D1eNp0pi0_noPulse/1eNp0pi0_noPulse"
+label = "$\\mathrm{1e Np 0\\pi^0}$ tune"
+style = "1eNp0pi0"
+
+[[analyses.Muons.datasets]]
+name = "Muons/D1eNpMpi0_noPulse/1eNpMpi0_noPulse"
+label = "$\\mathrm{1e Np M\\pi^0}$ tune"
+style = "1eNpMpi0"
+
+[[analyses.Muons.datasets]]
+name = "Muons/D1uNp_noPulse/1uNp_noPulse"
+label = "$\\mathrm{1\\mu Np}$ tune"
+style = "1uNp"
+
+[[analyses.Muons.datasets]]
+name = "Muons/DnominalParameters/nominalParameters"
+label = "Default hit finder"
+style = "nominal"
+
+[[analyses.Muons.datasets]]
+name = "Muons/DspineParameters/spineParameters"
+label = "SPINE hit finder tune (LongMaxHits = 10)"
+style = "spine"
+
+# --------------------------------------------------------------------
+
+[[analyses.Protons.datasets]]
+name = "Protons/D1eNp0pi0_noPulse/1eNp0pi0_noPulse"
+label = "$\\mathrm{1e Np 0\\pi^0}$ tune"
+style = "1eNp0pi0"
+
+[[analyses.Protons.datasets]]
+name = "Protons/D1eNpMpi0_noPulse/1eNpMpi0_noPulse"
+label = "$\\mathrm{1e Np M\\pi^0}$ tune"
+style = "1eNpMpi0"
+
+[[analyses.Protons.datasets]]
+name = "Protons/D1uNp_noPulse/1uNp_noPulse"
+label = "$\\mathrm{1\\mu Np}$ tune"
+style = "1uNp"
+
+[[analyses.Protons.datasets]]
+name = "Protons/DnominalParameters/nominalParameters"
+label = "Default hit finder"
+style = "nominal"
+
+[[analyses.Protons.datasets]]
+name = "Protons/DspineParameters/spineParameters"
+label = "SPINE hit finder tune (LongMaxHits = 10)"
+style = "spine"
+
+
+# --------------------------------------------------------------------
+
+[[analyses.Pions.datasets]]
+name = "Pions/D1eNp0pi0_noPulse/1eNp0pi0_noPulse"
+label = "$\\mathrm{1e Np 0\\pi^0}$ tune"
+style = "1eNp0pi0"
+
+[[analyses.Pions.datasets]]
+name = "Pions/D1eNpMpi0_noPulse/1eNpMpi0_noPulse"
+label = "$\\mathrm{1e Np M\\pi^0}$ tune"
+style = "1eNpMpi0"
+
+[[analyses.Pions.datasets]]
+name = "Pions/D1uNp_noPulse/1uNp_noPulse"
+label = "$\\mathrm{1\\mu Np}$ tune"
+style = "1uNp"
+
+[[analyses.Pions.datasets]]
+name = "Pions/DnominalParameters/nominalParameters"
+label = "Default hit finder"
+style = "nominal"
+
+[[analyses.Pions.datasets]]
+name = "Pions/DspineParameters/spineParameters"
+label = "SPINE hit finder tune (LongMaxHits = 10)"
+style = "spine"
+
+# --------------------------------------------------------------------
+# =====================================================================
+# --------------------------------------------------------------------
+
+[[analyses.Muons.plots]]
+label = ["$\\cos\\theta_x$", "Best-match\n energy completeness"]
+product = ["recoCosThetaX", "energyCompleteness"]
+binning = [
+    {bins = 20, limits = [-1, 1], flow = "sum"},
+    {bins = 40, limits = [0, 1], flow = "sum"}
+]
+profile = true
+profile_band = true
+
+[[analyses.Muons.plots]]
+label = ["$\\cos\\theta_x$", "\"All matches\"\n energy completeness"]
+product = ["recoCosThetaX", "energyCompletenessAllMatches"]
+binning = [
+    {bins = 20, limits = [-1, 1], flow = "sum"},
+    {bins = 40, limits = [0, 1], flow = "sum"}
+]
+profile = true
+profile_band = true
+
+[[analyses.Muons.plots]]
+label = ["$\\cos\\theta_x$", "Hit completeness"]
+product = ["recoCosThetaX", "completeness"]
+binning = [
+    {bins = 20, limits = [-1, 1], flow = "sum"},
+    {bins = 40, limits = [0, 1], flow = "sum"}
+]
+profile = true
+profile_band = true
+
+[[analyses.Muons.plots]]
+label = ["$\\cos\\theta_x$", "Hit completeness"]
+product = ["recoCosThetaX", "completenessBestmatch"]
+binning = [
+    {bins = 20, limits = [-1, 1], flow = "sum"},
+    {bins = 40, limits = [0, 1], flow = "sum"}
+]
+profile = true
+profile_band = true
+
+[[analyses.Muons.plots]]
+label = ["$\\cos\\theta_x$", "Hit purity"]
+product = ["recoCosThetaX", "purityBestmatch"]
+binning = [
+    {bins = 20, limits = [-1, 1], flow = "sum"},
+    {bins = 40, limits = [0, 1], flow = "sum"}
+]
+profile = true
+profile_band = true
+
+[[analyses.Muons.plots]]
+label = ["$\\cos\\theta_x$", "Hit purity"]
+product = ["recoCosThetaX", "purity"]
+binning = [
+    {bins = 20, limits = [-1, 1], flow = "sum"},
+    {bins = 40, limits = [0, 1], flow = "sum"}
+]
+profile = true
+profile_band = true
+
+[[analyses.Muons.plots]]
+label = ["Best-match energy completeness", "Hit completeness"]
+product = ["energyCompleteness", "completeness"]
+binning = [
+    {bins = 30, limits = [0, 1], flow = "sum"},
+    {bins = 40, limits = [0, 5], flow = "sum"}
+]
+profile = true
+profile_band = true
+
+[[analyses.Muons.plots]]
+label = ["Best-match energy completeness", "Energy completeness (PFP var)"]
+product = ["energyCompleteness", "energyCompletenessDefault"]
+binning = [
+    {bins = 30, limits = [0, 1], flow = "sum"},
+    {bins = 40, limits = [0, 5], flow = "sum"}
+]
+profile = true
+profile_band = true
+
+[[analyses.Muons.plots]]
+label = ["Hit completeness/best-match energy completeness"]
+product = ["test"]
+binning = [
+    {bins = 30, limits = [-2, 2], flow = "sum"}
+]
+
+# --------------------------------------------------------------------
+
+[[analyses.Protons.plots]]
+label = ["$\\cos\\theta_x$", "Best-match\n energy completeness"]
+product = ["recoCosThetaX", "energyCompleteness"]
+binning = [
+    {bins = 20, limits = [-1, 1], flow = "sum"},
+    {bins = 40, limits = [0, 1], flow = "sum"}
+]
+profile = true
+profile_band = true
+
+[[analyses.Protons.plots]]
+label = ["$\\cos\\theta_x$", "\"All matches\"\n energy completeness"]
+product = ["recoCosThetaX", "energyCompletenessAllMatches"]
+binning = [
+    {bins = 20, limits = [-1, 1], flow = "sum"},
+    {bins = 40, limits = [0, 1], flow = "sum"}
+]
+profile = true
+profile_band = true
+
+[[analyses.Protons.plots]]
+label = ["$\\cos\\theta_x$", "Hit completeness"]
+product = ["recoCosThetaX", "completeness"]
+binning = [
+    {bins = 20, limits = [-1, 1], flow = "sum"},
+    {bins = 40, limits = [0, 1], flow = "sum"}
+]
+profile = true
+profile_band = true
+
+[[analyses.Protons.plots]]
+label = ["$\\cos\\theta_x$", "Hit completeness"]
+product = ["recoCosThetaX", "completenessBestmatch"]
+binning = [
+    {bins = 20, limits = [-1, 1], flow = "sum"},
+    {bins = 40, limits = [0, 1], flow = "sum"}
+]
+profile = true
+profile_band = true
+
+[[analyses.Protons.plots]]
+label = ["$\\cos\\theta_x$", "Hit purity"]
+product = ["recoCosThetaX", "purityBestmatch"]
+binning = [
+    {bins = 20, limits = [-1, 1], flow = "sum"},
+    {bins = 40, limits = [0, 1], flow = "sum"}
+]
+profile = true
+profile_band = true
+
+[[analyses.Protons.plots]]
+label = ["$\\cos\\theta_x$", "Hit purity"]
+product = ["recoCosThetaX", "purity"]
+binning = [
+    {bins = 20, limits = [-1, 1], flow = "sum"},
+    {bins = 40, limits = [0, 1], flow = "sum"}
+]
+profile = true
+profile_band = true
+
+[[analyses.Protons.plots]]
+label = ["Best-match energy completeness", "Hit completeness"]
+product = ["energyCompleteness", "completeness"]
+binning = [
+    {bins = 30, limits = [0, 1], flow = "sum"},
+    {bins = 40, limits = [0, 5], flow = "sum"}
+]
+profile = true
+profile_band = true
+
+[[analyses.Protons.plots]]
+label = ["Best-match energy completeness", "Energy completeness (PFP var)"]
+product = ["energyCompleteness", "energyCompletenessDefault"]
+binning = [
+    {bins = 30, limits = [0, 1], flow = "sum"},
+    {bins = 40, limits = [0, 5], flow = "sum"}
+]
+profile = true
+profile_band = true
+
+[[analyses.Protons.plots]]
+label = ["Hit completeness/best-match energy completeness"]
+product = ["test"]
+binning = [
+    {bins = 30, limits = [-2, 2], flow = "sum"}
+]
+
+# --------------------------------------------------------------------
+
+[[analyses.Pions.plots]]
+label = ["$\\cos\\theta_x$", "Best-match\n energy completeness"]
+product = ["recoCosThetaX", "energyCompleteness"]
+binning = [
+    {bins = 20, limits = [-1, 1], flow = "sum"},
+    {bins = 40, limits = [0, 1], flow = "sum"}
+]
+profile = true
+profile_band = true
+
+[[analyses.Pions.plots]]
+label = ["$\\cos\\theta_x$", "\"All matches\"\n energy completeness"]
+product = ["recoCosThetaX", "energyCompletenessAllMatches"]
+binning = [
+    {bins = 20, limits = [-1, 1], flow = "sum"},
+    {bins = 40, limits = [0, 1], flow = "sum"}
+]
+profile = true
+profile_band = true
+
+[[analyses.Pions.plots]]
+label = ["$\\cos\\theta_x$", "Hit completeness"]
+product = ["recoCosThetaX", "completeness"]
+binning = [
+    {bins = 20, limits = [-1, 1], flow = "sum"},
+    {bins = 40, limits = [0, 1], flow = "sum"}
+]
+profile = true
+profile_band = true
+
+[[analyses.Pions.plots]]
+label = ["$\\cos\\theta_x$", "Hit completeness"]
+product = ["recoCosThetaX", "completenessBestmatch"]
+binning = [
+    {bins = 20, limits = [-1, 1], flow = "sum"},
+    {bins = 40, limits = [0, 1], flow = "sum"}
+]
+profile = true
+profile_band = true
+
+[[analyses.Pions.plots]]
+label = ["$\\cos\\theta_x$", "Hit purity"]
+product = ["recoCosThetaX", "purityBestmatch"]
+binning = [
+    {bins = 20, limits = [-1, 1], flow = "sum"},
+    {bins = 40, limits = [0, 1], flow = "sum"}
+]
+profile = true
+profile_band = true
+
+[[analyses.Pions.plots]]
+label = ["$\\cos\\theta_x$", "Hit purity"]
+product = ["recoCosThetaX", "purity"]
+binning = [
+    {bins = 20, limits = [-1, 1], flow = "sum"},
+    {bins = 40, limits = [0, 1], flow = "sum"}
+]
+profile = true
+profile_band = true
+
+[[analyses.Pions.plots]]
+label = ["Best-match energy completeness", "Hit completeness"]
+product = ["energyCompleteness", "completeness"]
+binning = [
+    {bins = 30, limits = [0, 1], flow = "sum"},
+    {bins = 40, limits = [0, 5], flow = "sum"}
+]
+profile = true
+profile_band = true
+
+[[analyses.Pions.plots]]
+label = ["Best-match energy completeness", "Energy completeness (PFP var)"]
+product = ["energyCompleteness", "energyCompletenessDefault"]
+binning = [
+    {bins = 30, limits = [0, 1], flow = "sum"},
+    {bins = 40, limits = [0, 5], flow = "sum"}
+]
+profile = true
+profile_band = true
+
+[[analyses.Pions.plots]]
+label = ["Hit completeness/best-match energy completeness"]
+product = ["test"]
+binning = [
+    {bins = 30, limits = [-2, 2], flow = "sum"}
+]
+
+# --------------------------------------------------------------------
+# =====================================================================
+# --------------------------------------------------------------------
+
+# STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES
+# S STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYL
+# ES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STY
+# LES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES ST
+# YLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES S
+# TYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES 
+# STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES STYLES
+
+# --------------------------------------------------------------------
+# =====================================================================
+# --------------------------------------------------------------------
+
+# Possible choices 
+# ['fill', 'step', 'errorbar', 'band', 'bar', 'barstep']
+
+# this overwrites the default style if needed
+[styles.nominal]
+histtype = "step"
+yerr = false
+color = "k"
+linewidth = 1
+
+[styles.spine]
+histtype = "errorbar"
+yerr = true
+color = "gray"
+# alpha = 0.5
+# linestyle = ":"
+linewidth = 3
+
+[styles.1uNp]
+histtype = "step"
+color = "tab:orange"
+yerr = false
+linestyle = "--"
+linewidth = 5
+
+[styles.1eNpMpi0]
+histtype = "step"
+color = "tab:blue"
+yerr = false
+linewidth = 7
+
+[styles.1eNp0pi0]
+histtype = "step"
+color = "tab:green"
+yerr = false
+linewidth = 9

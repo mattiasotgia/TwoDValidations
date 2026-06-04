@@ -22,12 +22,15 @@ namespace base
         std::vector<double> purityBestmatch, completenessBestmatch;             //!< Hit purity and hit completeness for pfp bestmatch
         std::vector<double> energyCompleteness;                                 //!< Energy deposited over true energy ratio
         std::vector<double> energyCompletenessAllMatches;
+        std::vector<double> energyCompletenessDefault;
         std::vector<double> energyMatch, energyAllMatches;
         std::vector<double> trueEnergy;
         std::vector<double> recoLength, trueLength, ratioLength, pullLength;    //!< ratio: reco/true; pull: (reco-true)/true
         std::vector<double> recoTrueDiffEndpoint3d;                             //!< 3d difference reco/true endpoint
         std::vector<double> trueVisEnergy;                                      //!< Vis. Energy (GeV) on PLANE
         std::vector<double> trueVisEnergyInduction1, trueVisEnergyInduction2, trueVisEnergyCollection; 
+        std::vector<double> recoCosThetaX, recoCosThetaY, recoCosThetaZ;
+        std::vector<double> minHitWidth, meanHitWidth, maxHitWidth;             //!< min, mean and max hit width in the best match pfp
 
         struct Point
         {
@@ -54,6 +57,7 @@ namespace base
         {"completenessBestmatch",           &trackData::completenessBestmatch       },
         {"energyCompleteness",              &trackData::energyCompleteness          },
         {"energyCompletenessAllMatches",    &trackData::energyCompletenessAllMatches},
+        {"energyCompletenessDefault",       &trackData::energyCompletenessDefault   },
         {"recoLength",                      &trackData::recoLength                  },
         {"trueLength",                      &trackData::trueLength                  },
         {"ratioLength",                     &trackData::ratioLength                 },
@@ -66,6 +70,12 @@ namespace base
         {"trueVisEnergyInduction1",         &trackData::trueVisEnergyInduction1     },
         {"trueVisEnergyInduction2",         &trackData::trueVisEnergyInduction2     },
         {"trueVisEnergyCollection",         &trackData::trueVisEnergyCollection     },
+        {"recoCosThetaX",                   &trackData::recoCosThetaX               },
+        {"recoCosThetaY",                   &trackData::recoCosThetaY               },
+        {"recoCosThetaZ",                   &trackData::recoCosThetaZ               },
+        {"minHitWidth",                     &trackData::minHitWidth                 },
+        {"meanHitWidth",                    &trackData::meanHitWidth                },
+        {"maxHitWidth",                     &trackData::maxHitWidth                 },
     };
 
     inline const std::unordered_map<std::string, VecLongMember> topLevelLongs = {

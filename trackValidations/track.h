@@ -76,6 +76,7 @@ namespace track
 
                 PfpPtr selectedPfp = nullptr;
                 MatchPtr selectedParticleMatch = nullptr;
+                SlicePtr selectedSlice = nullptr;
 
                 const int trueG4ID{true_particle.G4ID};
                 const int trueCryostat{true_particle.cryostat};
@@ -107,6 +108,7 @@ namespace track
                                 maxMatchEnergy       = (match.energy / 3.);
                                 selectedPfp          = &pfp;
                                 selectedParticleMatch = &match;
+                                selectedSlice       = &slice;
 
                                 // std::cout << "    --> Looking for energy match, now at E = " << maxMatchEnergy << std::endl;
                             } // Selection scope
@@ -149,7 +151,7 @@ namespace track
                     td.completeness.push_back((*selectedParticleMatch).hit_completeness);
                     td.purityBestmatch.push_back((*selectedPfp).trk.truth.bestmatch.hit_purity);
                     td.completenessBestmatch.push_back((*selectedPfp).trk.truth.bestmatch.hit_completeness);
-                    // td.energyCompleteness.push_back((*selectedParticleMatch).energy_completeness); 
+                    td.energyCompletenessDefault.push_back((*selectedParticleMatch).energy_completeness); 
                     td.energyCompleteness.push_back(maxMatchEnergy/(true_particle.startE - true_particle.endE));
                     td.energyCompletenessAllMatches.push_back(allEnergyInMatches/(true_particle.startE - true_particle.endE));
 
@@ -213,6 +215,31 @@ namespace track
                     td.trueVisEnergyCollection.push_back(true_particle.plane[true_particle.cryostat][COLLECTION].visE);
                     td.trueVisEnergyInduction2.push_back(true_particle.plane[true_particle.cryostat][INDUCTION2].visE);
                     td.trueVisEnergyInduction1.push_back(true_particle.plane[true_particle.cryostat][INDUCTION1].visE);
+
+                    td.recoCosThetaX.push_back((*selectedPfp).trk.dir.x);
+                    td.recoCosThetaY.push_back((*selectedPfp).trk.dir.y);
+                    td.recoCosThetaZ.push_back((*selectedPfp).trk.dir.z);
+
+                    // Hit width variables
+                    int pfpId{(*selectedPfp).id}, nHits{0};
+                    double minHitWidth{std::numeric_limits<double>::max()};
+                    double maxHitWidth{std::numeric_limits<double>::lowest()};
+                    double sumHitWidth{0.};
+                    
+                    for (auto const& hit: selectedSlice->reco.hit)
+                    {
+                        if (hit.spacepoint.pfpID == pfpId)
+                        {
+                            sumHitWidth += hit.RMS;
+                            nHits++;
+                            if (hit.RMS < minHitWidth) minHitWidth = hit.RMS;
+                            if (hit.RMS > maxHitWidth) maxHitWidth = hit.RMS;
+                        }
+                    }
+                    td.meanHitWidth.push_back(nHits > 0 ? sumHitWidth/nHits : 0.);
+                    td.minHitWidth.push_back(minHitWidth);
+                    td.maxHitWidth.push_back(maxHitWidth);
+
 
                     // std::cout << "trueVisEnergy: " << true_particle.plane[true_particle.cryostat][PLANE].visE << std::endl;
                     // std::cout << "true_particle.startE:   " << true_particle.startE << std::endl;
