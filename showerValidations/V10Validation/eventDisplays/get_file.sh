@@ -19,4 +19,5 @@ tmp=$(echo "$tmp" | cut -d'(' -f1)
 
 echo "${tmp}/${file}"
 
-lar -c $2 -s "${tmp}/${file}" --no-output -n1 -e $3
+# lar -c $2 -s "${tmp}/${file}" --no-output -n1 -e $3
+lar -c $2 -s "${tmp}/${file}" -n1 -e $3 -o $4
