@@ -7,7 +7,9 @@
 // #define OUTPUT_NAME "2D_DNN_1uNpMpi0_noPulses"
 // #define OUTPUT_NAME "2D_DNN_1eNp0pi0_noPulses"
 // #define OUTPUT_NAME "2D_DNN_1eNpMpi0_noPulses"
-#define OUTPUT_NAME "2D_DNN_baseline"
+// #define OUTPUT_NAME "2D_DNN_baseline"
+// #define OUTPUT_NAME "TESTING_1uNp_flats"
+#define OUTPUT_NAME "TESTING_1eNp_flats"
 
 // include my variables and cuts
 #include "RecoEfficiency_Helper.h"
@@ -48,7 +50,9 @@ void RecoEfficiency() {
     // const std::string TargetFile = "msotgia_v10_06_00_06p03_overlay_run9435_B_bnb_nue_withOverlayFixed_1uNp_energyOnly_noPulses_caf";
     // const std::string TargetFile = "msotgia_v10_06_00_06p03_overlay_run9435_B_bnb_nue_withOverlayFixed_1eNp0pi0_energyOnly_noPulses_caf";
     // const std::string TargetFile = "msotgia_v10_06_00_06p03_overlay_run9435_B_bnb_nue_withOverlayFixed_1eNpMpi0_energyOnly_noPulses_caf";
-    const std::string TargetFile = "msotgia_v10_06_00_06p03_overlay_run9435_B_bnb_nue_withOverlayFixed_flatcaf";
+    // const std::string TargetFile = "msotgia_v10_06_00_06p03_overlay_run9435_B_bnb_nue_withOverlayFixed_flatcaf";
+    // const std::string TargetFile = "/exp/icarus/data/users/msotgia/hitTuning/wireDrawingTmp/V4/stage1Redo/CAFs/*1uNp.flat.caf.root";
+    const std::string TargetFile = "/exp/icarus/data/users/msotgia/hitTuning/wireDrawingTmp/V4/stage1Redo/CAFs/*1eNp.flat.caf.root";
 
     // load CAFs and create "Spectrum"
     SpectrumLoader NuLoader(TargetFile);
