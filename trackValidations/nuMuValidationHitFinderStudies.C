@@ -70,6 +70,10 @@ void nuMuValidationHitFinderStudies ()
         singleAnalysis->AddVariable("meanHitWidth",                 track::get<double>("meanHitWidth",                  particle, track::contained_t::true_p));
         singleAnalysis->AddVariable("maxHitWidth",                  track::get<double>("maxHitWidth",                   particle, track::contained_t::true_p));
 
+        singleAnalysis->AddVariable("calo.dEdxInduction1",          track::get<double>("calo.dEdxInduction1",           particle, track::contained_t::true_p));
+        singleAnalysis->AddVariable("calo.dEdxInduction2",          track::get<double>("calo.dEdxInduction2",           particle, track::contained_t::true_p));
+        singleAnalysis->AddVariable("calo.dEdxCollection",          track::get<double>("calo.dEdxCollection",           particle, track::contained_t::true_p));
+
         singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_flatcaf", "nominalParameters");
         singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_spine_flatcaf", "spineParameters");
         singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_1uNp_energyOnly_respun_caf", "1uNp");

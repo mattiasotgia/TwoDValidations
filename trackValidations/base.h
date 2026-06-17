@@ -40,6 +40,7 @@ namespace base
         {
             std::vector<double> muonChiSquare, protonChiSquare;                 //!< chi2 computed under the assumption of muon/proton
             std::vector<double> trackScore;                                     //!< Pandora's trackScore for the best matchedpfp
+            std::vector<double> dEdxInduction1, dEdxInduction2, dEdxCollection; //!< Calorimetric dEdx for the track
         } calo;                                                                 //!< calorimetric informations
         std::vector<double> nMatches, nBestMatches;                             //!< Number of matches with this true particle
         std::vector<double> nHitsTrue, nHitsReco;                               //!< Number of hits in the bestmatch pfp to the true particle
@@ -89,6 +90,9 @@ namespace base
         {"muonChiSquare",   &trackData::Calo::muonChiSquare     },
         {"protonChiSquare", &trackData::Calo::protonChiSquare   },
         {"trackScore",      &trackData::Calo::trackScore        },
+        {"dEdxInduction1",  &trackData::Calo::dEdxInduction1    },
+        {"dEdxInduction2",  &trackData::Calo::dEdxInduction2    },
+        {"dEdxCollection",  &trackData::Calo::dEdxCollection    },
     };
 
     inline const std::unordered_map<std::string, VecDoublePointMember> pointDoubleMembers = {

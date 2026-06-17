@@ -59,6 +59,27 @@ namespace track
         }
     }
 
+    template <typename T>
+    double median(std::vector<T> storage, T __d) {
+
+        if (storage.empty()) {
+            // throw std::invalid_argument("median of empty vector");
+            return __d;
+        }
+
+        int n = storage.size();
+
+        std::nth_element(storage.begin(), storage.begin() + n/2, storage.end());
+        double self = storage[n/2];
+
+        if (n % 2 == 0) {
+            std::nth_element(storage.begin(), storage.begin() + n/2 - 1, storage.end());
+            self = (self + storage[n/2 - 1]) / 2.0;
+        }
+
+        return self;
+    }
+
     template<class T>
     const ana::SpillMultiVar get(std::string what, particle_t particle, contained_t contained = contained_t::none_p)
     {
@@ -219,6 +240,15 @@ namespace track
                     td.recoCosThetaX.push_back((*selectedPfp).trk.dir.x);
                     td.recoCosThetaY.push_back((*selectedPfp).trk.dir.y);
                     td.recoCosThetaZ.push_back((*selectedPfp).trk.dir.z);
+
+                    std::vector<double> dEdxInd1, dEdxInd2, dEdxColl;
+                    for (auto const& point: (*selectedPfp).trk.calo[INDUCTION1].points) dEdxInd1.push_back(point.dedx);
+                    for (auto const& point: (*selectedPfp).trk.calo[INDUCTION2].points) dEdxInd2.push_back(point.dedx);
+                    for (auto const& point: (*selectedPfp).trk.calo[COLLECTION].points) dEdxColl.push_back(point.dedx);
+
+                    td.calo.dEdxInduction1.push_back(median<double>(dEdxInd1, -1.));
+                    td.calo.dEdxInduction2.push_back(median<double>(dEdxInd2, -1.));
+                    td.calo.dEdxCollection.push_back(median<double>(dEdxColl, -1.));
 
                     // Hit width variables
                     int pfpId{(*selectedPfp).id}, nHits{0};
