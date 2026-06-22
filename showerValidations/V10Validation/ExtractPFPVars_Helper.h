@@ -39,7 +39,7 @@ const SpillMultiVar kDummyVar_ExtractBDTTrainingVars([](const caf::SRSpillProxy*
         double DirX, DirY, DirZ, ThetaYZ, ThetaXZ;
         std::string SourceName = sr->hdr.sourceName;
 
-        std::ofstream myOut(Form("202512/%s.txt", OUTPUT_NAME), std::ios::app);
+        std::ofstream myOut(Form("202605/%s.txt", OUTPUT_NAME), std::ios::app);
 
         // loop over slices
         for (auto const &islc : sr->slc) {

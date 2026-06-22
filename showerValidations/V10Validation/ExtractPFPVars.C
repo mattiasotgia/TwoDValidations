@@ -7,7 +7,10 @@
 // #define OUTPUT_NAME "2D_DNN_1uNpMpi0_noPulses"
 // #define OUTPUT_NAME "2D_DNN_1eNp0pi0_noPulses"
 // #define OUTPUT_NAME "2D_DNN_1eNpMpi0_noPulses"
-#define OUTPUT_NAME "2D_DNN_baseline"
+// #define OUTPUT_NAME "2D_DNN_baseline"
+
+#define OUTPUT_NAME "V4_1uNp"
+// #define OUTPUT_NAME "V4_1eNp"
 
 
 // include variables and cuts
@@ -61,7 +64,18 @@ void ExtractPFPVars() {
     // const std::string TargetFile = "msotgia_v10_06_00_06p03_overlay_run9435_B_bnb_nue_withOverlayFixed_1uNp_energyOnly_noPulses_caf";
     // const std::string TargetFile = "msotgia_v10_06_00_06p03_overlay_run9435_B_bnb_nue_withOverlayFixed_1eNp0pi0_energyOnly_noPulses_caf";
     // const std::string TargetFile = "msotgia_v10_06_00_06p03_overlay_run9435_B_bnb_nue_withOverlayFixed_1eNpMpi0_energyOnly_noPulses_caf";
-    const std::string TargetFile = "msotgia_v10_06_00_06p03_overlay_run9435_B_bnb_nue_withOverlayFixed_flatcaf";
+    // const std::string TargetFile = "msotgia_v10_06_00_06p03_overlay_run9435_B_bnb_nue_withOverlayFixed_flatcaf";
+
+    std::string TargetFile = "";
+    if (std::string(OUTPUT_NAME) == "V4_1uNp") 
+    {
+        TargetFile = "msotgia_v10_06_00_06p03_overlay_run9435_B_bnb_nue_withOverlayFixed_V4_1uNp_respun_caf";
+    }
+    else if (std::string(OUTPUT_NAME) == "V4_1eNp") 
+    {
+        TargetFile = "msotgia_v10_06_00_06p03_overlay_run9435_B_bnb_nue_withOverlayFixed_V4_1eNp_respun_caf";
+    }
+
 
 
     // load CAFs and create "Spectrum"
