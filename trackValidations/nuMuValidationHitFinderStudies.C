@@ -80,6 +80,9 @@ void nuMuValidationHitFinderStudies ()
         singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_V4_1uNp_respun_caf", "1uNp");
         singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_V4_1eNp_respun_caf", "1eNp");
 
+        singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_V4_1uNp_dEdx_TrajOverride_caf", "1uNp_dEdx_TrajOverride");
+        singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_V4_1eNp_dEdx_TrajOverride_caf", "1eNp_dEdx_TrajOverride");
+
         singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_1uNp_energyOnly_noPulses_caf", "1uNp_noPulse");
         singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_1eNp0pi0_energyOnly_noPulses_caf", "1eNpMpi0_noPulse");
         singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_1eNpMpi0_energyOnly_noPulses_caf", "1eNp0pi0_noPulse");
@@ -110,6 +113,9 @@ void nuMuValidationHitFinderStudies ()
 
     sliceAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_V4_1uNp_respun_caf", "1uNp");
     sliceAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_V4_1eNp_respun_caf", "1eNp");
+
+    sliceAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_V4_1uNp_dEdx_TrajOverride_caf", "1uNp_dEdx_TrajOverride");
+    sliceAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_V4_1eNp_dEdx_TrajOverride_caf", "1eNp_dEdx_TrajOverride");
 
     sliceAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_1uNp_energyOnly_noPulses_caf", "1uNp_noPulse");
     sliceAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_1eNp0pi0_energyOnly_noPulses_caf", "1eNpMpi0_noPulse");
