@@ -11,8 +11,11 @@
 // #define OUTPUT_NAME "TESTING_1uNp_flats"
 // #define OUTPUT_NAME "TESTING_1eNp_flats"
 
-#define OUTPUT_NAME "V4_1uNp"
+// #define OUTPUT_NAME "V4_1uNp"
 // #define OUTPUT_NAME "V4_1eNp"
+
+// #define OUTPUT_NAME "V4_1uNp_TrajOverride"
+#define OUTPUT_NAME "V4_1eNp_TrajOverride"
 
 // include my variables and cuts
 #include "RecoEfficiency_Helper.h"
@@ -65,6 +68,14 @@ void RecoEfficiency() {
     else if (std::string(OUTPUT_NAME) == "V4_1eNp") 
     {
         TargetFile = "msotgia_v10_06_00_06p03_overlay_run9435_B_bnb_nue_withOverlayFixed_V4_1eNp_respun_caf";
+    }
+    else if (std::string(OUTPUT_NAME) == "V4_1uNp_TrajOverride") 
+    {
+        TargetFile = "msotgia_v10_06_00_06p03_overlay_run9435_B_bnb_nue_withOverlayFixed_V4_1uNp_dEdx_TrajOverride_caf";
+    }
+    else if (std::string(OUTPUT_NAME) == "V4_1eNp_TrajOverride") 
+    {
+        TargetFile = "msotgia_v10_06_00_06p03_overlay_run9435_B_bnb_nue_withOverlayFixed_V4_1eNp_dEdx_TrajOverride_caf";
     }
 
     // load CAFs and create "Spectrum"
