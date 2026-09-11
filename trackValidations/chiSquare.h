@@ -23,7 +23,7 @@ namespace chiSquare
     };
 
     std::string dEdx_temp = 
-        "/exp/icarus/app/users/msotgia/analysis/sbnana_v09_93_01_thesis_analysis/analysis/dEdxrestemplates.root";
+        "/exp/icarus/app/users/msotgia/analysis/sbnana/sbnana_v09_93_01_thesis_analysis/analysis/dEdxrestemplates.root";
     TFile* file = TFile::Open(dEdx_temp.c_str());
 
     auto dEdxRangeProton = (TProfile *)file->Get("dedx_range_pro");

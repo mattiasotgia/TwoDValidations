@@ -11,7 +11,7 @@
 
 void nuMuValidationHitFinderStudies ()     
 {
-    std::unique_ptr<TFile> writer(new TFile("outputs/hit_finder_validation_june18th_writer.root", "RECREATE"));
+    std::unique_ptr<TFile> writer(new TFile("outputs/hit_finder_validation_nugraph_release_writer.root", "RECREATE"));
 
     std::map<track::particle_t, std::unique_ptr<analysis::Analysis<ana::SpillMultiVar>>> analyses;
     analyses.emplace(MUON,   std::make_unique<analysis::Analysis<ana::SpillMultiVar>>("Muons")   );
@@ -75,17 +75,22 @@ void nuMuValidationHitFinderStudies ()
         singleAnalysis->AddVariable("calo.dEdxCollection",          track::get<double>("calo.dEdxCollection",           particle, track::contained_t::true_p));
 
         singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_flatcaf", "nominalParameters");
-        singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_spine_flatcaf", "spineParameters");
+        // singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_spine_flatcaf", "spineParameters");
 
-        singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_V4_1uNp_respun_caf", "1uNp");
-        singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_V4_1eNp_respun_caf", "1eNp");
+        // singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_V4_1uNp_respun_caf", "1uNp");
+        // singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_V4_1eNp_respun_caf", "1eNp");
 
-        singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_V4_1uNp_dEdx_TrajOverride_caf", "1uNp_dEdx_TrajOverride");
-        singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_V4_1eNp_dEdx_TrajOverride_caf", "1eNp_dEdx_TrajOverride");
+        singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_release_no_pt_caf", "release_no_pt");
+        singleAnalysis->AddDataset("/pnfs/icarus/scratch/users/sdey2/hitTuningValidation/HitTuning_validation_run9435_A/caf/50/*/*.flat.caf.root", "release_nugraph");
+        singleAnalysis->AddDataset("/pnfs/icarus/scratch/users/sdey2/v10_06_00_04p04/nugraph/BNB_NuGraph_v10_06_00_04p04_test/caf/Mattia50_noNG2/*/*.flat.caf.root", "relase_nugraph_vanillaPandora");
+        singleAnalysis->AddDataset("/pnfs/icarus/scratch/users/sdey2/hitTuningValidation/HitTuning_validation_run9435_A/caf/Mattia50_noNG2_noCluster3D/*/*.flat.caf.root", "relase_nugraph_vanillaPandora_noCluster3D");
 
-        singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_1uNp_energyOnly_noPulses_caf", "1uNp_noPulse");
-        singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_1eNp0pi0_energyOnly_noPulses_caf", "1eNpMpi0_noPulse");
-        singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_1eNpMpi0_energyOnly_noPulses_caf", "1eNp0pi0_noPulse");
+        // singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_V4_1uNp_dEdx_TrajOverride_caf", "1uNp_dEdx_TrajOverride");
+        // singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_V4_1eNp_dEdx_TrajOverride_caf", "1eNp_dEdx_TrajOverride");
+
+        // singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_1uNp_energyOnly_noPulses_caf", "1uNp_noPulse");
+        // singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_1eNp0pi0_energyOnly_noPulses_caf", "1eNpMpi0_noPulse");
+        // singleAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_1eNpMpi0_energyOnly_noPulses_caf", "1eNp0pi0_noPulse");
 
         singleAnalysis->Go();
         singleAnalysis->WriteTo(writer.get());
@@ -114,6 +119,8 @@ void nuMuValidationHitFinderStudies ()
     sliceAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_V4_1uNp_respun_caf", "1uNp");
     sliceAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_V4_1eNp_respun_caf", "1eNp");
 
+    sliceAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_release_no_pt_caf", "release_no_pt");
+
     sliceAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_V4_1uNp_dEdx_TrajOverride_caf", "1uNp_dEdx_TrajOverride");
     sliceAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_V4_1eNp_dEdx_TrajOverride_caf", "1eNp_dEdx_TrajOverride");
 
@@ -121,6 +128,6 @@ void nuMuValidationHitFinderStudies ()
     sliceAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_1eNp0pi0_energyOnly_noPulses_caf", "1eNpMpi0_noPulse");
     sliceAnalysis->AddDataset("msotgia_v10_06_00_06p03_overlay_run9435_A_bnb_withOverlayFixed_1eNpMpi0_energyOnly_noPulses_caf", "1eNp0pi0_noPulse");
 
-    sliceAnalysis->Go();
-    sliceAnalysis->WriteTo(writer.get());
+    // sliceAnalysis->Go();
+    // sliceAnalysis->WriteTo(writer.get());
 }
