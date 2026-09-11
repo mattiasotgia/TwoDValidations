@@ -1,0 +1,48 @@
+<pandora>
+    <!-- GLOBAL SETTINGS -->
+    <IsMonitoringEnabled>true</IsMonitoringEnabled>
+    <ShouldDisplayAlgorithmInfo>true</ShouldDisplayAlgorithmInfo>
+    <SingleHitTypeClusteringMode>true</SingleHitTypeClusteringMode>
+
+    <LArTransformationPlugin>
+        <MaxAngularDiscrepancyW>1000.</MaxAngularDiscrepancyW>
+    </LArTransformationPlugin>
+
+    <!-- PREPROC. ALGORITHM SETTINGS: LEAVE THIS -->
+    <algorithm type = "LArPreProcessing">
+        <OutputCaloHitListNameU>CaloHitListU</OutputCaloHitListNameU>
+        <OutputCaloHitListNameV>CaloHitListV</OutputCaloHitListNameV>
+        <OutputCaloHitListNameW>CaloHitListW</OutputCaloHitListNameW>
+        <FilteredCaloHitListName>CaloHitList2D</FilteredCaloHitListName>
+        <CurrentCaloHitListReplacement>CaloHitList2D</CurrentCaloHitListReplacement>
+    </algorithm>
+
+    <!-- VISUAL MONITORING ALGORITHM SETTINGS -->
+    <!-- <algorithm type = "LArVisualMonitoring"> -->
+        <!-- <CaloHitListNames>CaloHitListU CaloHitListV CaloHitListW</CaloHitListNames> -->
+        <!-- <ShowDetector>false</ShowDetector> -->
+    <!-- </algorithm> -->
+
+    <!-- <algorithm type = "LArVisualParticleMonitoring"> -->
+      <!-- <CaloHitListName>CaloHitList2D</CaloHitListName> -->
+      <!-- <VisualizeMC>true</VisualizeMC> -->
+      <!-- <GroupMCByPDG>true</GroupMCByPDG> -->
+    <!-- </algorithm> -->
+
+    <!-- Show only the U plane | this is easier for fast scans -->
+    <algorithm type = "LArVisualMonitoring">
+        <CaloHitListNames>CaloHitListW</CaloHitListNames>
+        <ShowDetector>false</ShowDetector>
+    </algorithm>
+
+    <algorithm type = "LArVisualParticleMonitoring">
+      <CaloHitListName>CaloHitListW</CaloHitListName>
+      <VisualizeMC>true</VisualizeMC>
+      <GroupMCByPDG>true</GroupMCByPDG>
+    </algorithm>
+
+    <!-- <algorithm type = "LArVisualParticleMonitoring"> -->
+      <!-- <CaloHitListName>CaloHitList2D</CaloHitListName> -->
+      <!-- <VisualizeSlice>true</VisualizeSlice> -->
+    <!-- </algorithm> -->
+</pandora>

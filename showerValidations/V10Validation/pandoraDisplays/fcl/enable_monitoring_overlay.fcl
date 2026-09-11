@@ -1,0 +1,20 @@
+# Enable hit-width monitoring
+#  Reco level
+
+# physics.producers.pandoraGausCryoE.ConfigFile: "ThisPandoraSettings_Master_ICARUS_PandoraMonitoring.xml"
+# physics.producers.pandoraGausCryoW.ConfigFile: "ThisPandoraSettings_Master_ICARUS_PandoraMonitoring.xml"
+
+physics.producers.pandoraGausCryoE.ConfigFile: "ThisPandoraSettings_PandoraMonitoring.xml"
+physics.producers.pandoraGausCryoW.ConfigFile: "ThisPandoraSettings_PandoraMonitoring.xml"
+
+physics.producers.pandoraGausCryoE.EnableMCParticles:      true
+physics.producers.pandoraGausCryoW.EnableMCParticles:      true
+
+physics.producers.pandoraGausCryoE.DisableRealDataCheck:   true
+physics.producers.pandoraGausCryoW.DisableRealDataCheck:   true
+
+physics.producers.pandoraGausCryoE.UseHitWidths:           true
+physics.producers.pandoraGausCryoW.UseHitWidths:           true
+
+physics.producers.pandoraGausCryoE.SimChannelModuleLabel:  "merge"
+physics.producers.pandoraGausCryoW.SimChannelModuleLabel:  "merge"

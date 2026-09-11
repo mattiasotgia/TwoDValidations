@@ -13,7 +13,11 @@
 // #define OUTPUT_NAME "V4_1eNp"
 
 // #define OUTPUT_NAME "V4_1uNp_TrajOverride"
-#define OUTPUT_NAME "V4_1eNp_TrajOverride"
+// #define OUTPUT_NAME "V4_1eNp_TrajOverride"
+
+// #define OUTPUT_NAME "Released_morphFilter"
+
+#define OUTPUT_NAME "Released_no_pt"
 
 
 // include variables and cuts
@@ -85,6 +89,14 @@ void ExtractPFPVars() {
     else if (std::string(OUTPUT_NAME) == "V4_1eNp_TrajOverride") 
     {
         TargetFile = "msotgia_v10_06_00_06p03_overlay_run9435_B_bnb_nue_withOverlayFixed_V4_1eNp_dEdx_TrajOverride_caf";
+    }
+    else if (std::string(OUTPUT_NAME) == "Released_morphFilter")
+    {
+        TargetFile = "msotgia_v10_06_00_06p03_overlay_run9435_B_bnb_nue_release_morphological_filter_caf";
+    }
+    else if (std::string(OUTPUT_NAME) == "Released_no_pt")
+    {
+        TargetFile = "msotgia_v10_06_00_06p03_overlay_run9435_B_bnb_nue_release_no_pt_caf";
     }
 
 

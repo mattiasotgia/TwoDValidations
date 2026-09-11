@@ -1,0 +1,12 @@
+#include "stage1_run2_icarus_overlay_no_pt.fcl"
+#include "enable_monitoring_overlay.fcl"
+
+process_name: MCstage1Monitor
+
+source.inputCommands: [
+    "keep *_*_*_*", 
+    "drop MCstage1_*_*_*", 
+    "drop *_MCstage1_*_*", 
+    "drop *_*_MCstage1_*", 
+    "drop *_*_*_MCstage1"
+]
